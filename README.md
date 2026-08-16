@@ -44,7 +44,7 @@ Este projeto consiste no desenvolvimento de uma Infraestrutura de Dados para ana
 ├── relatórios/                               <- Entregáveis de visualização e tomada de decisão.
 │   ├── dashboard-malha-logistica.pbix        <- Painel dinâmico e interativo desenvolvido no Power BI.
 │   └── relatorio-insights-executivos.pdf     <- Relatório executivo formal com conclusões e planos de ação.
-└── fonte/dados brutos                        <- FSontes originais do projeto. Arquivos (.csv), Olist.
+└── fonte/dados brutos                        <- Fontes originais do projeto. Arquivos (.csv), Olist.
     
 ```
 
@@ -60,7 +60,7 @@ O projeto gira em torno dos seguintes objetivos específicos:
 
 **1. Verificação da assimetria geográfica no despacho de mercadorias:** identificar quais estados despacham cargas estatisticamente mais volumosas ou pesadas. Isso demonstrará quais regiões são polos de cargas robustas e quais enviam pacotes pequenos, auxiliando no dimensionamento da frota necessária para o atendimento desses locais.
 
-**2. Construção da Matriz de Densidada de Carga:** mapear para quais estados de destino estão indo as mercadorias mais volumosas, leves ou pesadas, justificando o tipo de veículo necessário (pequeno ou grande porte) e a viabilidade de modais de transporte alternativos.
+**2. Construção da Matriz de Densidade de Carga:** mapear para quais estados de destino estão indo as mercadorias mais volumosas, leves ou pesadas, justificando o tipo de veículo necessário (pequeno ou grande porte) e a viabilidade de modais de transporte alternativos.
 
 **3. Mapeamento do fluxo de escoamento:** quantificar o percentual dos pedidos que saem das regiões Sul e Sudeste e cruzam o país para abastecer o Norte e Nordeste. Essa métrica serve para justificar estrategicamente a necessidade de criação de novos Centros de Distribuição (CDs) para descentralizar os estoques.
 
