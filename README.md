@@ -15,35 +15,35 @@ Este projeto consiste no desenvolvimento de uma Infraestrutura de Dados para ana
 
 ## Tecnologias Utilizadas
 
-<div style="display: flex; flex-wrap: nowrap; gap: 24px; align-items: center;">
+<div style="display: flex; flex-wrap: nowrap; gap: 36px; align-items: center;">
 
 
   
   <!-- Google Cloud -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="50" height="50" title="Google Cloud" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="34" height="34" title="Google Cloud" />
 
   <!-- Google BigQuery -->
-  <img src="https://cdn.simpleicons.org/googlebigquery/669DF6" width="50" height="50" title="Google BigQuery" />
+  <img src="https://cdn.simpleicons.org/googlebigquery/669DF6" width="34" height="34" title="Google BigQuery" />
 
   
 <!-- Kaggle -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kaggle/kaggle-original-wordmark.svg" width="50" height="50" title="Kaggle" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kaggle/kaggle-original-wordmark.svg" width="34" height="34" title="Kaggle" />
 
   <!-- Power BI -->
-  <img src="https://img.icons8.com/?size=100&id=Ny0t2MYrJ70p&format=png&color=000000" width="50" height="50" alt="Power BI">
+  <img src="https://img.icons8.com/?size=100&id=Ny0t2MYrJ70p&format=png&color=000000" width="34" height="34" alt="Power BI">
 
 
 
   <!-- VS Code -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" width="50" height="50" title="Visual Studio Code" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" width="34" height="34" title="Visual Studio Code" />
 
 
  <!-- GitHub -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" width="50" height="50" title="GitHub" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" width="34" height="34" title="GitHub" />
 
 
   <!-- Markdown -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg" width="50" height="50" title="Markdown" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg" width="34" height="34" title="Markdown" />
 
 </div>
 
