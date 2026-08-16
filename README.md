@@ -161,12 +161,13 @@ Para isso, todas as tabelas originais que lidam com dados numéricos (do tipo IN
 
 
   <details>
-<summary>🔍 Clique para visualizar a validação de variância</summary>
+<summary>🔍 Validação de Variância (Estatística Descritiva)</summary>
 
-Clique na tabela abaixo para visualizar as queries de validação de variância:
+Clique na subgaveta abaixo para visualizar as queries de validação de variância da base original:
 
 <details style="margin-left: 20px; margin-bottom: 10px;">
 <summary><b>📦 Tabela: Produtos (olist_products)</b></summary>
+
 
 A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
 
