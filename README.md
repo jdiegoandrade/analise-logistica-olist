@@ -206,7 +206,7 @@ Fica validada a riqueza estatística da base para darmos início ao processo de 
 
 <!-- FASE 2: PROCESSAR -->
 <details>
-<summary><h2>Fase 2: Processar (Engenharia de Dados e Limpeza)</h2></summary>
+<summary><h2>Fase 2: 🧹 Processar (Engenharia de Dados e Limpeza)</h2></summary>
 
 Aqui ocorre a transformação pesada dos dados brutos no Google BigQuery utilizando 6 CTEs modulares, uma para cada tabela utilizada.
 
