@@ -15,7 +15,8 @@ Este projeto consiste no desenvolvimento de uma Infraestrutura de Dados para ana
 
 ## Tecnologias Utilizadas
 
-<div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: flex-start; align-items: center; margin-bottom: 20px;">
+<div style="display: flex; flex-wrap: wrap; gap: 32px;">
+
   
   <!-- Google Cloud -->
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" width="50" height="50" title="Google Cloud" />
