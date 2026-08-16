@@ -146,7 +146,7 @@ Para isso, todas as tabelas originais que lidam com dados numéricos (do tipo IN
 
 ## 1.2 Teste de Heterocedasticidade
 
-Clique na subgaveta abaixo para visualizar as queries de validação de variância da base original:
+Clique abaixo para visualizar as queries de validação de variância da base original:
 
 <details style="margin-left: 20px; margin-bottom: 10px;">
 <summary><b>📦 Tabela: Produtos (olist_products)</b></summary>
@@ -188,7 +188,7 @@ ORDER BY media_peso DESC
  LIMIT 100;
 
 ```
-Conclusão: A aplicação da estatística descritiva agrupada por categoria mercadológica provou empiricamente que o dataset possui natureza REAL. A dispersão observada através dos desvios padrões e a amplitude entre os valores mínimos e máximos refletem o comportamento esperado de uma operação logística real.<br><br>
+Conclusão: A aplicação da estatística descritiva agrupada por categoria provou empiricamente que o dataset possui natureza REAL. A dispersão observada através dos desvios padrões e a amplitude entre os valores mínimos e máximos refletem o comportamento esperado de uma operação logística real.<br><br>
 O conjunto de dados apresenta um comportamento HETEROCEDÁSTICO (variâncias significativamente diferentes entre as categorias de produtos), o que é característico do e-commerce brasileiro.<br><br>
 Fica validada a riqueza estatística da base para darmos início ao processo de engenharia e limpeza de dados.
 
