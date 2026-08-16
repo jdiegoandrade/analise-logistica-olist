@@ -156,12 +156,7 @@ Para isso, todas as tabelas originais que lidam com dados numéricos (do tipo IN
 
 </p>
 
-
-</details>
-
-
-  <details>
-<summary>🔍 Validação de Variância (Estatística Descritiva)</summary>
+## 1.2 Teste de Heterocedasticidade
 
 Clique na subgaveta abaixo para visualizar as queries de validação de variância da base original:
 
@@ -212,6 +207,12 @@ Fica validada a riqueza estatística da base para darmos início ao processo de 
 
   </details>
   </details>
+
+</details>
+
+
+  
+ 
 
  
 
