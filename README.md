@@ -160,17 +160,16 @@ Para isso, todas as tabelas originais que lidam com dados numéricos (do tipo IN
 </details>
 
 
-  <p>Clique na tabela abaixo para visualizar as queries de validação de variância:</p>
+  <details>
+<summary>🔍 Clique para visualizar a validação de variância</summary>
 
+Clique na tabela abaixo para visualizar as queries de validação de variância:
 
-  </details>
+<details style="margin-left: 20px; margin-bottom: 10px;">
+<summary><b>📦 Tabela: Produtos (olist_products)</b></summary>
 
-  <!-- GAVETA 1: DENSIDADE DE CARGA -->
-  <details style="margin-left: 20px; margin-bottom: 10px;">
-    <summary><b>🔍 Tabela: Produtos (olist_products)</b></summary>
-    <br> 
-    <p>A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.<br><br>
-</p>
+A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
+
 
     
 ```sql
