@@ -85,17 +85,22 @@ O conjunto de dados utilizado foi obtido através da plataforma Kaggle e se refe
 
 Antes do processo de consolidação, o ecossistema de dados foi desenhado com base em 6 entidades estruturais (tabelas), mapeadas a partir dos arquivos brutos (.csv):
 
-(olist_customers_dataset.csv): Identificação geográfica de destino do comprador.
+<details>
+<summary>📂 Clique para acessar os Dados Brutos Originais (Kaggle)</summary>
 
-(olist_sellers_dataset.csv): Identificação geográfica de origem do despacho.
+Os arquivos originais utilizados neste projeto pertencem ao ecossistema de e-commerce da Olist e podem ser baixados individualmente nos links abaixo:
 
-(olist_orders_dataset.csv): Entidade central de amarração transacional das rotas.
+* 📄 **Clientes:** [olist_customers_dataset.csv](./dados_brutos/olist_customers_dataset.csv)
+* 📄 **Geolocalização:** [olist_geolocation_dataset.csv](./dados_brutos/olist_geolocation_dataset.csv)
+* 📄 **Itens dos Pedidos:** [olist_order_items_dataset.csv](./dados_brutos/olist_order_items_dataset.csv)
+* 📄 **Pedidos:** [olist_orders_dataset.csv](./dados_brutos/olist_orders_dataset.csv)
+* 📄 **Produtos (Densidade de Carga):** [olist_products_dataset.csv](./dados_brutos/olist_products_dataset.csv)
+* 📄 **Vendedores:** [olist_sellers_dataset.csv](./dados_brutos/olist_sellers_dataset.csv)
 
-(olist_order_items_dataset.csv): Detalhamento físico individual e quantitativo por pedido.
+*(Nota: Caso prefira baixar o pacote completo consolidado, você pode acessar diretamente a página principal do dataset no **[Kaggle](https://kaggle.com)**).*
 
-(olist_products_dataset.csv): Cadastro técnico contendo peso e dimensões (comprimento, altura, largura).
+</details>
 
-(olist_geolocation_dataset.csv): Malha de coordenadas para validação e mapeamento espacial.
 
 ## 💻 Pipeline de Engenharia e Tratamento de Dados
 
