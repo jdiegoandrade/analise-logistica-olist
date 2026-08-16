@@ -9,7 +9,7 @@ Este projeto consiste no desenvolvimento de uma Infraestrutura de Dados para ana
 
 
 <!-- Selos do Certificado Google e Coursera -->
-<img alt="Static Badge" src="https://img.shields.io/badge/Google-Data%20Analytics%20Capstone-4285F4" style="margin-right: 10px;" /><img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/coursera.svg" width="28" height="28" title="Coursera" style="vertical-align: middle;" />
+<img alt="Static Badge" src="https://img.shields.io/badge/Google-Data%20Analytics%20Capstone-4285F4" style="margin-right: 10px;" /> &nbsp;&nbsp; <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/coursera.svg" width="28" height="28" title="Coursera" style="vertical-align: middle;" />
 
 
 
@@ -246,7 +246,7 @@ Os scripts com as transformações de cada base de dados podem ser consultados i
 
 <!-- FASE 4: COMPARTILHAR E AGIR -->
 <details>
-<summary><h2>🚀 Fases 4 e 5: Compartilhar e Agir (Data Visualization e Insights)</h2></summary>
+<summary><h2>🚀 Fases 4 e 5: Compartilhar e Agir (Visualização de Dados e Insights)</h2></summary>
 <p>
 
 *(Esta seção será preenchida após a conclusão das análises)*
