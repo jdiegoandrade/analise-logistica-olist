@@ -215,7 +215,6 @@ Os scripts com as transformações de cada base de dados podem ser consultados i
 
 | Pipeline de Limpeza (Tabela) | Link para o Script SQL |
 | :--- | :--- |
-
 | 📦 **Densidade de Carga** | [Visualizar SQL](./consultas/Código%20Tabela%20Densidade%20de%20Carga%20Limpo%20.sql) |
 | 🛒 **Itens dos Pedidos** | [Visualizar SQL](./consultas/Código%20Tabela%20Itens%20Limpa.sql) |
 | 👥 **Clientes** | [Visualizar SQL](consultas/Código%20Tabela%20Cliente%20Destino%20Limpa.sql) |
