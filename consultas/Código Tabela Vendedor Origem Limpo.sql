@@ -151,7 +151,7 @@ WHERE REGEXP_CONTAINS (seller_city, r'[0-9/*"@#%^&()_+§=|\\\[\].;:!]');
 -- Foram detectadas 19 linhas com problemas graves de preenchimento. 
 
 
--- Em virtude da heterogeneidade dos dados, não consegui encontrar uma função que limpasse totalmente as inconsistências de escrita da coluna seller_city, mesmo usando inúmeros recursos avançados. Assim, optei por não mais usar essa coluna como referência. Minha ideia é usar a tabela de geolocalização e conectar ambas (a tabela de geolocalização e esta) usando o código postal como chave primária. 
+-- Em virtude da heterogeneidade dos dados, não consegui encontrar uma função que limpasse totalmente as inconsistências de escrita da coluna seller_city (cidades). Mesmo usando inúmeros recursos avançados, ainda persistem 19 registros com problemas sérios de preenchimento. Assim, optei por não mais usar essa coluna das cidades como referência. Para efeito de análise sobre a origem das cargas, será utilizado apenas o estado (UF) como referência, e não a cidade. Minha ideia é usar a tabela de geolocalização e conectar ambas (a tabela de geolocalização e esta) usando o código postal como chave primária. 
 
 
 -- Tratando inconsistência de escrita referente à sigla dos estados.
