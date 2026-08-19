@@ -138,8 +138,7 @@ SELECT
     TRIM (REGEXP_REPLACE(LOWER(seller_city), r'[^a-zA-Zá-úÁ-ÚãõÃÕçÇ\s]', ' ')) AS cidade_limpa
 FROM `skilled-sunrise-486800-j9.analise_logistica.vendedor_origem`;
 
--- O resultado mostra que o aspecto da coluna melhorou bastante, mas as siglas dos estados ainda insistem em continuar aparecendo e devemos tratá-las.
-
+-- O resultado mostra que o aspecto da coluna melhorou bastante, mas as siglas dos estados ainda insistem em continuar aparecendo ao lado do nome das cidades e devemos tratá-las.
 -- Detectando a presença de caracteres especiais:
 
 
