@@ -234,7 +234,7 @@ A união e desnormalização dessas tabelas por meio de uma estrutura de CTE com
 <details>
 <summary>📂 Visualizar Diagrama e Modelo de Dados</summary>
 
-[Clique aqui para abrir o Script de Junção de Tabelas](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql)
+[Clique aqui para abrir o Diagrama Entidade-Relacionamento]
 
 ```mermaid
 erDiagram
@@ -290,11 +290,6 @@ erDiagram
     GEOLOCALIZACAO_DIMENSAO ||--|| CLIENTE_DESTINO_DIMENSAO : "cod_postal (4)"
     CLIENTE_DESTINO_DIMENSAO ||--|| PEDIDOS_DIMENSAO : "id_cliente (5)"
 ```
-
-
-</details>
-
-
 
 
 
