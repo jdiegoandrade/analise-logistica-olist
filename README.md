@@ -239,7 +239,20 @@ A união e desnormalização dessas tabelas por meio de uma estrutura de CTE com
 
 ```mermaid
 erDiagram
-    %% --- TABELA FATO CENTRAL ---
+    %% --- LADO ESQUERDO DA SUA FOTO (Geolocalização e Origem) ---
+    GEOLOCALIZACAO_DIMENSAO {
+        string cod_postal "🔑 (4)"
+        string cidade
+        string estado
+    }
+
+    VENDEDOR_ORIGEM_DIMENSAO {
+        string id_vendedor "🔑 (3)"
+        string cod_postal "🔑 (4)"
+        string estado
+    }
+
+    %% --- CENTRO-ESQUERDO DA SUA FOTO (O Coração Fato) ---
     DENSIDADE_DE_CARGA_FATO {
         string id_produto "🔑 (1)"
         string categoria
@@ -249,25 +262,21 @@ erDiagram
         float peso
     }
 
-    %% --- TABELAS DIMENSÃO ---
+    %% --- CENTRO-DIREITO DA SUA FOTO (A Ponte de Itens) ---
     ITENS_DIMENSAO {
         string id_pedido "🔑 (2)"
         string id_produto "🔑 (1)"
         string id_vendedor "🔑 (3)"
     }
 
+    %% --- LADO DIREITO SUPERIOR DA SUA FOTO (Fluxo de Pedidos) ---
     PEDIDOS_DIMENSAO {
         string id_pedido "🔑 (2)"
         string id_cliente "🔑 (5)"
         string status_pedido
     }
 
-    VENDEDOR_ORIGEM_DIMENSAO {
-        string id_vendedor "🔑 (3)"
-        string cod_postal "🔑 (4)"
-        string estado
-    }
-
+    %% --- LADO DIREITO INFERIOR DA SUA FOTO (Destino Final) ---
     CLIENTE_DESTINO_DIMENSAO {
         string id_cliente "🔑 (5)"
         string cod_postal "🔑 (4)"
@@ -277,19 +286,13 @@ erDiagram
         string cliente_fk_nulos
     }
 
-    GEOLOCALIZACAO_DIMENSAO {
-        string cod_postal "🔑 (4)"
-        string cidade
-        string estado
-    }
-
-    %% --- RELACIONAMENTOS LOGÍSTICOS E DIREÇÃO VISUAL DA FOTO ---
-    DENSIDADE_DE_CARGA_FATO ||--|| ITENS_DIMENSAO : "id_produto (1)"
-    PEDIDOS_DIMENSAO ||--|| ITENS_DIMENSAO : "id_pedido (2)"
-    VENDEDOR_ORIGEM_DIMENSAO ||--|| ITENS_DIMENSAO : "id_vendedor (3)"
+    %% --- RELACIONAMENTOS COM DIREÇÃO E LAYOUT IDÊNTICOS À FOTO ---
     GEOLOCALIZACAO_DIMENSAO ||--|| VENDEDOR_ORIGEM_DIMENSAO : "cod_postal (4)"
+    VENDEDOR_ORIGEM_DIMENSAO ||--|| ITENS_DIMENSAO : "id_vendedor (3)"
+    DENSIDADE_DE_CARGA_FATO ||--|| ITENS_DIMENSAO : "id_produto (1)"
+    ITENS_DIMENSAO ||--|| PEDIDOS_DIMENSAO : "id_pedido (2)"
+    PEDIDOS_DIMENSAO ||--|| CLIENTE_DESTINO_DIMENSAO : "id_cliente (5)"
     GEOLOCALIZACAO_DIMENSAO ||--|| CLIENTE_DESTINO_DIMENSAO : "cod_postal (4)"
-    CLIENTE_DESTINO_DIMENSAO ||--|| PEDIDOS_DIMENSAO : "id_cliente (5)"
 ```
 
 </details>
