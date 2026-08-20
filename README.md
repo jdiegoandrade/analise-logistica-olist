@@ -294,9 +294,12 @@ erDiagram
 
 </details>
 
+</details>
+
 <!-- FASE 3: ANALISAR -->
 <details>
 <summary><h2>📊 Fase 3: Analisar (Estatística Descritiva)</h2></summary>
+<p>
 
 
 *(Esta seção será preenchida na próxima fase do projeto)*
@@ -305,6 +308,8 @@ erDiagram
 <!-- FASE 4 E 5: COMPARTILHAR E AGIR (Agora totalmente visível) -->
 <details>
 <summary><h2>🚀 Fases 4 e 5: Compartilhar e Agir (Visualização de Dados e Insights)</h2></summary>
+<p>
+
 
 
 *(Esta seção será preenchida após a conclusão das análises)*
