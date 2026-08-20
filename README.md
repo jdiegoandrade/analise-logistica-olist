@@ -304,6 +304,7 @@ erDiagram
 
 *(Esta seção será preenchida na próxima fase do projeto)*
 
+</details>
 
 <!-- FASE 4 E 5: COMPARTILHAR E AGIR (Agora totalmente visível) -->
 <details>
@@ -314,7 +315,7 @@ erDiagram
 
 *(Esta seção será preenchida após a conclusão das análises)*
 
-
+</details>
 
 
    © 2026 José Diego Andrade Santos. Alguns direitos reservados.
