@@ -222,7 +222,79 @@ Os scripts com as transformações de cada base de dados podem ser consultados i
 | 📝 **Pedidos** | [Visualizar SQL](./consultas/Código%20Tabela%20Pedidos%20Limpo.sql) |
 | 🏬 **Vendedores** | [Visualizar SQL](./consultas/Código%20Tabela%20Vendedor%20Origem%20Limpo.sql) |
 
+
+Após efetuada a limpeza de todas as tabelas, o desafio foi uni-las usando cláusulas LEFT JOIN para fazer a integração das chaves primárias com as chaves estrangeiras. Foi esboçado também uma DIAGRAMA ENTIDADE-RELACIONAMENTO para ajudar a entender de que forma as tabelas se relacionam entre si e qual delas era a Tabela Fato e quais eram as Tabelas Dimensão.
+
+| Pipeline de Integração e Modelagem (Tabela) | Link para o Script SQL |
+| :--- | :--- |
+| 🗄️ **Base Analítica Consolidada** | [Visualizar SQL](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql) |
+
+A união e desnormalização dessas tabelas por meio de uma estrutura de CTE com qualificação de escopo permitiram concluir a fase de **Processar** da metodologia Google. O resultado foi a materialização de uma tabela física permanente (`base_analitica`), garantindo a integridade dos registros e otimizando severamente o custo e a performance de processamento para os próximos passos.
+
+<details>
+<summary>📂 Visualizar Diagrama e Modelo de Dados</summary>
+
+[Clique aqui para abrir o Script de Junção de Tabelas](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql)
+
+```mermaid
+erDiagram
+    %% --- TABELA FATO CENTRAL ---
+    DENSIDADE_DE_CARGA_FATO {
+        string id_produto "🔑 (1)"
+        string categoria
+        float comprimento
+        float altura
+        float largura
+        float peso
+    }
+
+    %% --- TABELAS DIMENSÃO ---
+    ITENS_DIMENSAO {
+        string id_pedido "🔑 (2)"
+        string id_produto "🔑 (1)"
+        string id_vendedor "🔑 (3)"
+    }
+
+    PEDIDOS_DIMENSAO {
+        string id_pedido "🔑 (2)"
+        string id_cliente "🔑 (5)"
+        string status_pedido
+    }
+
+    VENDEDOR_ORIGEM_DIMENSAO {
+        string id_vendedor "🔑 (3)"
+        string cod_postal "🔑 (4)"
+        string estado
+    }
+
+    CLIENTE_DESTINO_DIMENSAO {
+        string id_cliente "🔑 (5)"
+        string cod_postal "🔑 (4)"
+        string cidade
+        string estado
+        string cliente_pk
+        string cliente_fk_nulos
+    }
+
+    GEOLOCALIZACAO_DIMENSAO {
+        string cod_postal "🔑 (4)"
+        string cidade
+        string estado
+    }
+
+    %% --- RELACIONAMENTOS LOGÍSTICOS E DIREÇÃO VISUAL DA FOTO ---
+    DENSIDADE_DE_CARGA_FATO ||--|| ITENS_DIMENSAO : "id_produto (1)"
+    PEDIDOS_DIMENSAO ||--|| ITENS_DIMENSAO : "id_pedido (2)"
+    VENDEDOR_ORIGEM_DIMENSAO ||--|| ITENS_DIMENSAO : "id_vendedor (3)"
+    GEOLOCALIZACAO_DIMENSAO ||--|| VENDEDOR_ORIGEM_DIMENSAO : "cod_postal (4)"
+    GEOLOCALIZACAO_DIMENSAO ||--|| CLIENTE_DESTINO_DIMENSAO : "cod_postal (4)"
+    CLIENTE_DESTINO_DIMENSAO ||--|| PEDIDOS_DIMENSAO : "id_cliente (5)"
+```
+
+
 </details>
+
+
 
 
 
