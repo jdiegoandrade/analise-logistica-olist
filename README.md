@@ -155,7 +155,7 @@ Clique abaixo para visualizar as queries de validação de variância da base or
 
 
 
-A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER/FLOAT, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
+A tabela referente ao arquivo "olist_products" (aqui no projeto denominada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER/FLOAT, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
 
 
     
