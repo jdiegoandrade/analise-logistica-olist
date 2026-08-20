@@ -119,7 +119,7 @@ Para mapear a volumetria das rotas comerciais e identificar as assimetrias regio
 Após a execução do pipeline de ETL, a tabela final limpa foi consolidada no Google BigQuery com 102.425 linhas.
 
 
-## Fases da Análise de Dados
+## ⚙️ Fases da Análise de Dados
 
 </p>
 <!-- FASE 1: PREPARAR -->
