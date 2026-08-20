@@ -231,16 +231,11 @@ Após efetuada a limpeza de todas as tabelas, o desafio foi uni-las usando cláu
 | :--- | :--- |
 | 🗄️ **Base Analítica Consolidada** | [Visualizar SQL](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql) |
 
-
-
 A união e desnormalização dessas tabelas por meio de uma estrutura de CTE com qualificação de escopo permitiram concluir a fase de **Processar** da metodologia Google. O resultado foi a materialização de uma tabela física permanente (`base_analitica`), garantindo a integridade dos registros e otimizando severamente o custo e a performance de processamento para os próximos passos.
 
 <details>
-<summary>📂 Visualizar Diagrama e Modelo de Dados</summary>
+<summary>📂 Visualizar Diagrama Entidade-Relacionamento </summary>
 
-
-
-[Clique aqui para abrir o Script de Junção de Tabelas](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql)
 
 ```mermaid
 erDiagram
@@ -299,30 +294,23 @@ erDiagram
 
 </details>
 
-
-
 <!-- FASE 3: ANALISAR -->
 <details>
 <summary><h2>📊 Fase 3: Analisar (Estatística Descritiva)</h2></summary>
-<p>
+
 
 *(Esta seção será preenchida na próxima fase do projeto)*
 
-</p>
-</details>
 
-<!-- FASE 4: COMPARTILHAR E AGIR -->
+<!-- FASE 4 E 5: COMPARTILHAR E AGIR (Agora totalmente visível) -->
 <details>
 <summary><h2>🚀 Fases 4 e 5: Compartilhar e Agir (Visualização de Dados e Insights)</h2></summary>
-<p>
+
 
 *(Esta seção será preenchida após a conclusão das análises)*
 
-</p>
-</details>
 
 
----
 
    © 2026 José Diego Andrade Santos. Alguns direitos reservados.
    Este projeto está livremente disponível para fins de estudo, consulta e aprendizado.
