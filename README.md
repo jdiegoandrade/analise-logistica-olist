@@ -222,6 +222,8 @@ Os scripts com as transformações de cada base de dados podem ser consultados i
 | 📝 **Pedidos** | [Visualizar SQL](./consultas/Código%20Tabela%20Pedidos%20Limpo.sql) |
 | 🏬 **Vendedores** | [Visualizar SQL](./consultas/Código%20Tabela%20Vendedor%20Origem%20Limpo.sql) |
 
+</details>
+
 
 Após efetuada a limpeza de todas as tabelas, o desafio foi uni-las usando cláusulas LEFT JOIN para fazer a integração das chaves primárias com as chaves estrangeiras. Foi esboçado também uma DIAGRAMA ENTIDADE-RELACIONAMENTO para ajudar a entender de que forma as tabelas se relacionam entre si e qual delas era a Tabela Fato e quais eram as Tabelas Dimensão.
 
@@ -229,12 +231,14 @@ Após efetuada a limpeza de todas as tabelas, o desafio foi uni-las usando cláu
 | :--- | :--- |
 | 🗄️ **Base Analítica Consolidada** | [Visualizar SQL](./consultas/Join%20para%20Análise%20Estatística%20-%20Dataset%20Logística.sql) |
 
+
+
 A união e desnormalização dessas tabelas por meio de uma estrutura de CTE com qualificação de escopo permitiram concluir a fase de **Processar** da metodologia Google. O resultado foi a materialização de uma tabela física permanente (`base_analitica`), garantindo a integridade dos registros e otimizando severamente o custo e a performance de processamento para os próximos passos.
 
 <details>
 <summary>📂 Visualizar Diagrama e Modelo de Dados</summary>
 
-[Clique aqui para abrir o Diagrama Entidade-Relacionamento]
+
 
 ```mermaid
 erDiagram
