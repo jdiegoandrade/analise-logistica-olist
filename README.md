@@ -290,7 +290,7 @@ erDiagram
     GEOLOCALIZACAO_DIMENSAO ||--|| CLIENTE_DESTINO_DIMENSAO : "cod_postal (4)"
     CLIENTE_DESTINO_DIMENSAO ||--|| PEDIDOS_DIMENSAO : "id_cliente (5)"
 ```
-
+</details>
 
 
 <!-- FASE 3: ANALISAR -->
