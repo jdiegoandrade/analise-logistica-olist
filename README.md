@@ -140,7 +140,7 @@ Para isso, todas as tabelas originais que lidam com dados numéricos (do tipo IN
 
 **Critério de Exclusão:** Tabelas que demonstraram variabilidade nula ou repetição matemática perfeita foram deliberadamente desconsideradas desta fase do projeto, otimizando o esforço de engenharia e blindando os futuros insights contra dados sem valor analítico.
 
-> [!IMPORTANTE]
+> [IMPORTANTE]
 > 💡 **Nota de Experiência Pessoal:** Esse é um procedimento padrão que tenho adotado antes de iniciar a manipulação de qualquer volume de dados, pois garante que eu esteja trabalhando com um conjunto de dados real, e não com um dataset manipulado por I.A. e que não apresenta variabilidade. Essa abordagem nasceu da necessidade prática após experiências anteriores com bases públicas sintéticas que inviabilizaram a geração de insights.
 
 
@@ -155,7 +155,7 @@ Clique abaixo para visualizar as queries de validação de variância da base or
 
 
 
-A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
+A tabela referente ao arquivo "olist_products" (aqui renomeada como "densidade_carga") é a única que lida de maneira majoritária com dados do tipo INTEGER/FLOAT, estando, portanto, apta a submeter-se ao teste que valida sua heterocedasticidade.
 
 
     
