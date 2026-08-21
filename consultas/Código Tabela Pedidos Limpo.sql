@@ -21,7 +21,7 @@
 /* 
 Em análises preliminares deste projeto, cogitou-se a hipótese de que as variáveis temporais (TIMESTAMP) apresentavam comportamento artificial devido a inconsistências observadas em testes descritivos iniciais (métricas idênticas e desvio padrão nulo). 
 
-Contudo, uma auditoria posterior no pipeline de dados revelou um viés de agregação: a estatística descritiva havia sido aplicada sob um nível incorreto de granularidade (agrupamento por chaves primárias de ID), o que gerou o achatamento artificial da variabilidade dos dados.
+Contudo, uma auditoria posterior no pipeline de dados revelou um viés de agregação: a estatística descritiva havia sido aplicada sob um nível incorreto de granularidade (agrupamento por chaves primárias de ID), o que gerou o achatamento artificial da variabilidade dos dados, em detrimento dos fatores categóricos adequados, como order_status. Esse viés de agrupamento anulou a variabilidade amostral, mimetizando um comportamento de dados sintéticos.
 
 Embora o dataset de origem (Olist) seja sabidamente real e possua dados históricos válidos, optou-se por manter a exclusão das variáveis temporais no escopo atual. Essa decisão estratégica visa mitigar o débito técnico de reprocessamento do pipeline de ETL já consolidado e manter o foco analítico estritamente na engenharia de capacidade física (peso, volume e cubagem). As colunas order_id e customer_id permanecem na modelagem exclusivamente como chaves primárias para a execução de junções relacionais (JOINs).
 */
