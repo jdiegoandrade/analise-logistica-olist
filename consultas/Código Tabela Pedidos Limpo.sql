@@ -92,7 +92,6 @@ SELECT
 
 -- Remoção de duplicatas:
 
-
 SELECT 
     COUNT (*) AS total_linhas,
     COUNT (DISTINCT order_id) AS id_pedido_unico,
