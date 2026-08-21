@@ -4,7 +4,7 @@
 -- Teste de Homocedasticidade
 
 
--- Conclusão: Não foi possível aplicar o teste, pois essa tabela trabalha basicamente com STRINGS.  
+-- Conclusão: Colunas de datas reprovadas e inservíveis ao projeto por não apresentarem variabilidade tipica de dados reais.  
 
 
 
@@ -13,8 +13,18 @@
 
 -- Para essa tabela em específico, não farei uma exposição detalhada da limpeza como fiz na tabela de Densidade de Carga, pois o processo já foi devidamente detalhado. Agora vou me deter em limpar rapidamente o que for necessário e consolidar todas as etapas de limpeza em uma única CTE. 
 
--- A tabela de Pedidos (que é objeto desta análise), conforme verificado, não foi submetida ao teste de Homocedasticidade. As as colunas do tipo TIMESTAMP (datas) não fazem parte do escopo e objetivos desse projeto, pois não pretendo analisar prazos de entrega. Sendo assim, há dois elementos nessa tabela que são cruciais para o andamento do projeto: as colunas order_id e customer_id. Elas são importantes, pois funcionam como chaves primárias, o que me permite a conexão com outras tabelas através da função JOIN. Portanto, usarei essas duas colunas como chaves de conexão entre tabelas relacionais. 
+-- A tabela de Pedidos (que é objeto desta análise) foi reprovada, conforme pode ser verificado no teste de Estatística Descritiva Agrupada que apliquei. O resultado indicou que as colunas do tipo TIMESTAMP (datas) não apresentavam variabilidades típicas de dados reais. Sendo assim, a conclusão tirada foi que a tabela, em tese, não serviria para analisar os tempos de entrega. Entretanto, há dois elementos nessa tabela que são cruciais para o andamento do projeto: as colunas order_id e customer_id. Elas são importantes, pois funcionam como chaves primárias, o que me permite a conexão com outras tabelas através da função JOIN. Portanto, mesmo sabendo que o dataset é sintético (artificial), usarei essas duas colunas como chaves de conexão entre tabelas relacionais. 
 
+
+
+-- NOTA DE RETIFICAÇÃO METODOLÓGICA (ETAPA 1: limpeza):
+/* 
+Em análises preliminares deste projeto, cogitou-se a hipótese de que as variáveis temporais (TIMESTAMP) apresentavam comportamento artificial devido a inconsistências observadas em testes descritivos iniciais (métricas idênticas e desvio padrão nulo). 
+
+Contudo, uma auditoria posterior no pipeline de dados revelou um viés de agregação: a estatística descritiva havia sido aplicada sob um nível incorreto de granularidade (agrupamento por chaves primárias de ID), o que gerou o achatamento artificial da variabilidade dos dados.
+
+Embora o dataset de origem (Olist) seja sabidamente real e possua dados históricos válidos, optou-se por manter a exclusão das variáveis temporais no escopo atual. Essa decisão estratégica visa mitigar o débito técnico de reprocessamento do pipeline de ETL já consolidado e manter o foco analítico estritamente na engenharia de capacidade física (peso, volume e cubagem). As colunas order_id e customer_id permanecem na modelagem exclusivamente como chaves primárias para a execução de junções relacionais (JOINs).
+*/
 
 -- Valores Nulos
 
