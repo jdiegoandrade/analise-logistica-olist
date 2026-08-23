@@ -1398,7 +1398,7 @@ ORDER BY desvio_padrao_volume_cm3 DESC;
 #### 📦 Macroestrutura de Capacidade: Distribuição de Massa por Categoria de Produto
 
 
-* 💡 Os dados revelam um abismo de concentração logística na operação. O núcleo pesado é liderado de forma absoluta por *Cama, Mesa e Banho* (movimentando quase 22 toneladas devido ao alto volume constante de pedidos), seguida de perto por *Utilidades Domésticas* e *Móveis Decoração* (que combinam alta cubagem e peso concentrado por unidade). Juntas, as líderes respondem por mais de 60 toneladas transportadas, enquanto as três categorias posicionadas na base da pirâmide (*Artigos de Natal*, *Fashion Calçados* e *Livros Técnicos*) somadas sequer atingem 1 tonelada física. O fluxo de saída é altamente polarizado, ditando que os esforços de otimização de pátio e picos de carregamento devem focar prioritariamente no Top 3.
+* 💡 Os dados revelam um abismo de concentração logística na operação. O núcleo pesado é liderado de forma absoluta por *Cama, Mesa e Banho* (movimentando quase 22 toneladas devido ao alto volume constante de pedidos), seguida de perto por *Utilidades Domésticas* e *Móveis Decoração* (que combinam alta cubagem e peso concentrado por unidade). Juntas, as líderes respondem por mais de 60 toneladas transportadas, enquanto as três categorias posicionadas na base da pirâmide (*Cds Dvds Musicais*, *Fashion Roupa Infanto Juvenil* e *Seguros e Servicos*) somadas sequer atingem 15 Kg. O fluxo de saída é altamente polarizado, ditando que os esforços de otimização de pátio e picos de carregamento devem focar prioritariamente no Top 3.
 * 💡 A quebra estatística das cinco maiores categorias do projeto prova matematicamente que o planejamento de frotas não pode ser balizado por médias lineares. Todas as líderes apresentam uma **forte assimetria positiva**, onde a média de peso é severamente maior que a mediana (como *Beleza Saúde*, com média de 1,069 kg vs. mediana de 0,424 kg). Adicionalmente, os desvios padrões superam as suas respectivas médias em quase todos os cenários (com destaque para *Móveis Decoração*, com desvio de 3,975 kg para uma média de 2,773 kg). Isso atesta que o fluxo diário é composto majoritariamente por pacotes ultraleves, mas a capacidade física dos veículos é constantemente sabotada por *outliers* de grande porte situados nos limites máximos (tetos de até 40,42 kg), exigindo modelos de frotas com divisórias moduláveis.
 
 <details>
@@ -1409,7 +1409,7 @@ ORDER BY desvio_padrao_volume_cm3 DESC;
 > * **Cama, Mesa e Banho:** A liderança isolada (~21.936 kg) indica vendas massivas e recorrentes. Não se trata de uma categoria com alta densidade física, mas o efeito agregado a consolida como o principal geradora de ocupação de carga por peso bruto.
 > * **Utilidades Domésticas:** A segunda colocação (~20.103 kg) acende um alerta de pátio devido à heterogeneidade de subprodutos (plásticos leves dividindo espaço com vidros e panelas pesadas), exigindo regras rígidas de segregação para evitar avarias.
 > * **Móveis Decoração:** O terceiro lugar (~18.804 kg) representa a maior concentração física de massa por despacho. Diferente dos líderes de e-commerce puro, móveis concentram grande peso em poucas caixas de dimensões variadas, exigindo ajudantes adicionais na descarga.
-> * **Análise da Base:** A baixa movimentação de  (~273 kg) reflete a sazonalidade estrita, enquanto *Fashion Calçados* (~270 kg) consolida-se como o fluxo ideal para distribuição ágil em motocicletas devido a embalagens leves e compactas.
+> * **Análise da Base:** A baixa movimentação de Cds Dvds Musicais, Fashion Roupa Infanto Juvenil e Seguros e Servicos reflete operações menos relevantes, o que requer, basicamente, entrga ágil em motocicletas devido a embalagens leves e compactas.
 
 ```sql
 SELECT 
@@ -1550,7 +1550,7 @@ ORDER BY total_despachos DESC;
 >
 > **Premissas de Modelagem vs. Realidade Estatística da Malha:**
 > 
-> * O cruzamento bidimensional direto entre as Categorias de Produtos (50 variáveis) e as Regiões de Origem (5 macrorregiões) geraria uma matriz de contingência com 250 combinações possíveis. A dispersão dos dados em uma estrutura dessa magnitude pulveriza as amostras, comprometendo a escaneabilidade dos relatórios e a utilidade prática dos painéis gerenciais. Assim, para garantir o rigor estatístico e a integridade do *storytelling*, o projeto desconsiderou de forma definitiva o cruzamento das 5 regiões brasileiras com 50 categorias de produtos existentes. 
+> * O cruzamento bidimensional direto entre as Categorias de Produtos (74 variáveis) e as Regiões de Origem (5 macrorregiões) geraria uma matriz de contingência com 370 combinações possíveis. A dispersão dos dados em uma estrutura dessa magnitude pulveriza as amostras, comprometendo a escaneabilidade dos relatórios e a utilidade prática dos painéis gerenciais. Assim, para garantir o rigor estatístico e a integridade do *storytelling*, o projeto desconsiderou de forma definitiva o cruzamento das 5 regiões brasileiras com as 74 categorias de produtos existentes. 
 
 ---
 
