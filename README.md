@@ -2102,9 +2102,6 @@ Com a conclusão das consultas analíticas e a homologação do Relatório de Au
 
 </details>
 
----
-
-
 
 <!-- FASE 4 E 5: COMPARTILHAR E AGIR (Agora totalmente visível) -->
 <details>
