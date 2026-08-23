@@ -387,17 +387,16 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.base_analitica`;
 </details>
 
 
-### ETAPA 2: Matriz de Cruzamento Bivariado (Estrutura de Análise)
+### ETAPA 2: Matriz de Cruzamento e Escopo Analítico (Estrutura de Análise)
 
 Para otimizar o processamento e a governança dos dados, removeu-se atributos de baixa variância ou irrelevantes para o escopo estatístico (como chaves primárias/IDs e coordenadas geográficas brutas). 
 
-O *dataset* otimizado fundamenta-se em **cinco Macroestruturas Analíticas**, obtidas por meio do cruzamento entre variáveis qualitativas e quantitativas:
+O dataset otimizado fundamenta-se em **três Macroestruturas Analíticas Descritivas**, que guiam o tratamento estatístico nas etapas subsequentes:
 
-* 📊 **1. Capacidade e Ocupação:** Distribuição de peso e volume segregada por categoria de produto.
-* 🚚 **2. Eficiência de Frete:** Análise do Fator de Cubagem por categoria de produto, UF de origem e destino.
-* ⏱️ **3. Nível de Serviço (SLA):** Proporção percentual de pedidos conforme o status (atendidos, pendentes, cancelados e afins).
-* 🗺️ **4. Densidade Geográfica:** Concentração volumétrica e de massa por fluxos de Origem/Destino (UFs).
-* 🔄 **5. Eficiência de Rota:** Matriz Origem-Destino correlacionada ao Fator de Cubagem (foco em fluxos interestaduais e capitais).
+* 🗺️ **1. Densidade e Distribuição Geográfica (Origem e Destino):** Mapeamento da concentração de massa física (peso) e capacidade espacial (volume) segregados de forma independente por UFs e Macrorregiões brasileiras.
+* 📦 **2. Capacidade Operacional por Categoria de Produto:** Análise detalhada dos estimadores descritivos de tendência central, dispersão e assimetria do peso focado no núcleo pesado das categorias líderes de mercado.
+* ⏱️ **3. Nível de Serviço (SLA) e Status do Pedido:** Proporção percentual e volumétrica de pedidos conforme o status de atendimento (atendidos, em trânsito e cancelados) cruzados geograficamente.
+
 
 
 ### ETAPA 3: Materialização da Tabela de Suporte Estatístico
@@ -431,7 +430,7 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.base_analitica`;
 
 ### ETAPA 4: Estatística Descritiva e Cálculo de Estimadores
 
-Com a base analítica materializada e otimizada, inicia-se a fase de tratamento estatístico descritivo. Esta etapa visa extrair os principais estimadores de tendência central e de dispersão das variáveis numéricas, permitindo compreender o comportamento, a variabilidade e a distribuição dos dados logísticos antes de avançar para modelagens preditivas.
+Com a base analítica materializada e otimizada, inicia-se a fase de tratamento estatístico descritivo. Esta etapa visa extrair os principais estimadores de tendência central e de dispersão das variáveis numéricas, permitindo compreender o comportamento, a variabilidade e a distribuição dos dados logísticos.
 
 | Pipeline de Estatística Descritiva (Tabela) | Link para o Script SQL |
 | :--- | :--- |
@@ -440,9 +439,8 @@ Com a base analítica materializada e otimizada, inicia-se a fase de tratamento 
 
 #### 🗺️ Macroestrutura de Densidade Geográfica: Análise de Origem (Estados e Regiões)
 
-##### 🔍 Pergunta de Negócio: Como se distribuem a massa física (peso acumulado) e o volume operacional (despachos) entre as diferentes regiões e estados de origem?
 
-* 💡 **Macro-Tendência dos Dados:** Os indicadores apontam para uma centralização crítica da malha logística brasileira na Região Sudeste, que concentra a esmagadora maioria tanto da massa física total movimentada quanto do fluxo absoluto de transações operacionais (envios).
+* 💡 Os indicadores apontam para uma centralização crítica da malha logística brasileira na Região Sudeste, que concentra a esmagadora maioria tanto da massa física total movimentada quanto do fluxo absoluto de transações operacionais (envios).
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.1, 4.2, 4.6 e 4.7) e Tabelas de Resultados</b></summary>
@@ -529,15 +527,15 @@ ORDER BY percentual_total DESC;
 
 #### 📐 Investigação de Tendência Central: Média vs. Mediana e o Impacto de Outliers
 
-##### 🔍 Pergunta de Negócio: A média aritmética reflete o peso típico das mercadorias movimentadas ou a distribuição é distorcida por valores extremos?
 
-* 💡 **Diagnóstico Estatístico Principal:** O confronto entre as médias e as medianas revelou uma **forte assimetria à direita (positiva)** na distribuição de dados da malha logística. A média aritmética mostrou-se altamente vulnerável a *outliers* (valores extremos), insuflando os indicadores acima de 2 kg. A mediana provou ser uma métrica infinitamente mais robusta, desmascarando essa distorção e confirmando que o peso típico das mercadorias em todas as regiões brasileiras é inferior a 1 kg (característico de operações fracionadas leves/e-commerce).
+* 💡 O confronto entre as médias e as medianas revelou uma **forte assimetria à direita (positiva)** na distribuição de dados da malha logística. A média aritmética mostrou-se altamente vulnerável a *outliers* (valores extremos), insuflando os indicadores acima de 2 kg. A mediana provou ser uma métrica infinitamente mais robusta, desmascarando essa distorção e confirmando que o peso típico das mercadorias em todas as regiões brasileiras é inferior a 1 kg (característico de operações fracionadas leves/e-commerce).
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.8, 4.9 e 4.10), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.8 Calculando a média de peso por Região
-> 📊 **Comportamento Estatístico:** Mais uma vez, os resultados se inverteram por conta do volume de operações realizadas em cada região, destacando a Região Norte com a maior média de peso por despacho, seguida por Sul e Sudeste. Esse comportamento comprova que a média é altamente impactada por outliers, gerando distorções (assimetrias) e demonstrando que ela não é uma métrica robusta para avaliar o peso típico das cargas neste cenário. A próxima etapa consistirá no cálculo e análise das medianas para avaliar o grau de assimetria da distribuição.
+
+> 📊 Os resultados se inverteram por conta do volume de operações realizadas em cada região, destacando a Região Norte com a maior média de peso por despacho, seguida por Sul e Sudeste. Esse comportamento comprova que a média é altamente impactada por outliers, gerando distorções (assimetrias) e demonstrando que ela não é uma métrica robusta para avaliar o peso típico das cargas neste cenário. A próxima etapa consistirá no cálculo e análise das medianas para avaliar o grau de assimetria da distribuição.
 
 ```sql
 SELECT
@@ -560,8 +558,8 @@ ORDER BY media_peso DESC;
 
 
 ##### 💻 4.9 Calculando a mediana do peso por estado
-> 📊 **Comportamento Estatístico:** O uso da função de percentil trouxe resultados mais consistentes, isolando o efeito dos outliers e permitindo entender o perfil real de carga por estado. 
-> 📦 **Nota de Operação:** Enquanto grandes polos (como SP) pulverizam sua operação em milhares de pacotes fracionados de e-commerce extremamente leves, a operação em estados com menor volume de despacho acaba registrando cargas com maior densidade física individual (volumes fracionados mais robustos), o que eleva a sua posição no ranking de medianas.
+
+> * Enquanto grandes polos (como SP) pulverizam sua operação em milhares de pacotes fracionados de e-commerce extremamente leves, a operação em estados com menor volume de despacho acaba registrando cargas com maior densidade física individual (volumes fracionados mais robustos), o que eleva a sua posição no ranking de medianas.
 
 ```sql
 SELECT DISTINCT
@@ -571,12 +569,16 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.metricas_estatisticas`
 ORDER BY mediana_peso DESC;
 ```
 
+> ⚙️ **Nota de Engenharia:** O uso da função de percentil trouxe resultados mais consistentes, isolando o efeito dos outliers e permitindo entender o perfil real de carga por estado. 
+
+
 ##### 📋 Tabela Resultado 4.9
 <!-- Insira aqui a tabela gerada a partir do JSON 4.9 -->
 
 
 ##### 💻 4.10 Calculando a mediana do peso por região
-> 📊 **Comportamento Estatístico:** A mediana por região confirmou a forte assimetria positiva da base. A divergência entre as médias (superiores a 2 kg) e as medianas ocorre porque a média é severamente inflada por uma minoria de pacotes e caixas de maior densidade (outliers de carga). Ao fixar a linha de corte no percentil 50%, comprova-se estatisticamente que a operação física nacional é predominantemente composta por volumes leves e fracionados.
+
+> *A mediana por região confirmou a forte assimetria positiva da base. A divergência entre as médias (superiores a 2 kg) e as medianas ocorre porque a média é severamente inflada por uma minoria de pacotes e caixas de maior densidade (outliers de carga). Ao fixar a linha de corte no percentil 50%, comprova-se estatisticamente que a operação física regional é predominantemente composta por volumes leves e fracionados.
 
 ```sql
 SELECT DISTINCT
@@ -612,17 +614,17 @@ ORDER BY mediana_peso DESC;
 
 #### 📐 Métricas de Dispersão Robusta: Intervalo Interquartílico (IQR) e Variabilidade da Massa Central
 
-##### 🔍 Pergunta de Negócio: Qual é o comportamento e o nível de padronização física das cargas no "miolo" central da operação logística nacional?
 
-* 💡 **Diagnóstico Estatístico Principal:** A análise do Intervalo Interquartílico (IQR) isolou os 50% das observações mais frequentes e revelou uma forte heterogeneidade na dispersão robusta da malha. Polos com alto volume de e-commerce (como a região Nordeste e o estado de São Paulo) apresentam um IQR estreito, comprovando uma operação de alta padronização física focada em microvolumes. Em contrapartida, regiões periféricas de consumo (como o Norte e o estado do Espírito Santo) exibem um IQR amplo, o que traduz uma massa central de dados dispersa e com forte variabilidade física, demandando maior flexibilidade na consolidação e na cubagem dessas cargas.
+* 💡  A análise do Intervalo Interquartílico (IQR) isolou os 50% das observações mais frequentes e revelou uma forte heterogeneidade na dispersão da malha. Polos com alto volume de e-commerce (como a região Nordeste e o estado de São Paulo) apresentam um IQR estreito, comprovando uma operação de alta padronização física focada em microvolumes. Em contrapartida, regiões periféricas de consumo (como o Norte e o estado do Espírito Santo) exibem um IQR amplo, o que traduz uma massa central de dados dispersa e com forte variabilidade física, demandando maior flexibilidade na consolidação e na cubagem dessas cargas.
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.11 e 4.12), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.11 Calculando o intervalo interquartílico por estado
-> 📊 **Comportamento Estatístico:** O IQR mede a dispersão central ignorando a influência de extremos. Estados de grande volume absoluto (como SP) apresentam um IQR estreito (~1,45 kg), indicando alta padronização física das cargas. Em contrapartida, estados menores (como o ES) possuem um IQR amplo (~7,7 kg), comprovando que o miolo das cargas comuns varia drasticamente de tamanho. A variação de IQR entre os estados reforça a heterogeneidade da malha logística e serve de parâmetro para a futura identificação técnica de outliers.
-> 📍 **Nota Metodológica (Pernambuco):** O caso de PE registrou um IQR zerado (0.0) em 409 despachos, pois o Q1 e o Q3 possuem o mesmo valor (0.533 kg). Isso prova estatisticamente que pelo menos 50% de todas as cargas do estado possuem pesos idênticos, evidenciando uma operação totalmente padronizada em um único SKU ou tipo de embalagem.
-> ⚙️ **Nota de Engenharia (Uso do TRUNC):** Devido ao tipo de dado `FLOAT` da coluna original, a subtração matemática `Q3 - Q1` gerava dízimas extensas decorrentes do erro de ponto flutuante do processador. O uso da função `TRUNC` em vez do `ROUND` elimina o excesso de dígitos preservando o valor bruto original em 3 casas decimais, garantindo a legibilidade da tabela sem forçar arredondamentos artificiais.
+
+> * O IQR mede a dispersão central ignorando a influência de extremos. Estados de grande volume absoluto (como SP) apresentam um IQR estreito (~1,45 kg), indicando alta padronização física das cargas. Em contrapartida, estados menores (como o ES) possuem um IQR amplo (~7,7 kg), comprovando que o miolo das cargas comuns varia drasticamente de tamanho. A variação de IQR entre os estados reforça a heterogeneidade da malha logística e serve de parâmetro para a futura identificação técnica de outliers.
+> * O caso de PE registrou um IQR zerado (0.0) em 409 despachos, pois o Q1 e o Q3 possuem o mesmo valor (0.533 kg). Isso prova estatisticamente que pelo menos 50% de todas as cargas do estado possuem pesos idênticos, evidenciando uma operação totalmente padronizada em um único SKU ou tipo de produto com alta demanda mercadológica.
+
 
 ```sql
 SELECT DISTINCT
@@ -641,12 +643,16 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.metricas_estatisticas`
 ORDER BY iqr_peso DESC;
 ```
 
+> ⚙️ **Nota de Engenharia (Uso do TRUNC):** Devido ao tipo de dado `FLOAT` da coluna original, a subtração matemática `Q3 - Q1` gerava dízimas extensas decorrentes do erro de ponto flutuante do processador. O uso da função `TRUNC` em vez do `ROUND` elimina o excesso de dígitos preservando o valor bruto original em 3 casas decimais, garantindo a legibilidade da tabela sem forçar arredondamentos artificiais.
+
+
 ##### 📋 Tabela Resultado 4.11
 <!-- Insira aqui a tabela gerada a partir do JSON 4.11 -->
 
 
 ##### 💻 4.12 Calculando o intervalo interquartílico por região
-> 📊 **Comportamento Estatístico:** O IQR consolidado confirmou que a Região Norte lidera o ranking com a maior variabilidade na massa central de pesos (IQR: 2,057 kg), com o miolo das cargas oscilando entre 0,642 kg e 2,7 kg. Já o Nordeste apresentou a operação mais homogênea e padronizada (IQR: 0,312 kg), onde 50% dos volumes mais comuns estão concentrados entre 0,45 kg e 0,762 kg. O Sudeste e o Sul mantêm um perfil intermediário de dispersão (IQR de 1,5 kg e 1,8 kg, respectivamente). 
+
+> * O IQR consolidado confirmou que a Região Norte lidera o ranking com a maior variabilidade na massa central de pesos (IQR: 2,057 kg), com o miolo das cargas oscilando entre 0,642 kg e 2,7 kg. Já o Nordeste apresentou a operação mais homogênea e padronizada (IQR: 0,312 kg), onde 50% dos volumes mais comuns estão concentrados entre 0,45 kg e 0,762 kg. O Sudeste e o Sul mantêm um perfil intermediário de dispersão (IQR de 1,5 kg e 1,8 kg, respectivamente). 
 
 ```sql
 SELECT DISTINCT
@@ -718,16 +724,15 @@ ORDER BY iqr_peso DESC;
 
 #### 📐 Quantificação de Anomalias e Amplitude Física: Contagem de Outliers e Parâmetros Extremos
 
-##### 🔍 Pergunta de Negócio: Quantos despachos violam as réguas de corte locais e qual é a verdadeira amplitude física (mínimo e máximo) transportada pela malha?
 
-* 💡 **Diagnóstico Estatístico Principal (4.15):** A volumetria de anomalias revelou um comportamento singular: embora São Paulo concentre o maior volume absoluto de desvios, Pernambuco lidera proporcionalmente com 24,44% de sua operação classificada como *outlier*. Como a malha pernambucana é extremamente padronizada (IQR zerado), qualquer oscilação mínima é interpretada matematicamente como uma anomalia local. Ceará (19,78%) e Santa Catarina (16,93%) consolidam-se logo em seguida, evidenciando centros de distribuição com forte presença de volumes maiores do que a média nacional.
-* 💡 **Prova Empírica do Perfil Fracionado (4.16):** O mapeamento dos valores extremos sepulta definitivamente qualquer hipótese de unitização ou paletização de mercadorias no fluxo de saída. O teto absoluto de toda a malha nacional está em São Paulo, com um pacote máximo de 40,425 kg, enquanto estados como PR, RJ, MG e SC possuem tetos padronizados em exatamente 30,0 kg. Sabendo que um palete de madeira vazio pesa cerca de 30 kg, os dados provam de forma incontestável que a operação física lida puramente com caixas e envelopes individuais (perfil B2C/e-commerce), alimentada por mínimos que chegam a apenas 2 gramas.
+* 💡 A volumetria de anomalias revelou um comportamento singular: embora São Paulo concentre o maior volume absoluto de desvios, Pernambuco lidera proporcionalmente com 24,44% de sua operação classificada como *outlier*. Como a malha pernambucana é extremamente padronizada (IQR zerado), qualquer oscilação mínima é interpretada matematicamente como uma anomalia local. Ceará (19,78%) e Santa Catarina (16,93%) consolidam-se logo em seguida, evidenciando centros de distribuição com forte presença de pesos atípicos.
+* 💡 O teto absoluto de toda a malha nacional está em São Paulo, com um pacote máximo de 40,425 kg, enquanto estados como PR, RJ, MG e SC possuem tetos padronizados em exatamente 30,0 kg. A operação física lida puramente com caixas e envelopes individuais (perfil B2C/e-commerce), alimentada por mínimos que chegam a apenas 2 gramas.
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.15 e 4.16), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.15 Contagem e representatividade de outliers por estado
-> 📐 **Justificativa de Engenharia e Necessidade do JOIN:** O BigQuery não permite comparar, na mesma linha, um dado individual (o peso de um único pacote) com um dado agregado (a régua de corte do estado) sem que eles estejam conectados. Para solucionar essa limitação e computar as quebras de barreira, utilizou-se uma arquitetura em três etapas: a CTE `limites_base` calcula os percentis isolados; a CTE `regras_corte` aplica a fórmula de Tukey ($Q3 + 1.5 \times IQR$); e o `JOIN` atua como uma ponte física, colando a régua de corte estadual ao lado de cada uma das 102.425 linhas correspondentes da tabela bruta. Com essa associação feita, o comando condicional `COUNT(CASE WHEN)` varre a base linha por linha, calculando com precisão os volumes e os percentuais de violação por praça.
+
 
 ```sql
 WITH limites_base AS (
@@ -756,12 +761,15 @@ GROUP BY b.estado_origem
 ORDER BY qte_outliers_moderados DESC;
 ```
 
+> ⚙️ **Justificativa de Engenharia e Necessidade do JOIN:** O BigQuery não permite comparar, na mesma linha, um dado individual (o peso de um único pacote) com um dado agregado (a régua de corte do estado) sem que eles estejam conectados. Para solucionar essa limitação, utilizou-se uma arquitetura em três etapas: a CTE `limites_base` calcula os percentis isolados; a CTE `regras_corte` aplica a fórmula de Tukey ($Q3 + 1.5 \times IQR$); e o `JOIN` atua como uma ponte física, colando a régua de corte estadual ao lado de cada uma das 102.425 linhas correspondentes da tabela bruta. Com essa associação feita, o comando condicional `COUNT(CASE WHEN)` varre a base linha por linha, calculando com precisão os volumes e os percentuais de violação por praça.
+
 ##### 📋 Tabela Resultado 4.15
 <!-- Insira aqui a tabela gerada a partir do JSON 4.15 -->
 
 
 ##### 💻 4.16 Identificação de valores extremos (mínimo e máximo) por estado
-> 📊 **Comportamento Estatístico:** A amplitude física escancara a heterogeneidade dos hubs logísticos e encerra o ciclo de análise física de peso das origens. Os valores máximos situados estritamente na faixa entre 14,9 kg e 40,425 kg confirmam que as distorções observadas nas médias anteriores eram provocadas por essas raras cargas densas esporádicas. Paralelamente, o indicador de `peso_minimo_kg` variando a partir de 0,002 kg (2 gramas) valida que a sustentação diária do fluxo logístico depende do escoamento em massa de microvolumes extremamente leves.
+
+> * A amplitude física escancara a heterogeneidade dos hubs logísticos e encerra o ciclo de análise física de peso das origens. Os valores máximos situados estritamente na faixa entre 14,9 kg e 40,425 kg confirmam que as distorções observadas nas médias anteriores eram provocadas por essas raras cargas densas esporádicas. 
 
 ```sql
 SELECT 
@@ -784,14 +792,12 @@ ORDER BY amplitude_peso_kg DESC;
 
 ---
 
-> 📐 **Nota Operacional e de Engenharia de Dados: Cubagem e Escalabilidade da Arquitetura**
+> ⚙️ **Nota Operacional e de Engenharia de Dados: Cubagem e Escalabilidade da Arquitetura**
 >
 > **Premissas de Modelagem vs. Realidade Estatística da Malha:**
 > 
-> 1. **Premissa Inicial:** Na fase de design e modelagem do *Data Warehouse*, adotou-se uma diretriz macro tradicional de transporte rodoviário de cargas, projetando as estruturas e cálculos de cubagem na escala de Toneladas e Metros Cúbicos ($m^3$).
-> 2. **A Descoberta da EDA:** A fase de Análise Exploratória e Estatística Descritiva provou que a operação física real é predominantemente composta por microvolumes de e-commerce (varejo/B2C), apresentando medianas subquilo e um teto nacional de peso extremo na casa dos 40,425 kg.
-> 3. **Decisão Estratégica de Negócio:** Optou-se por manter as colunas estruturadas em $m^3$ e Toneladas no banco de dados para garantir a robustez e a escalabilidade da arquitetura do DW, suportando futuras expansões para cargas pesadas.
-> 4. **Ajuste Visual (Power BI):** As frações milimétricas geradas pelos metros cúbicos serão convertidas na camada de visualização (*Front-End*) usando medidas DAX multiplicadas por 1.000.000, exibindo centímetros cúbicos ($cm^3$) nos gráficos para uma leitura estética ideal, sem corromper a padronização macro do banco de dados.
+> Na fase de design e modelagem, adotou-se uma diretriz tradicional de transporte rodoviário de cargas, projetando as estruturas e cálculos de cubagem na escala de TONELADAS e METROS CÚBICOS ($m^3$). O objetivo era analisar grandes massas de peso e volume regionais e comparar os fatores de cubagem para traçar estratégias de negócios. Entretanto, a fase de Análise Exploratória e Estatística Descritiva provou que a operação física real é predominantemente composta por microvolumes de e-commerce (varejo/B2C). Assim, as colunas estruturadas em $m^3$ e toneladas no banco de dados foram mantidas, mas as análises deste projeto em relação à cubagem focarão exclusivamente em **centímetros cúbicos**, em vez de metros cúbicos. Essa medida se faz necessária, pois a conversão em metros cúbicos exibe números decimais estremamente pequenos (como 0,000045 m³), o que compromete a legibilidade das informações e a comparação entre as medidas. Já no formato de centímentros cúbicos, temos números decimais com a parte inteira visível, facilitando a compreensão sobre a cubagem. 
+
 
 ---
 
@@ -800,15 +806,15 @@ ORDER BY amplitude_peso_kg DESC;
 
 #### 📐 Análise de Volatilidade Amostral: Desvio Padrão e Coeficiente de Variação (CV)
 
-##### 🔍 Pergunta de Negócio: Qual é o nível de dispersão relativa das cargas e como a previsibilidade do peso varia entre as diferentes filiais de origem?
 
-* 💡 **Diagnóstico Estatístico Principal:** A análise do Coeficiente de Variação (CV) revelou realidades operacionais opostas na malha. Identificou-se uma volatilidade extrema em praças como o Distrito Federal (CV de 214,10%) e Rio de Janeiro (CV de 205,95%), indicando que essas filiais operam com fluxos altamente imprevisíveis que misturam envelopes ultra leves e caixas pesadas. No extremo oposto, hubs como Piauí (CV de 54,32%) e Espírito Santo (CV de 66,26%) consolidaram-se como malhas altamente estáveis e previsíveis, permitindo um planejamento de frotas muito mais padronizado e eficiente.
+* 💡 A análise do Coeficiente de Variação (CV) revelou realidades operacionais opostas. Identificou-se uma volatilidade extrema no Distrito Federal (CV de 214,10%) e Rio de Janeiro (CV de 205,95%), indicando que operam com fluxos altamente imprevisíveis que misturam envelopes ultra leves e caixas pesadas. No extremo oposto, hubs como Piauí (CV de 54,32%) e Espírito Santo (CV de 66,26%) consolidaram-se como malhas altamente estáveis e previsíveis, permitindo um planejamento de frotas muito mais padronizado e eficiente.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.17), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.17 Calculando o Desvio Padrão Amostral e o Coeficiente de Variação (CV)
-> 📐 **Comportamento Estatístico e Caso do Acre (AC):** O desvio padrão amostral e o CV isolaram o comportamento da dispersão em relação à média de cada estado. A coluna `desvio_padrao_peso` retornou como `NULL` para o Acre pelo fato de o estado registrar apenas 1 despacho na base de dados. Por definição matemática da estatística amostral — que utiliza a divisão por $N-1$ no cálculo da variância —, torna-se impossível mensurar dispersão ou desvio sobre uma única observação isolada.
+
+> * O desvio padrão amostral e o CV isolaram o comportamento da dispersão em relação à média de cada estado. A coluna `desvio_padrao_peso` retornou como `NULL` para o Acre pelo fato de o estado registrar apenas 1 despacho na base de dados. Por definição matemática da estatística amostral — que utiliza a divisão por $N-1$ no cálculo da variância —, torna-se impossível mensurar dispersão ou desvio sobre uma única observação isolada, pois isso culmina em divisões matemáticas por zero. 
 
 ```sql
 SELECT 
@@ -833,23 +839,22 @@ ORDER BY desvio_padrao_peso DESC;
 
 > 🎯 **Nota de Transição Metodológica: Consolidação de Escopo Macro (Regiões)**
 > 
-> **Justificativa de Design de Portfólio:** A fim de consolidar melhor as descobertas estatísticas e mitigar a poluição visual na futura etapa de construção dos painéis (evitando gráficos de alta granularidade saturados com 27 UFs), as próximas análises deste ciclo focarão prioritariamente no comportamento das **macrorregiões brasileiras**. Essa abordagem garante uma visualização mais limpa, executiva e focada em grandes direcionamentos estratégicos de mercado.
+> A fim de consolidar melhor as descobertas estatísticas e mitigar a poluição visual na futura etapa, as próximas análises deste ciclo focarão prioritariamente no comportamento das **macrorregiões brasileiras**. Essa abordagem garante uma visualização mais limpa, executiva e focada em grandes direcionamentos estratégicos de mercado.
 
 ---
 ---
 
 #### 📐 Tendência Central do Espaço Ocupado: Média vs. Mediana de Volume
 
-##### 🔍 Pergunta de Negócio: Como se comporta a ocupação espacial (volume) das cargas entre as macrorregiões brasileiras e qual é o impacto desse fator na eficiência da frota?
 
-* 💡 **Diagnóstico Estatístico Principal:** Diferente do comportamento observado no peso, a análise volumétrica revelou que as regiões Sul e Sudeste lideram isoladas o ranking de ocupação de espaço físico por despacho. O confronto de métricas atesta uma **forte assimetria dimensional**, onde a média aritmética chega a superar o dobro da mediana em todas as regiões (como no Sul, com média de ~16.144 $cm^3$ vs. mediana de ~7.168 $cm^3$). Esse cenário comprova a presença constante de anomalias volumétricas (*outliers*) e evidencia o clássico desafio da cubagem: os grandes hubs nacionais movimentam mercadorias de alta ocupação espacial, mas de baixíssima densidade física, tornando o espaço volumétrico — e não o peso — o principal gargalo operacional para o dimensionamento de veículos.
+* 💡 Diferente do comportamento observado no peso, a análise da cubagem revelou que as regiões Sul e Sudeste lideram isoladas o ranking de ocupação de espaço físico por despacho. O confronto de métricas atesta uma **forte assimetria dimensional**, onde a média aritmética chega a superar o dobro da mediana em todas as regiões (como no Sul, com média de ~16.144 $cm^3$ vs. mediana de ~7.168 $cm^3$). Esse cenário comprova a presença constante de anomalias volumétricas (*outliers*) e evidencia o clássico desafio da cubagem: os grandes hubs nacionais movimentam mercadorias de alta ocupação espacial, mas de baixíssima densidade física (peso), tornando o espaço volumétrico — e não o peso — o principal gargalo operacional para o dimensionamento de veículos.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.18), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.18 Tendência central (média e mediana) do volume (em cm³) por região
-> ⚙️ **Nota de Engenharia (Conversão de Escala):** Para mitigar as frações milimétricas decimais do banco de dados e viabilizar a análise descritiva, o código realiza a conversão matemática contínua de metros cúbicos ($m^3$) para centímetros cúbicos ($cm^3$) multiplicando o valor por 1.000.000. O uso da função `TRUNC` preserva o tipo `FLOAT64` contínuo e resguarda a precisão fina dos dados, limpando a exibição final em 3 casas decimais sem aplicar arredondamentos matemáticos forçados.
-> 📊 **Comportamento Estatístico e Paradoxo Regional:** Enquanto a malha de expedição do Norte atua no extremo oposto com foco em cargas predominantemente pequenas e densas (registrando a menor média volumétrica nacional de ~8.924 $cm^3$), os fluxos do Sul e Sudeste demandam frotas urbanas com alta capacidade cúbica (motos com baús estendidos, furgões e vans utilitárias), uma vez que o miolo da operação consome muito mais espaço físico por pacote individual.
+
+> * Enquanto a malha de expedição do Norte atua no extremo oposto com foco em cargas predominantemente pequenas e densas (registrando a menor média volumétrica nacional de ~8.924 $cm^3$), os fluxos do Sul e Sudeste demandam frotas urbanas com alta capacidade cúbica (motos com baús estendidos, furgões e vans utilitárias), uma vez que o miolo da operação consome muito mais espaço físico por pacote individual.
 
 ```sql
 SELECT DISTINCT
@@ -891,6 +896,7 @@ SELECT DISTINCT
 FROM `skilled-sunrise-486800-j9.analise_logistica.metricas_estatisticas`
 ORDER BY media_volume_cm3 DESC;
 ```
+> ⚙️ **Nota de Engenharia (Conversão de Escala):** Para mitigar as frações milimétricas decimais do banco de dados e viabilizar a análise descritiva, o código realiza a conversão matemática contínua de metros cúbicos ($m^3$) para centímetros cúbicos ($cm^3$). O uso da função `TRUNC` preserva o tipo `FLOAT64` contínuo e resguarda a precisão fina dos dados, limpando a exibição final em 3 casas decimais sem aplicar arredondamentos matemáticos forçados.
 
 ##### 📋 Tabela Resultado 4.18
 <!-- Insira aqui a tabela gerada a partir do JSON 4.18 -->
@@ -902,18 +908,17 @@ ORDER BY media_volume_cm3 DESC;
 
 #### 📐 Métricas de Dispersão Volumétrica: Quartis e Intervalo Interquartílico (IQR) de Espaço Ocupado
 
-##### 🔍 Pergunta de Negócio: Qual é o comportamento da dispersão e o nível de variabilidade espacial enfrentado pela malha logística no miolo central das operações regionais?
 
-* 💡 **Diagnóstico Estatístico Principal:** A análise do Intervalo Interquartílico (IQR) para dados volumétricos revelou um cenário de profunda heterogeneidade estrutural. Enquanto as regiões Sul e Sudeste concentram a maior volatilidade e disparidade de cubagem do país — exigindo que a operação gerencie simultaneamente microvolumes e grandes pacotes na mesma malha —, a Região Norte opera no extremo oposto, consolidando-se como a malha mais homogênea, enxuta e compacta do território nacional, onde 75% dos despachos sequer ultrapassam a marca de 5,85 litros ($5.850\text{ cm}^3$). Essa variação de comportamento dita a necessidade de abordagens distintas de roteirização, onde o Sul e Sudeste demandam algoritmos de cubagem dinâmicos para mitigar o desperdício de espaço cúbico nos veículos urbanos.
+* 💡 A análise do Intervalo Interquartílico (IQR) para dados volumétricos revelou um cenário de profunda heterogeneidade estrutural. Enquanto as regiões Sul e Sudeste concentram a maior volatilidade e disparidade de cubagem do país — exigindo que a operação gerencie simultaneamente microvolumes e grandes pacotes na mesma malha —, a Região Norte opera no extremo oposto, consolidando-se como a malha mais homogênea, enxuta e compacta do território nacional, onde 75% dos despachos sequer ultrapassam a marca de 5,85 litros ($5.850\text{ cm}^3$). Essa variação de comportamento dita a necessidade de abordagens distintas de roteirização, onde o Sul e Sudeste demandam algoritmos de cubagem dinâmicos para mitigar o desperdício de espaço cúbico nos veículos urbanos.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.19), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.19 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do volume por região
-> 📊 **Comportamento Estatístico Regional:**
-> * **Disparidade no Eixo Sul-Sudeste:** Embora o Sul apresente uma base de pacotes pequenos ligeiramente maior que o Sudeste ($Q1$ de $3.248\text{ cm}^3$ vs. $2.772\text{ cm}^3$), o Sudeste assume a liderança nacional em volatilidade, registrando o maior IQR absoluto ($15.978\text{ cm}^3$). Isso traduz um ambiente logístico altamente complexo e desafiador para a padronização física de embalagens.
-> * **Compactação no Norte:** A malha logística nortista é a mais estável e compacta (menor IQR de $3.252\text{ cm}^3$). Os volumes mantêm-se predominantemente baixos, o que viabiliza frotas urbanas menores e voltadas a cargas de alta densidade física.
-> * **Bloco Intermediário:** O Centro-Oeste ($IQR$ de $7.920\text{ cm}^3$) exibe maior dispersão espacial que o Nordeste ($IQR$ de $5.436\text{ cm}^3$). Mesmo compartilhando de um patamar inicial ($Q1$) similar, os maiores volumes ($Q3$) do Centro-Oeste distanciam-se na ponta superior ($10.920\text{ cm}^3$ vs. $8.400\text{ cm}^3$), refletindo cadeias de distribuição com demandas volumétricas mais agressivas.
+
+> * Embora o Sul apresente uma base de pacotes pequenos ligeiramente maior que o Sudeste ($Q1$ de $3.248\text{ cm}^3$ vs. $2.772\text{ cm}^3$), o Sudeste assume a liderança nacional em volatilidade, registrando o maior IQR absoluto ($15.978\text{ cm}^3$). Isso traduz um ambiente logístico altamente complexo e desafiador para a padronização física de embalagens.
+> * A malha logística nortista é a mais estável e compacta (menor IQR de $3.252\text{ cm}^3$). Os volumes mantêm-se predominantemente baixos, o que viabiliza frotas urbanas menores e voltadas a cargas de alta densidade física.
+> * O Centro-Oeste ($IQR$ de $7.920\text{ cm}^3$) exibe maior dispersão espacial que o Nordeste ($IQR$ de $5.436\text{ cm}^3$). Mesmo compartilhando de um patamar inicial ($Q1$) similar, os maiores volumes ($Q3$) do Centro-Oeste distanciam-se na ponta superior ($10.920\text{ cm}^3$ vs. $8.400\text{ cm}^3$), refletindo cadeias de distribuição com demandas volumétricas mais agressivas.
 
 ```sql
 SELECT DISTINCT
@@ -992,18 +997,17 @@ ORDER BY iqr_volume_cm3 DESC;
 
 #### 📐 Extremos e Variabilidade Total: Mínimo, Máximo e Amplitude Volumétrica Regional
 
-##### 🔍 Pergunta de Negócio: Quais são os limites físicos absolutos e a amplitude total de espaço ocupado que impactam a cubagem de cada malha regional?
 
-* 💡 **Diagnóstico Estatístico Principal:** O mapeamento dos extremos e da amplitude total validou de forma matemática os padrões de dispersão observados anteriormente. O cruzamento dos dados consolida a malha nacional em dois perfis operacionais claros: o eixo **Sul/Sudeste** lida com uma massa controlada de volumes médios sabotada por *outliers* espaciais gigantescos que disparam a amplitude total acima de $290.000\text{ cm}^3$; no extremo oposto, a região **Norte** opera em um ecossistema blindado e previsível de caixas médias padronizadas, registrando a menor amplitude do país ($63.858\text{ cm}^3$). Essa consistência analítica comprova que as variações no Centro-Oeste e Nordeste ocorrem exclusivamente pelo teto de pacotes grandes que entram na malha, e não pela base de microvolumes.
+* 💡 O mapeamento dos extremos e da amplitude total validou de forma matemática os padrões de dispersão observados anteriormente. O cruzamento dos dados consolida a malha nacional em dois perfis operacionais claros: o eixo **Sul/Sudeste** lida com uma massa controlada de volumes médios sabotada por *outliers* espaciais gigantescos que disparam a amplitude total acima de $290.000\text{ cm}^3$; no extremo oposto, a região **Norte** opera em um ecossistema blindado e previsível de caixas médias padronizadas, registrando a menor amplitude do país ($63.858\text{ cm}^3$). Essa consistência analítica comprova que as variações no Centro-Oeste e Nordeste ocorrem exclusivamente pelo teto de pacotes grandes que entram na malha, e não pela base de microvolumes.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.20), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.20 Calculando Mínimo, Máximo e Amplitude Total do Volume por Região
-> 📊 **Comportamento Estatístico e Consistência dos Dados:**
-> * **Saturação de Outliers no Sul/Sudeste:** O teto máximo atingindo quase $300.000\text{ cm}^3$, enquanto 75% da carga ($Q3$) não passa de $18.750\text{ cm}^3$, prova estatisticamente que o fluxo padrão é composto por volumes compactos, sofrendo severos impactos logísticos causados por poucos pacotes massivos que estouram a amplitude física.
-> * **Padronização no Norte:** O fato de o volume mínimo começar mais alto ($1.122\text{ cm}^3$) explica o porquê de o seu $Q1$ situar-se muito próximo do seu $Q3$. A operação é caracterizada pela ausência de extremos em ambas as pontas da distribuição, focando no escoamento de caixas padronizadas de médio porte.
-> * **Afinamento de Gargalos (Centro-Oeste vs. Nordeste):** Embora ambas as regiões compartilhem exatamente do mesmo volume mínimo ($352\text{ cm}^3$), o teto máximo do Centro-Oeste estende-se consideravelmente além ($174.930\text{ cm}^3$). Isso atesta que a maior dispersão do Centro-Oeste é ditada puramente pela presença de cargas volumétricas na ponta superior da malha.
+
+> * O teto máximo atingindo quase $300.000\text{ cm}^3$, enquanto 75% da carga ($Q3$) não passa de $18.750\text{ cm}^3$, prova estatisticamente que o fluxo padrão é composto por volumes compactos, sofrendo severos impactos logísticos causados por poucos pacotes massivos que estouram a amplitude física.
+> * O fato de o volume mínimo começar mais alto ($1.122\text{ cm}^3$) explica o porquê de o seu $Q1$ situar-se muito próximo do seu $Q3$. A operação é caracterizada pela ausência de extremos em ambas as pontas da distribuição, focando no escoamento de caixas padronizadas de médio porte.
+> * Embora ambas as regiões compartilhem exatamente do mesmo volume mínimo ($352\text{ cm}^3$), o teto máximo do Centro-Oeste estende-se consideravelmente além ($174.930\text{ cm}^3$). Isso atesta que a maior dispersão do Centro-Oeste é ditada puramente pela presença de cargas volumétricas maiores.
 
 ```sql
 SELECT DISTINCT
@@ -1082,17 +1086,16 @@ ORDER BY amplitude_volume_cm3 DESC;
 
 #### 📐 Volatilidade e Instabilidade Espacial: Desvio Padrão e Coeficiente de Variação (CV) do Volume
 
-##### 🔍 Pergunta de Negócio: Qual é o nível de dispersão absoluta e a volatilidade relativa do espaço ocupado pelas cargas nas operações diárias de cada região?
 
-* 💡 **Diagnóstico Estatístico Principal:** A análise de volatilidade revelou que o espaço cúbico demandado diariamente na malha nacional é altamente imprevisível. O Coeficiente de Variação (CV) superou a marca crítica de 140% em todas as cinco regiões do país, com o Nordeste (~169,32%) e o Norte (~167,65%) liderando a instabilidade relativa. Em termos absolutos, as regiões Sul e Sudeste registram os maiores desvios padrões (oscilando mais de 23.000 $cm^3$ ao redor da média), evidenciando a natureza tridimensional complexa da malha de expedição: uma imensa cauda de microvolumes (envelopes) misturada a pacotes de grande envergadura dimensional, o que gera uma constante instabilidade de cubagem turno a turno.
+* A análise de volatilidade revelou que o espaço cúbico demandado diariamente na malha nacional é altamente imprevisível. O Coeficiente de Variação (CV) superou a marca crítica de 140% em todas as cinco regiões do país, com o Nordeste (~169,32%) e o Norte (~167,65%) liderando a instabilidade relativa. Em termos absolutos, as regiões Sul e Sudeste registram os maiores desvios padrões (oscilando mais de 23.000 $cm^3$ ao redor da média), evidenciando a natureza tridimensional complexa da malha de expedição: uma imensa cauda de microvolumes (envelopes) misturada a pacotes de grande envergadura dimensional, o que gera uma constante instabilidade de cubagem turno a turno.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.21), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.21 Calculando o desvio padrão e o coeficiente de variação do volume por região
-> 📊 **Comportamento Estatístico Regional:**
-> * **Instabilidade Relativa Generalizada:** A quebra da barreira de 140% de CV em todo o território nacional comprova matematicamente que a média volumétrica não é um indicador estável para o planejamento estático de frotas, exigindo dimensionamentos flexíveis.
-> * **Dispersão Absoluta no Eixo Sul-Sudeste:** A liderança do Sul no desvio padrão absoluto (~25.043 $cm^3$) e do Sudeste (~23.311 $cm^3$) reflete que, embora essas regiões possuam uma previsibilidade relativa ligeiramente melhor devido ao volume massivo de dados, o tamanho físico absoluto de suas caixas varia drasticamente na rotina operacional.
+
+> *  A quebra da barreira de 140% de CV em todo o território nacional comprova matematicamente que a média volumétrica não é um indicador estável para o planejamento estático de frotas, exigindo dimensionamentos flexíveis.
+> * A liderança do Sul no desvio padrão absoluto (~25.043 $cm^3$) e do Sudeste (~23.311 $cm^3$) reflete que, embora essas regiões possuam uma previsibilidade relativa ligeiramente melhor, o tamanho físico de suas caixas varia drasticamente na rotina operacional.
 
 ```sql
 SELECT DISTINCT
@@ -1155,20 +1158,19 @@ ORDER BY desvio_padrao_volume_cm3 DESC;
 
 #### 📦 Macroestrutura de Capacidade: Distribuição de Massa por Categoria de Produto
 
-##### 🔍 Pergunta de Negócio: Quais categorias geram o maior esforço de tração física na malha e como se comporta a variabilidade interna de peso nos fluxos líderes de venda?
 
-* 💡 **Diagnóstico da Cauda Longa Comercial (4.22):** Os dados revelam um abismo de concentração logística na operação. O núcleo pesado é liderado de forma absoluta por *Cama, Mesa e Banho* (movimentando quase 22 toneladas devido ao alto volume constante de pedidos), seguida de perto por *Utilidades Domésticas* e *Móveis Decoração* (que combinam alta cubagem e peso concentrado por unidade). Juntas, as líderes respondem por mais de 60 toneladas transportadas, enquanto as três categorias posicionadas na base da pirâmide (*Artigos de Natal*, *Fashion Calçados* e *Livros Técnicos*) somadas sequer atingem 1 tonelada física. O fluxo de saída é altamente polarizado, ditando que os esforços de otimização de pátio e picos de carregamento devem focar prioritariamente no Top 3.
-* 💡 **Assimetria e Instabilidade no Top 5 (4.23):** A quebra estatística das cinco maiores categorias do projeto prova matematicamente que o planejamento de frotas não pode ser balizado por médias lineares. Todas as líderes apresentam uma **forte assimetria positiva**, onde a média de peso é severamente maior que a mediana (como *Beleza Saúde*, com média de 1,069 kg vs. mediana de 0,424 kg). Adicionalmente, os desvios padrões superam as suas respectivas médias em quase todos os cenários (com destaque para *Móveis Decoração*, com desvio de 3,975 kg para uma média de 2,773 kg). Isso atesta que o fluxo diário é composto majoritariamente por pacotes ultraleves, mas a capacidade física dos veículos é constantemente sabotada por *outliers* de grande porte situados nos limites máximos (tetos de até 40,42 kg), exigindo modelos de frotas com divisórias moduláveis.
+* 💡 Os dados revelam um abismo de concentração logística na operação. O núcleo pesado é liderado de forma absoluta por *Cama, Mesa e Banho* (movimentando quase 22 toneladas devido ao alto volume constante de pedidos), seguida de perto por *Utilidades Domésticas* e *Móveis Decoração* (que combinam alta cubagem e peso concentrado por unidade). Juntas, as líderes respondem por mais de 60 toneladas transportadas, enquanto as três categorias posicionadas na base da pirâmide (*Artigos de Natal*, *Fashion Calçados* e *Livros Técnicos*) somadas sequer atingem 1 tonelada física. O fluxo de saída é altamente polarizado, ditando que os esforços de otimização de pátio e picos de carregamento devem focar prioritariamente no Top 3.
+* 💡 A quebra estatística das cinco maiores categorias do projeto prova matematicamente que o planejamento de frotas não pode ser balizado por médias lineares. Todas as líderes apresentam uma **forte assimetria positiva**, onde a média de peso é severamente maior que a mediana (como *Beleza Saúde*, com média de 1,069 kg vs. mediana de 0,424 kg). Adicionalmente, os desvios padrões superam as suas respectivas médias em quase todos os cenários (com destaque para *Móveis Decoração*, com desvio de 3,975 kg para uma média de 2,773 kg). Isso atesta que o fluxo diário é composto majoritariamente por pacotes ultraleves, mas a capacidade física dos veículos é constantemente sabotada por *outliers* de grande porte situados nos limites máximos (tetos de até 40,42 kg), exigindo modelos de frotas com divisórias moduláveis.
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.22 e 4.23), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.22 Calculando o peso acumulado total de cada categoria
-> 📊 **Comportamento Estatístico e Impacto Operacional:**
-> * **Cama, Mesa e Banho:** A liderança isolada (~21.936 kg) indica vendas massivas e recorrentes. Não se trata de uma categoria com alta densidade física individual por pacote, mas o efeito agregado consolida o fluxo como o principal gerador de ocupação de carga por peso bruto.
+> 
+> * **Cama, Mesa e Banho:** A liderança isolada (~21.936 kg) indica vendas massivas e recorrentes. Não se trata de uma categoria com alta densidade física, mas o efeito agregado a consolida como o principal geradora de ocupação de carga por peso bruto.
 > * **Utilidades Domésticas:** A segunda colocação (~20.103 kg) acende um alerta de pátio devido à heterogeneidade de subprodutos (plásticos leves dividindo espaço com vidros e panelas pesadas), exigindo regras rígidas de segregação para evitar avarias.
-> * **Móveis Decoração:** O terceiro lugar (~18.804 kg) representa a concentração física de massa por despacho. Diferente dos líderes de e-commerce puro, móveis concentram grande peso em poucas caixas de grandes dimensões, exigindo ajudantes adicionais na descarga.
-> * **Análise da Base:** A baixa movimentação de *Artigos de Natal* (~273 kg) reflete a sazonalidade estrita, enquanto *Fashion Calçados* (~270 kg) consolida-se como o fluxo ideal para distribuição ágil e pulverizada em motocicletas (Last Mile) devido a embalagens leves e compactas.
+> * **Móveis Decoração:** O terceiro lugar (~18.804 kg) representa a maior concentração física de massa por despacho. Diferente dos líderes de e-commerce puro, móveis concentram grande peso em poucas caixas de dimensões variadas, exigindo ajudantes adicionais na descarga.
+> * **Análise da Base:** A baixa movimentação de  (~273 kg) reflete a sazonalidade estrita, enquanto *Fashion Calçados* (~270 kg) consolida-se como o fluxo ideal para distribuição ágil em motocicletas devido a embalagens leves e compactas.
 
 ```sql
 SELECT 
@@ -1184,7 +1186,7 @@ ORDER BY peso_total_kg DESC;
 
 
 ##### 💻 4.23 Métricas Estatísticas Descritivas do Peso - Top 5 Categorias Líderes
-> ⚙️ **Nota de Engenharia (Uso do QUALIFY e Window Functions):** Para extrair os estimadores descritivos completos focando exclusivamente nos fluxos de maior volume, utilizou-se a cláusula `QUALIFY ROW_NUMBER() OVER (ORDER BY total_pedidos_categoria DESC) <= 5`. Essa abordagem otimiza o processamento no BigQuery, permitindo filtrar o resultado de uma função de janela (`COUNT(*) OVER`) na mesma etapa de execução, eliminando a necessidade de aninhar múltiplas subqueries lentas. A função `ANY_VALUE(mediana_janela)` foi empregada para consolidar o cálculo do percentil de forma compatível com o agrupamento do bloco.
+
 
 ```sql
 WITH metricas_base AS (
@@ -1212,6 +1214,8 @@ QUALIFY ROW_NUMBER() OVER (ORDER BY total_pedidos_categoria DESC) <= 5
 ORDER BY total_despachos DESC;
 ```
 
+> ⚙️ **Nota de Engenharia (Uso do QUALIFY e Window Functions):** Para extrair os estimadores descritivos completos focando exclusivamente nos fluxos de maior volume, utilizou-se a cláusula `QUALIFY ROW_NUMBER() OVER (ORDER BY total_pedidos_categoria DESC) <= 5`. Essa abordagem otimiza o processamento no BigQuery, permitindo filtrar o resultado de uma função de janela (`COUNT(*) OVER`) na mesma etapa de execução, eliminando a necessidade de aninhar múltiplas subqueries lentas. A função `ANY_VALUE(mediana_janela)` foi empregada para consolidar o cálculo do percentil de forma compatível com o agrupamento do bloco.
+
 ##### 📋 Tabela Resultado 4.23
 <!-- Insira aqui a tabela gerada a partir do JSON 4.23 -->
 
@@ -1224,11 +1228,7 @@ ORDER BY total_despachos DESC;
 >
 > **Premissas de Modelagem vs. Realidade Estatística da Malha:**
 > 
-> * **Inviabilidade Dimensional (Explosão de Dados):** O cruzamento bidimensional direto entre as Categorias de Produtos (50 variáveis) e as Regiões de Origem (5 macrorregiões) geraria uma matriz de contingência com 250 combinações possíveis. A dispersão dos dados em uma estrutura dessa magnitude pulveriza as amostras, comprometendo a escaneabilidade dos relatórios e a utilidade prática dos painéis gerenciais.
- * **O Viés das Amostras Reduzidas (*Small Sample Error*):** A base de dados apresenta assimetria geográfica severa (ex: Sudeste com mais de 95.000 registros vs. Norte com apenas 26 registros). Ao subdividir amostras ínfimas por 50 categorias, introduz-se um alto risco de falsos positivos, onde um único pedido atípico passa a representar mais de 50% da participação regional, gerando ruídos que não refletem a vocação comercial real da praça.
-> * **Erros de Interpretação Qualitativa:** Nomenclaturas amplas do e-commerce (como "Automotivo") mascaram a realidade física das cargas. Em micraoamostras regionais, essa generalização induz ao erro de projetar infraestruturas para cargas industriais pesadas quando, na realidade do fluxo do pacote, trata-se de microvolumes leves (lâmpadas, aromatizantes).
-> 
-> **Direcionamento Estratégico Adotado:** Para garantir o rigor estatístico e a integridade do *storytelling*, o projeto desconsiderou de forma definitiva o desdobramento regional das 50 categorias. Em substituição, optou-se pela aplicação de Métricas Estatísticas Descritivas Robustas concentradas estritamente no **Top 5 Categorias Líderes de Mercado**. Esse grupo concentra o verdadeiro núcleo de movimentação física da operação, blindando o modelo contra vieses e garantindo *insights* com real impacto financeiro.
+> * O cruzamento bidimensional direto entre as Categorias de Produtos (50 variáveis) e as Regiões de Origem (5 macrorregiões) geraria uma matriz de contingência com 250 combinações possíveis. A dispersão dos dados em uma estrutura dessa magnitude pulveriza as amostras, comprometendo a escaneabilidade dos relatórios e a utilidade prática dos painéis gerenciais. Assim, para garantir o rigor estatístico e a integridade do *storytelling*, o projeto desconsiderou de forma definitiva o cruzamento das 5 regiões brasileiras com 50 categorias de produtos existentes. 
 
 ---
 
@@ -1236,16 +1236,14 @@ ORDER BY total_despachos DESC;
 
 #### ⏱️ Macroestrutura de Nível de Serviço (SLA): Análise Volumétrica e Matriz Cruzada de Status do Pedido
 
-##### 🔍 Pergunta de Negócio: Qual é a saúde operacional da malha logística em termos de nível de serviço (SLA) e como a fricção comercial (cancelamentos) se distribui regionalmente?
-
-* 💡 **Diagnóstico da Maturidade da Base (4.24):** A análise volumétrica absoluta revela um fluxo logístico altamente saudável, maduro e finalizado, com mais de 98% dos registros concentrados nos status ativos operacionais (*Delivered* e *Shipped*). Essa expressiva representatividade garante uma amostragem robusta de entregas concluídas para dar sustentação confiável a futuros modelos de custos e prazos de frete. Para as próximas fases de modelagem física de peso e cubagem, recomenda-se filtrar a base de dados estritamente para esses dois status, eliminando ruídos de pedidos cancelados ou faturados (*Invoiced*) que não geraram movimentação real de frota nas estradas.
-* 💡 **Homogeneidade Cirúrgica do SLA Regional (4.25):** O cruzamento bivariado de SLA cumpre com rigor o objetivo de negócio e revela uma estabilidade cirúrgica no nível de serviço do país. Todas as regiões brasileiras operam em uma faixa de eficiência superior a 97,5% nas entregas concluídas (*Delivered*). Adicionalmente, o índice de atrito comercial (*Canceled*) mantém-se residual e controlado abaixo de 1% em todo o território nacional. Essa baixíssima variabilidade regional valida a eficácia dos processos de separação e expedição dos centros de distribuição, autorizando estatisticamente o modelo a tratar os cancelamentos como ocorrências comerciais pontuais, e não como gargalos estruturais de transporte.
+* 💡 A análise volumétrica absoluta revela um fluxo logístico altamente saudável, maduro e finalizado, com mais de 98% dos registros concentrados nos status ativos operacionais (*Delivered* e *Shipped*). Essa expressiva representatividade garante uma amostragem robusta de entregas concluídas para dar sustentação confiável a futuros modelos de custos e prazos de frete. Para as próximas fases de modelagem física de peso e cubagem, recomenda-se filtrar a base de dados estritamente para esses dois status, eliminando ruídos de pedidos cancelados ou faturados (*Invoiced*) que não geraram movimentação real de frota nas estradas.
+* 💡 O cruzamento bivariado de SLA cumpre com rigor o objetivo de negócio e revela uma estabilidade cirúrgica no nível de serviço do país. Todas as regiões brasileiras operam em uma faixa de eficiência superior a 97,5% nas entregas concluídas (*Delivered*). Adicionalmente, o índice de atrito comercial (*Canceled*) mantém-se residual e controlado abaixo de 1% em todo o território nacional. Essa baixíssima variabilidade regional valida a eficácia dos processos de separação e expedição dos centros de distribuição, autorizando estatisticamente o modelo a tratar os cancelamentos como ocorrências comerciais pontuais, e não como gargalos estruturais de transporte.
 
 <details>
 <summary><b>🛠️ Ver Queries SQL (4.24 e 4.25), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.24 Análise de volume absoluto por status do pedido
-> 📊 **Comportamento Estatístico e Impacto Operacional:**
+
 > * **Status 'Delivered':** Centraliza a grande maioria esmagadora da base (100.196 pedidos), fornecendo a maturidade de dados necessária para qualquer modelagem descritiva ou preditiva do projeto.
 > * **Status 'Shipped':** Ocupa a segunda posição (1.127 pedidos) e isola a carga que está fisicamente em trânsito (*Last Mile* ou transferência). Representa o gargalo imediato de monitoramento de risco e rastreamento da frota ativa antes do encerramento financeiro do frete.
 > * **Status 'Canceled' e 'Unavailable':** Posicionados na base inferior, somam juntos o volume de fricção da malha. O cruzamento subsequente do peso dessas cargas ajudará a identificar se as desistências ocorrem por barreiras de frete em produtos pesados ou por falhas na expedição.
@@ -1264,7 +1262,7 @@ ORDER BY valor_absoluto_pedidos DESC;
 
 
 ##### 💻 4.25 Matriz cruzada de status de pedido por região (Valores Absolutos e Relativos)
-> ⚙️ **Nota de Engenharia (Matriz Temporária e Agregação Condicional):** Em conformidade com as diretrizes de governança e otimização do projeto, esta query foi construída utilizando uma arquitetura em duas etapas temporárias via CTEs. A `base_status_regiao` padroniza a segmentação geográfica do país, e a `contagem_matriz` executa um pivô por meio de agregação condicional com `COUNT(CASE WHEN)`. Essa técnica permite que o BigQuery varra a base linha por linha e contabilize simultaneamente os volumes absolutos de múltiplos status em colunas separadas sem a necessidade de realizar múltiplos `JOINs` lentos e custosos, calculando os percentuais de eficiência, trânsito e perda com alta performance sobre o volume total da região.
+
 
 ```sql
 WITH base_status_regiao AS (
@@ -1310,6 +1308,9 @@ FROM contagem_matriz
 ORDER BY entregues_porcentagem DESC;
 ```
 
+> ⚙️ **Nota de Engenharia (Matriz Temporária e Agregação Condicional):** Em conformidade com as diretrizes de governança e otimização do projeto, esta query foi construída utilizando uma arquitetura em duas etapas temporárias via CTEs. A `base_status_regiao` padroniza a segmentação geográfica do país, e a `contagem_matriz` executa um pivô por meio de agregação condicional com `COUNT(CASE WHEN)`. Essa técnica permite que o BigQuery varra a base linha por linha e contabilize simultaneamente os volumes absolutos de múltiplos status em colunas separadas sem a necessidade de realizar múltiplos `JOINs` lentos e custosos, calculando os percentuais de eficiência, trânsito e perda com alta performance sobre o volume total da região.
+
+
 ##### 📋 Tabela Resultado 4.25
 <!-- Insira aqui a tabela gerada a partir do JSON 4.25 -->
 
@@ -1320,17 +1321,16 @@ ORDER BY entregues_porcentagem DESC;
 
 #### 🗺️ Macroestrutura de Densidade Geográfica: Análise de Destino (Polos Consumidores)
 
-##### 🔍 Pergunta de Negócio: Onde estão concentrados os polos de consumo das cargas e como o balanço entre Origem e Destino afeta o equilíbrio financeiro das rotas?
 
-* 💡 **A Hiperconcentração do Mercado Consumidor (4.26):** A análise revela que a Região Sudeste é a maior força consumidora do ecossistema, abocanhando expressivos 68,71% de participação relativa (70.381 pedidos recebidos). Isso prova que mais de dois terços de toda a carga transportada é consumida dentro da mesma região que lidera as expedições, validando a necessidade de investimentos focados em malhas de *Last Mile* urbanas hiperconcentradas e estruturas de *cross-docking*. 
-* 💡 **O Paradoxo Logístico da Região Norte:** Embora o Norte represente uma participação residual de 1,85% na base nacional, o volume absoluto de 1.902 pedidos recebidos expõe um grave **desequilíbrio de fluxo**. Ao cruzar este dado com a origem (que registrou apenas 26 despachos), comprova-se estatisticamente que o Norte consome 73 vezes mais do que expede. Na prática, isso significa que os veículos entram cheios na região e retornam vazios (*frete morto*), encarecendo severamente o custo da rota por escassez de carga de retorno. Essa descoberta serve como justificativa crucial para propor tabelas de frete diferenciadas e parcerias de subcontratação para essa praça.
+* 💡 A análise revela que a Região Sudeste é a maior força consumidora do ecossistema, abocanhando expressivos 68,71% de participação relativa (70.381 pedidos recebidos). Isso prova que mais de dois terços de toda a carga transportada é consumida dentro da mesma região que lidera as expedições, validando a necessidade de investimentos focados em malhas de *Last Mile* urbanas hiperconcentradas e estruturas de *cross-docking*. 
+* 💡 Embora o Norte represente uma participação residual de 1,85% na base nacional, o volume absoluto de 1.902 pedidos recebidos expõe um grave **desequilíbrio de fluxo**. Ao cruzar este dado com a origem (que registrou apenas 26 despachos), comprova-se estatisticamente que o Norte consome 73 vezes mais do que expede. Na prática, isso significa que os veículos entram cheios na região e retornam vazios (*frete morto*), encarecendo severamente o custo da rota por escassez de carga de retorno. Essa descoberta serve como justificativa crucial para propor tabelas de frete diferenciadas e parcerias de subcontratação para essa praça.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.26), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.26 Análise de recebimentos por região de destino (Valores Absolutos e Relativos)
-> ⚙️ **Nota de Engenharia (Otimização de Métricas Globais):** Para calcular o percentual relativo de cada região sem a necessidade de subqueries repetitivas, utilizou-se a função de janela analítica `SUM(COUNT(*)) OVER()`. Essa abordagem instrui o BigQuery a computar primeiro o agrupamento geográfico por destino e, em seguida, somar os resultados de todas as linhas em um único passo de processamento (*Scan*), fornecendo o denominador global de forma limpa e performática.
-> 📊 **Comportamento Estatístico Intermediário:** As regiões Sul (14,18% / 14.531 pedidos) e Nordeste (9,39% / 9.625 pedidos) ocupam os postos intermediários de atração de carga. Para o Nordeste, esse volume de quase 10% representa um desafio clássico de transferência de longa distância (*Middle Mile*): por estar geograficamente distante dos principais centros fabris do Sudeste, essas rotas exigem transportes interestaduais robustos e controle rígido para mitigar atrasos e garantir o cumprimento do SLA.
+
+> 📊 As regiões Sul (14,18% / 14.531 pedidos) e Nordeste (9,39% / 9.625 pedidos) ocupam os postos intermediários de atração de carga. Para o Nordeste, esse volume de quase 10% representa um desafio clássico de transferência de longa distância (*Middle Mile*): por estar geograficamente distante dos principais centros fabris do Sudeste, essas rotas exigem transportes interestaduais robustos e controle rígido para mitigar atrasos e garantir o cumprimento do SLA.
 
 ```sql
 WITH base_destino AS (
@@ -1364,6 +1364,8 @@ FROM contagem_destino
 ORDER BY valor_relativo_porcentagem DESC;
 ```
 
+> ⚙️ **Nota de Engenharia (Otimização de Métricas Globais):** Para calcular o percentual relativo de cada região sem a necessidade de subqueries repetitivas, utilizou-se a função de janela analítica `SUM(COUNT(*)) OVER()`. Essa abordagem instrui o BigQuery a computar primeiro o agrupamento geográfico por destino e, em seguida, somar os resultados de todas as linhas em um único passo de processamento (*Scan*), fornecendo o denominador global de forma limpa e performática.
+
 ##### 📋 Tabela Resultado 4.26
 <!-- Insira aqui a tabela gerada a partir do JSON 4.26 -->
 
@@ -1374,17 +1376,16 @@ ORDER BY valor_relativo_porcentagem DESC;
 
 #### 📐 Tendência Central do Consumo: Média vs. Mediana de Peso por Região de Recebimento (Destino)
 
-##### 🔍 Pergunta de Negócio: O comportamento assimétrico do peso é uma particularidade dos polos de expedição ou uma característica intrínseca do consumidor final em todo o território nacional?
 
-* 💡 **O Diagnóstico Definitivo da Assimetria Nacional (4.27):** O confronto entre as médias e medianas de destino revela que a **assimetria positiva severa** é um padrão cultural e geográfico generalizado na malha brasileira. Em todas as regiões do país, a média aritmética chega a triplicar o valor da mediana (como no Sudeste, com média de 2,102 kg vs. mediana de 0,699 kg). Isso prova matematicamente que o consumidor final do e-commerce brasileiro compra predominantemente volumes subquilo levíssimos, mas a operação de distribuição urbana (*Last Mile*) é obrigada a manter frotas preparadas para absorver picos esporádicos de cargas pesadas. Fica demonstrado que a média linear de ~2 kg é uma métrica frágil para dimensionar custos e capacidades, justificando a urgência de réguas de corte estatísticas.
-* 💡 **O Perfil de Consumo da Região Norte:** A Região Norte lidera o ranking com a maior média de peso recebido do país (2,238 kg). Como esta análise conta com uma amostragem robusta de destino (1.902 pedidos), elimina-se em definitivo o viés de subamostragem visto na origem. No entanto, a mediana fixa-se em apenas 0,607 kg. Essa distância matemática gigantesca atesta que o consumo nortista é composto majoritariamente por pacotes ultra-leves (abaixo de 600g), mas a média é violentamente inflada por uma minoria de encomendas pesadas (*outliers* de destino), exigindo atenção e tabelas de frete cirúrgicas no gerenciamento do transporte de longa distância (*Middle Mile*).
+* 💡 O confronto entre as médias e medianas de destino revela que a **assimetria positiva severa** é um padrão cultural e geográfico generalizado na malha brasileira. Em todas as regiões do país, a média aritmética chega a triplicar o valor da mediana (como no Sudeste, com média de 2,102 kg vs. mediana de 0,699 kg). Isso prova matematicamente que o consumidor final do e-commerce brasileiro compra predominantemente volumes subquilo levíssimos, mas a operação de distribuição urbana (*Last Mile*) é obrigada a manter frotas preparadas para absorver picos esporádicos de cargas pesadas. Fica demonstrado que a média linear de ~2 kg é uma métrica frágil para dimensionar custos e capacidades, justificando a urgência de réguas de corte estatísticas.
+* 💡 A Região Norte lidera o ranking com a maior média de peso recebido do país (2,238 kg). Como esta análise conta com uma amostragem robusta de destino (1.902 pedidos), elimina-se em definitivo o viés de subamostragem visto na origem. No entanto, a mediana fixa-se em apenas 0,607 kg. Essa distância matemática gigantesca atesta que o consumo nortista é composto majoritariamente por pacotes ultra-leves (abaixo de 600g), mas a média é violentamente inflada por uma minoria de encomendas pesadas (*outliers* de destino), exigindo atenção e tabelas de frete cirúrgicas no gerenciamento do transporte de longa distância (*Middle Mile*).
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.27), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.27 Média e mediana do peso por Região de Recebimento (Destino)
-> ⚙️ **Nota de Engenharia (Janelas de Percentil com Agrupamento):** Para calcular a mediana de peso por destino de forma performática sobre o volume de registros, utilizou-se a função de janela analítica `PERCENTILE_CONT(peso_em_kg, 0.5) OVER(PARTITION BY ...)` dentro de uma CTE inicial. No bloco principal, a função de agregação `ANY_VALUE(mediana_janela)` foi empregada para capturar o valor calculado da mediana de forma compatível com a cláusula `GROUP BY`, eliminando o custo computacional de processar subqueries aninhadas redundantes no BigQuery.
-> 📊 **Homogeneidade do Bloco Nordeste e Centro-Oeste:** O Nordeste (média de 2,060 kg) e o Centro-Oeste (média de 1,990 kg) fecham a tabela com os menores índices de massa média recebida. Mantendo a mesma dinâmica de medianas próximas a 600 gramas, essas regiões confirmam a necessidade de uma consolidação de cargas focada em caixas pequenas e fracionadas, ideais para a otimização de rotas capilares de entrega e distribuição por veículos comerciais leves.
+
+> 📊 O Nordeste (média de 2,060 kg) e o Centro-Oeste (média de 1,990 kg) fecham a tabela com os menores índices de massa média recebida. Mantendo a mesma dinâmica de medianas próximas a 600 gramas, essas regiões confirmam a necessidade de uma consolidação de cargas focada em caixas pequenas e fracionadas, ideais para entrega e distribuição por veículos comerciais leves.
 
 ```sql
 WITH base_mediana_destino AS (
@@ -1423,6 +1424,8 @@ GROUP BY regiao_destino
 ORDER BY peso_medio_recebimento_kg DESC;
 ```
 
+> ⚙️ **Nota de Engenharia (Janelas de Percentil com Agrupamento):** Para calcular a mediana de peso por destino de forma performática sobre o volume de registros, utilizou-se a função de janela analítica `PERCENTILE_CONT(peso_em_kg, 0.5) OVER(PARTITION BY ...)` dentro de uma CTE inicial. No bloco principal, a função de agregação `ANY_VALUE(mediana_janela)` foi empregada para capturar o valor calculado da mediana de forma compatível com a cláusula `GROUP BY`, eliminando o custo computacional de processar subqueries aninhadas redundantes no BigQuery.
+
 ##### 📋 Tabela Resultado 4.27
 <!-- Insira aqui a tabela gerada a partir do JSON 4.27 -->
 
@@ -1433,17 +1436,17 @@ ORDER BY peso_medio_recebimento_kg DESC;
 
 #### 🛡️ Relatório de Auditoria: Validação Cruzada de Consistência Sinóptica (Origem vs. Destino)
 
-##### 🔍 Objetivo de Governança: Investigar potenciais inconsistências estruturais ou indícios de espelhamento redundante de dados (replicação artificial de registros) nas pontas de expedição e recebimento.
+No intuito de investigar potenciais inconsistências estruturais ou indícios de espelhamento redundante de dados nas tabelas de expedição e recebimento de cargas, foi feita uma auritoria comparando as métricas nas duas tabelas.
 
 * 💡 **Homologação e Integridade da Base (100% Confiável):** A auditoria estatística descartou em definitivo qualquer hipótese de erro de gravação ou duplicação sistêmica de registros no ecossistema da Olist. As variações decimais sutis e realistas encontradas entre as duas visões (ex: Mediana do Sudeste a 0,675 kg na Origem vs. 0,699 kg no Destino) comprovam a total independência das tabelas e atestam que o banco de dados reflete o deslocamento físico real das mercadorias. A assimetria positiva severa (Média cravando o triplo da Mediana) é um fato concreto do mercado brasileiro, e não um erro de infraestrutura de dados.
-* 💡 **Comprovação dos Fluxos de Importação e Exportação:** O cruzamento sinóptico isolou com precisão a vocação comercial das regiões. O Nordeste e o Centro-Oeste registram médias de expedição significativamente menores (1,480 kg e 1,220 kg) do que suas respectivas médias de consumo/recebimento (2,060 kg e 1,990 kg). Esse descompasso confirma que essas praças produzem itens leves e fracionados, mas importam cargas industriais e densas provenientes do polo fabril Sul/Sudeste, justificando perfeitamente a flutuação estatística e garantindo segurança metodológica para avançar para a modelagem de remoção de *outliers*.
+* 💡 **Comprovação dos Fluxos de Importação e Exportação:** O cruzamento sinóptico confrontou com precisão os dados. O Nordeste e o Centro-Oeste registram médias de expedição significativamente menores (1,480 kg e 1,220 kg) do que suas respectivas médias de consumo/recebimento (2,060 kg e 1,990 kg). Essas diferenças entre os dados comparados justificam perfeitamente a flutuação estatística, garantindo segurança metodológica para avançar para as próximas etapas.
 
 <details>
 <summary><b>📋 Ver Diagnóstico Detalhado da Auditoria e Tabela Sinóptica Consolidada</b></summary>
 
 ##### 📐 Diagnóstico Estrutural de Governança
-* **Validação do Core Business:** Em ambas as perspectivas geográficas, as medianas nacionais permanecem solidamente ancoradas na faixa subquilo (entre 0,500 kg e 0,975 kg). Isso carimba com precisão científica a tese central do projeto Capstone: o "coração" volumétrico do e-commerce brasileiro é composto majoritariamente por pacotes leves de varejo (B2C), independente da unidade federativa analisada.
-* **Aprovação do Modelo:** Com a base oficialmente auditada, validada e livre de vieses sistêmicos de replicação, o projeto possui o aval técnico necessário para a aplicação dos filtros estatísticos baseados na Regra de Tukey ($Q3 + 1.5 \times IQR$).
+* **Validação do Core Business:** Em ambas as perspectivas geográficas, as medianas nacionais permanecem solidamente ancoradas na faixa entre 0,500 kg e 0,975 kg. Isso carimba com precisão científica a tese central do projeto: que as operações logísticas são compostas majoritariamente por pacotes leves de varejo (B2C), independentemente da unidade federativa analisada.
+* **Aprovação do Modelo:** Com a base oficialmente auditada, validada e livre de vieses de duplicação, o projeto possui o aval técnico para seguir adiante nas análises.
 
 ##### 📊 Tabela Consolidada da Auditoria Operacional (Peso em kg por Região)
 
@@ -1463,17 +1466,17 @@ ORDER BY peso_medio_recebimento_kg DESC;
 
 #### 📐 Métricas de Dispersão de Consumo: Quartis e Intervalo Interquartílico (IQR) de Peso por Destino
 
-##### 🔍 Pergunta de Negócio: Como se comporta a variabilidade física no "miolo" central (50% do fluxo) das mercadorias entregues em cada mercado consumidor?
 
-* 💡 **Diagnóstico Estatístico Principal:** A análise dos quartis por destino revela que o miolo das cargas recebidas em todas as regiões brasileiras é extremamente leve e estável. Com o Primeiro Quartil ($Q1$) consistentemente abaixo de 300 gramas e o Terceiro Quartil ($Q3$) fixado na faixa de 1,5 kg a 2,5 kg, o IQR regional demonstra baixa dispersão no fluxo típico de compras. Isso contrasta fortemente com as médias de ~2 kg avaliadas nas etapas anteriores, confirmando estatisticamente que a variabilidade que desafia a frota não está no comportamento de compra diário do cliente (que é homogêneo), mas sim na presença agressiva de anomalias (*outliers* pesados acima do Q3) que inflam as médias de recebimento. A concentração de mais de 75% dos recebimentos abaixo de 2,5 kg serve como justificativa técnica para estruturar a operação de entrega prioritariamente para alta cubagem e baixo peso, utilizando modais ágeis (motos, furgões leves).
+
+* 💡 A análise dos quartis por destino revela que o miolo das cargas recebidas em todas as regiões brasileiras é extremamente leve e estável. Com o Primeiro Quartil ($Q1$) consistentemente abaixo de 300 gramas e o Terceiro Quartil ($Q3$) fixado na faixa de 1,5 kg a 2,5 kg, o IQR regional demonstra baixa dispersão no fluxo típico de compras. Isso contrasta fortemente com as médias de ~2 kg avaliadas nas etapas anteriores, confirmando estatisticamente que a variabilidade que desafia a frota não está no comportamento de compra diário do cliente (que é homogêneo), mas sim na presença agressiva de anomalias (*outliers* pesados acima do Q3) que inflam as médias de recebimento. A concentração de mais de 75% dos recebimentos abaixo de 2,5 kg serve como justificativa técnica para estruturar a operação de entrega prioritariamente para alta cubagem e baixo peso, utilizando modais ágeis (motos, furgões leves).
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.28), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.28 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do Peso por Destino
-> 📊 **Comportamento Estatístico Regional:**
-> * **Estabilidade do Perfil Consumidor:** O fato de o IQR regional (a distância entre Q1 e Q3) ser controlado e estreito em todo o país indica que, do ponto de vista do consumidor final, o padrão de consumo de massa do e-commerce nacional é homogêneo e composto por pequenos pacotes, independente do mercado de destino.
-> * **Alinhamento com o Last Mile:** Os parâmetros matemáticos encontrados sepultam a necessidade de frotas pesadas rígidas no pátio de distribuição urbana. Para maximizar as janelas de produtividade diária nas cidades, o planejamento de capacidade deve focar na roteirização capilar baseada em veículos comerciais leves.
+
+> * O fato de o IQR regional (a distância entre Q1 e Q3) ser controlado e estreito em todo o país indica que, do ponto de vista do consumidor final, o padrão de consumo de massa do e-commerce nacional é homogêneo e composto por pequenos pacotes, independente do mercado de destino.
+> * Os parâmetros matemáticos encontrados sepultam a necessidade de frotas pesadas no pátio de distribuição urbana. Para maximizar a produtividade diária nas cidades, o planejamento de capacidade deve focar na roteirização baseada em veículos leves.
 
 ```sql
 SELECT DISTINCT
@@ -1553,17 +1556,17 @@ ORDER BY iqr_peso_kg DESC;
 
 #### 📐 Extremos e Variabilidade Total de Consumo: Mínimo, Máximo e Amplitude de Peso por Destino
 
-##### 🔍 Pergunta de Negócio: Quais são as barreiras físicas absolutas e a variação total de peso que impactam o planejamento das entregas urbanas (Last Mile) em cada região?
 
-* 💡 **Diagnóstico Estatístico Principal:** O mapeamento dos extremos por destino revela comportamentos operacionais distintos entre as malhas regionais. O eixo **Sul/Sudeste** lidera a variabilidade com volatilidade radical, compartilhando do teto absoluto de 40,424 kg e amplitudes que chegam a 40,422 kg, partindo de mínimos de apenas 2 gramas. No extremo oposto, as regiões **Centro-Oeste, Nordeste e Norte** exibem um comportamento simétrico, travando seus limites máximos em exatamente 30,000 kg e iniciando em mínimos uniformes de 50 gramas. Essa barreira cravada nos 30 kg sugere uma restrição física ou contratual de envio de mercadorias no e-commerce (como limites de agências parceiras de capilaridade), enquanto a ausência de microvolumes moleculares de poucas gramas indica fluxos mais concentrados em pacotes tradicionais de varejo.
+
+* 💡 O mapeamento dos extremos por destino revela comportamentos operacionais distintos entre as malhas regionais. O eixo **Sul/Sudeste** lidera a variabilidade com volatilidade radical, compartilhando do teto absoluto de 40,424 kg e amplitudes que chegam a 40,422 kg, partindo de mínimos de apenas 2 gramas. No extremo oposto, as regiões **Centro-Oeste, Nordeste e Norte** exibem um comportamento simétrico, travando seus limites máximos em exatamente 30,000 kg e iniciando em mínimos uniformes de 50 gramas. Essa barreira cravada nos 30 kg sugere uma restrição física ou contratual de envio de mercadorias no e-commerce (como limites de agências parceiras de capilaridade), enquanto a ausência de microvolumes moleculares de poucas gramas indica fluxos mais concentrados em pacotes tradicionais de varejo.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.29), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.29 Calculando Mínimo, Máximo e Amplitude Total do Peso por Região de Destino
-> 📊 **Comportamento Estatístico e Alinhamento com a Auditoria:**
-> * **Volatilidade Radical no Sul/Sudeste:** A coabitação de pacotes de 2 gramas com volumes pesados de mais de 40 kg na mesma malha urbana exige alta versatilidade das frotas de distribuição de *Last Mile*, impedindo frotas rígidas.
-> * **Consistência de Extremos:** A análise das amplitudes valida com precisão a auditoria operacional anterior. Ao confrontar a amplitude de até 40,422 kg com as medianas de destino (que mantêm-se abaixo de 710 gramas), comprova-se matematicamente que o fluxo de consumo de massa do e-commerce é leve, e que o indicador de variação total é esticado por anomalias isoladas (*outliers*).
+
+> * A existência simultânea de pacotes de 2 gramas com volumes pesados de mais de 40 kg na mesma malha urbana exige alta versatilidade das frotas de distribuição de *Last Mile*, impedindo frotas rígidas.
+> * A análise das amplitudes valida com precisão a auditoria operacional anterior. Ao confrontar a amplitude de até 40,422 kg com as medianas de destino (que mantêm-se abaixo de 710 gramas), comprova-se matematicamente que o fluxo de consumo de massa do e-commerce é de carga leve, e que o indicador de variação total é distorcido por anomalias isoladas (*outliers*).
 
 ```sql
 SELECT DISTINCT
@@ -1642,19 +1645,18 @@ ORDER BY amplitude_peso_destino_kg DESC;
 
 #### 📐 Volatilidade e Instabilidade de Consumo: Desvio Padrão e Coeficiente de Variação (CV) por Região de Destino
 
-##### 🔍 Pergunta de Negócio: Qual é o nível de dispersão absoluta e imprevisibilidade relativa do peso recebido pelas frotas de Last Mile em cada mercado consumidor?
 
-* 💡 **Diagnóstico Estatístico Principal (Veredito do Destino):** A análise do Coeficiente de Variação (CV) entrega o veredito definitivo sobre o perfil de consumo da malha: todas as regiões do Brasil operam com volatilidade extrema, registrando um CV superior a 170%. A Região Norte assume o topo do ranking de instabilidade nacional (~188,85% de CV), consolidando-se como o pátio de destino mais complexo para o recebimento de frete. Na ciência de dados e na engenharia de transportes, um cenário onde o desvio padrão supera a média em mais de 1,7 vezes é o reflexo empírico de um comportamento **heterocedástico** com forte **assimetria positiva (cauda longa)**. Fica provado que a média linear isolada é uma métrica frágil para modelagem devido à sua alta sensibilidade a extremos, justificando tecnicamente a urgência de avançar para a próxima etapa macro do projeto: a aplicação matemática da Regra de Tukey para segmentar e isolar essas duas realidades físicas da operação.
+
+* 💡 A análise do Coeficiente de Variação (CV) entrega o veredito definitivo sobre o perfil de consumo da malha: todas as regiões do Brasil operam com volatilidade extrema, registrando um CV superior a 170%. A Região Norte assume o topo do ranking de instabilidade nacional (~188,85% de CV), consolidando-se como o pátio de destino mais complexo para o recebimento de frete. Na ciência de dados e na engenharia de transportes, um cenário onde o desvio padrão supera a média em mais de 1,7 vezes é o reflexo empírico de um comportamento **heterocedástico** com forte **assimetria positiva (cauda longa)**. Fica provado que a média linear isolada é uma métrica frágil para modelagem devido à sua alta sensibilidade a extremos, justificando tecnicamente a urgência de avançar para a próxima etapa macro do projeto: a aplicação matemática da Regra de Tukey para segmentar e isolar essas duas realidades físicas da operação.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.30), Justificativas Estatísticas e Resultados</b></summary>
 
 ##### 💻 4.30 Desvio Padrão e Coeficiente de Variação do Peso por Região de Destino
-> ⚙️ **Nota de Engenharia (Cálculo Otimizado de Dispersão Relativa):** Para calcular o indicador de volatilidade relativa sem infligir custos computacionais excessivos ao BigQuery, a query foi estruturada utilizando funções de janela analíticas (`STDDEV_SAMP(...) OVER` e `AVG(...) OVER`) em uma CTE inicial (`metricas_variabilidade`). No bloco principal, a cláusula `SELECT DISTINCT` consolida os desvios e médias calculados diretamente para o nível geográfico desejado, mitigando o processamento de subqueries aninhadas repetitivas sobre o volume de registros.
-> 📊 **Comportamento Estatístico Regional:**
-> * **O Caos Operacional no Norte:** O fato de o CV atingir 188,85% com um desvio padrão de 4,226 kg prova matematicamente que o desvio é quase o dobro da média de recebimento local, inviabilizando planos de armazenamento rígidos.
-> * **O Alinhamento Centro-Oeste e Nordeste:** Ambas as regiões exibem índices de volatilidade elevados e equivalentes (acima de 180% CV, desvios na casa dos 3,700 kg), compartilhando exatamente os mesmos desafios operacionais na cubagem de veículos leves urbanos.
-> * **Amortecimento no Eixo Sul-Sudeste:** O Sudeste (~179,38% CV) e o Sul (~174,28% CV) registram as menores taxas relativas do país. Embora a dispersão continue severa devido aos tetos de 40 kg, o volume massivo de dados dessas praças atua como um colchão estatístico que amortece o impacto das oscilações diárias da frota.
+
+> * O fato de o CV atingir 188,85% com um desvio padrão de 4,226 kg prova matematicamente que o desvio é quase o dobro da média de recebimento local, inviabilizando planos de armazenamento rígidos.
+> * Ambas as regiões exibem índices de volatilidade elevados e equivalentes (acima de 180% CV, desvios na casa dos 3,700 kg), compartilhando exatamente os mesmos desafios operacionais na cubagem de veículos leves urbanos.
+> * O Sudeste (~179,38% CV) e o Sul (~174,28% CV) registram as menores taxas relativas do país. 
 
 ```sql
 WITH metricas_variabilidade AS (
@@ -1702,6 +1704,8 @@ SELECT DISTINCT
 FROM metricas_variabilidade
 ORDER BY coeficiente_variacao_pct DESC;
 ```
+
+> ⚙️ **Nota de Engenharia (Cálculo Otimizado de Dispersão Relativa):** Para calcular o indicador de volatilidade relativa sem infligir custos computacionais excessivos ao BigQuery, a query foi estruturada utilizando funções de janela analíticas (`STDDEV_SAMP(...) OVER` e `AVG(...) OVER`) em uma CTE inicial (`metricas_variabilidade`). No bloco principal, a cláusula `SELECT DISTINCT` consolida os desvios e médias calculados diretamente para o nível geográfico desejado, mitigando o processamento de subqueries aninhadas repetitivas sobre o volume de registros.
 
 ##### 📋 Tabela Resultado 4.30
 <!-- Insira aqui a tabela gerada a partir do JSON 4.30 -->
