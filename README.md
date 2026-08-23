@@ -478,7 +478,7 @@ ORDER BY peso_total_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.1
-<!-- | peso_total_kg | estado_origem |
+| peso_total_kg | estado_origem |
 |---------------|---------------|
 | 148941.66     | SP            |
 | 22434.44      | MG            |
@@ -503,7 +503,7 @@ ORDER BY peso_total_kg DESC;
 | 14.44         | SE            |
 | 1.9           | AC            |
 | 1.05          | AM            |
- -->
+
 
 ##### 💻 4.2 Frequência absoluta do peso total por região usando a cláusula CASE WHEN
 ```sql
@@ -523,14 +523,14 @@ ORDER BY peso_total_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.2
-<!-- | regiao_origem | peso_total_kg |
+| regiao_origem | peso_total_kg |
 |---------------|---------------|
 | Sudeste       | 179880.41     |
 | Sul           | 30089.78      |
 | Nordeste      | 2335.01       |
 | Centro-Oeste  | 1833.07       |
 | Norte         | 63.61         |
- -->
+
 
 
 ##### 💻 4.6 Frequência absoluta por região (Total de Despachos)
@@ -551,14 +551,14 @@ ORDER BY valor_absoluto_despachos DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.6
-<!-- | regiao_origem | valor_absoluto_despachos |
+| regiao_origem | valor_absoluto_despachos |
 |---------------|--------------------------|
 | Sudeste       | 85681                    |
 | Sul           | 13640                    |
 | Nordeste      | 1580                     |
 | Centro-Oeste  | 1498                     |
 | Norte         | 26                       |
- -->
+
 
 ##### 💻 4.7 Frequência relativa de cargas despachadas por região (Percentual)
 ```sql
@@ -579,14 +579,14 @@ ORDER BY percentual_total DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.7
-<!-- | regiao_origem | total_despachos | percentual_total |
+| regiao_origem | total_despachos | percentual_total |
 |---------------|-----------------|------------------|
 | Sudeste       | 85681           | 83.6524          |
 | Sul           | 13640           | 13.3171          |
 | Nordeste      | 1580            | 1.5426           |
 | Centro-Oeste  | 1498            | 1.4625           |
 | Norte         | 26              | 0.0254           |
- -->
+
 
 </details>
 
@@ -622,14 +622,14 @@ ORDER BY media_peso DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.8
-<!-- | regiao_origem | media_peso |
+| regiao_origem | media_peso |
 |---------------|------------|
 | Norte         | 2.45       |
 | Sul           | 2.21       |
 | Sudeste       | 2.1        |
 | Nordeste      | 1.48       |
 | Centro-Oeste  | 1.22       |
- -->
+
 
 
 ##### 💻 4.9 Calculando a mediana do peso por estado
@@ -648,7 +648,7 @@ ORDER BY mediana_peso DESC;
 
 
 ##### 📋 Tabela Resultado 4.9
-<!-- | estado_origem | mediana_peso |
+| estado_origem | mediana_peso |
 |---------------|--------------|
 | ES            | 8.875        |
 | CE            | 3.35         |
@@ -673,7 +673,7 @@ ORDER BY mediana_peso DESC;
 | MA            | 0.4          |
 | DF            | 0.39         |
 | AM            | 0.35         |
- -->
+
 
 
 ##### 💻 4.10 Calculando a mediana do peso por região
@@ -705,14 +705,14 @@ ORDER BY mediana_peso DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.10
-<!-- | regiao_origem | mediana_peso |
+| regiao_origem | mediana_peso |
 |---------------|--------------|
 | Norte         | 0.975        |
 | Sul           | 0.75         |
 | Sudeste       | 0.675        |
 | Nordeste      | 0.533        |
 | Centro-Oeste  | 0.5          |
- -->
+
 
 </details>
 
@@ -754,7 +754,7 @@ ORDER BY iqr_peso DESC;
 
 
 ##### 📋 Tabela Resultado 4.11
-<!-- | estado_origem | total_despachos | q1_peso | q3_peso | iqr_peso |
+| estado_origem | total_despachos | q1_peso | q3_peso | iqr_peso |
 |---------------|-----------------|---------|---------|----------|
 | ES            | 323             | 1.3     | 9.0     | 7.7      |
 | CE            | 91              | 0.75    | 5.25    | 4.5      |
@@ -779,7 +779,7 @@ ORDER BY iqr_peso DESC;
 | AM            | 3               | 0.341   | 0.359   | 0.018    |
 | AC            | 1               | 1.899   | 1.899   | 0.0      |
 | PE            | 409             | 0.533   | 0.533   | 0.0      |
- -->
+
 
 
 ##### 💻 4.12 Calculando o intervalo interquartílico por região
@@ -847,14 +847,14 @@ ORDER BY iqr_peso DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.12
-<!-- | regiao_origem | q1_peso | q3_peso | iqr_peso |
+| regiao_origem | q1_peso | q3_peso | iqr_peso |
 |---------------|---------|---------|----------|
 | Norte         | 0.642   | 2.7     | 2.057    |
 | Sul           | 0.299   | 2.1     | 1.8      |
 | Sudeste       | 0.299   | 1.8     | 1.5      |
 | Centro-Oeste  | 0.224   | 1.276   | 1.052    |
 | Nordeste      | 0.45    | 0.762   | 0.312    |
- -->
+
 
 </details>
 
@@ -903,7 +903,7 @@ ORDER BY qte_outliers_moderados DESC;
 > ⚙️ **Justificativa de Engenharia e Necessidade do JOIN:** O BigQuery não permite comparar, na mesma linha, um dado individual (o peso de um único pacote) com um dado agregado (a régua de corte do estado) sem que eles estejam conectados. Para solucionar essa limitação, utilizou-se uma arquitetura em três etapas: a CTE `limites_base` calcula os percentis isolados; a CTE `regras_corte` aplica a fórmula de Tukey ($Q3 + 1.5 \times IQR$); e o `JOIN` atua como uma ponte física, colando a régua de corte estadual ao lado de cada uma das 102.425 linhas correspondentes da tabela bruta. Com essa associação feita, o comando condicional `COUNT(CASE WHEN)` varre a base linha por linha, calculando com precisão os volumes e os percentuais de violação por praça.
 
 ##### 📋 Tabela Resultado 4.15
-<!-- | estado_origem | total_despachos | qte_outliers_moderados | percentual_outliers |
+| estado_origem | total_despachos | qte_outliers_moderados | percentual_outliers |
 |---------------|-----------------|------------------------|---------------------|
 | SP            | 72818           | 10016                  | 13.75               |
 | PR            | 7877            | 939                    | 11.92               |
@@ -928,7 +928,7 @@ ORDER BY qte_outliers_moderados DESC;
 | MS            | 49              | 1                      | 2.04                |
 | AM            | 3               | 0                      | 0.0                 |
 | AC            | 1               | 0                      | 0.0                 |
- -->
+
 
 
 ##### 💻 4.16 Identificação de valores extremos (mínimo e máximo) por estado
@@ -949,7 +949,7 @@ ORDER BY amplitude_peso_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.16
-<!-- | estado_origem | total_despachos | peso_minimo_kg | peso_maximo_kg | amplitude_peso_kg |
+| estado_origem | total_despachos | peso_minimo_kg | peso_maximo_kg | amplitude_peso_kg |
 |---------------|-----------------|----------------|----------------|-------------------|
 | SP            | 72818           | 0.002          | 40.425         | 40.422            |
 | PR            | 7877            | 0.05           | 30.0           | 29.949            |
@@ -974,7 +974,7 @@ ORDER BY amplitude_peso_kg DESC;
 | MA            | 397             | 0.3            | 1.4            | 1.099             |
 | AM            | 3               | 0.333          | 0.37           | 0.036             |
 | AC            | 1               | 1.9            | 1.9            | 0.0               |
- -->
+
 
 </details>
 
@@ -986,9 +986,6 @@ ORDER BY amplitude_peso_kg DESC;
 > **Premissas de Modelagem vs. Realidade Estatística da Malha:**
 > 
 > Na fase de design e modelagem, adotou-se uma diretriz tradicional de transporte rodoviário de cargas, projetando as estruturas e cálculos de cubagem na escala de TONELADAS e METROS CÚBICOS ($m^3$). O objetivo era analisar grandes massas de peso e volume regionais e comparar os fatores de cubagem para traçar estratégias de negócios. Entretanto, a fase de Análise Exploratória e Estatística Descritiva provou que a operação física real é predominantemente composta por microvolumes de e-commerce (varejo/B2C). Assim, as colunas estruturadas em $m^3$ e toneladas no banco de dados foram mantidas, mas as análises deste projeto em relação à cubagem focarão exclusivamente em **centímetros cúbicos**, em vez de metros cúbicos. Essa medida se faz necessária, pois a conversão em metros cúbicos exibe números decimais estremamente pequenos (como 0,000045 m³), o que compromete a legibilidade das informações e a comparação entre as medidas. Já no formato de centímentros cúbicos, temos números decimais com a parte inteira visível, facilitando a compreensão sobre a cubagem. 
-
-
----
 
 
 ---
@@ -1020,7 +1017,7 @@ ORDER BY desvio_padrao_peso DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.17
-<!-- | estado_origem | total_despachos | media_peso_kg | desvio_padrao_peso | coeficiente_variacao_percentual |
+| estado_origem | total_despachos | media_peso_kg | desvio_padrao_peso | coeficiente_variacao_percentual |
 |---------------|-----------------|---------------|--------------------|---------------------------------|
 | CE            | 91              | 5.572         | 6.904              | 123.9004                        |
 | SC            | 3744            | 2.659         | 4.361              | 163.9963                        |
@@ -1045,7 +1042,7 @@ ORDER BY desvio_padrao_peso DESC;
 | MA            | 397             | 0.517         | 0.193              | 37.4199                         |
 | AM            | 3               | 0.351         | 0.018              | 5.2764                          |
 | AC            | 1               | 1.899         | null               | null                            |
- -->
+
 
 </details>
 
@@ -1113,14 +1110,14 @@ ORDER BY media_volume_cm3 DESC;
 > ⚙️ **Nota de Engenharia (Conversão de Escala):** Para mitigar as frações milimétricas decimais do banco de dados e viabilizar a análise descritiva, o código realiza a conversão matemática contínua de metros cúbicos ($m^3$) para centímetros cúbicos ($cm^3$). O uso da função `TRUNC` preserva o tipo `FLOAT64` contínuo e resguarda a precisão fina dos dados, limpando a exibição final em 3 casas decimais sem aplicar arredondamentos matemáticos forçados.
 
 ##### 📋 Tabela Resultado 4.18
-<!-- | regiao_origem | media_volume_cm3 | mediana_volume_cm3 |
+| regiao_origem | media_volume_cm3 | mediana_volume_cm3 |
 |---------------|------------------|--------------------|
 | Sul           | 16144.775        | 7168.0             |
 | Sudeste       | 15190.26         | 6400.0             |
 | Nordeste      | 9908.062         | 4840.0             |
 | Centro-Oeste  | 9862.076         | 4845.0             |
 | Norte         | 8924.23          | 4210.0             |
- -->
+
 
 </details>
 
@@ -1209,14 +1206,14 @@ ORDER BY iqr_volume_cm3 DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.19
-<!-- | regiao_origem | q1_volume_cm3 | q3_volume_cm3 | iqr_volume_cm3 |
+| regiao_origem | q1_volume_cm3 | q3_volume_cm3 | iqr_volume_cm3 |
 |---------------|---------------|---------------|----------------|
 | Sudeste       | 2772.0        | 18750.0       | 15978.0        |
 | Sul           | 3248.0        | 18000.0       | 14751.999      |
 | Centro-Oeste  | 3000.0        | 10920.0       | 7920.0         |
 | Nordeste      | 2964.0        | 8400.0        | 5436.0         |
 | Norte         | 2598.0        | 5850.0        | 3252.0         |
- -->
+
 
 </details>
 
@@ -1305,14 +1302,14 @@ ORDER BY amplitude_volume_cm3 DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.20
-<!-- | regiao_origem | min_volume_cm3 | max_volume_cm3 | amplitude_volume_cm3 |
+| regiao_origem | min_volume_cm3 | max_volume_cm3 | amplitude_volume_cm3 |
 |---------------|----------------|----------------|----------------------|
 | Sul           | 288.0          | 296208.0       | 295920.0             |
 | Sudeste       | 168.0          | 294000.0       | 293832.0             |
 | Centro-Oeste  | 352.0          | 174930.0       | 174578.0             |
 | Nordeste      | 352.0          | 135800.0       | 135448.0             |
 | Norte         | 1122.0         | 64979.999      | 63858.0              |
- -->
+
 
 </details>
 
@@ -1384,14 +1381,14 @@ ORDER BY desvio_padrao_volume_cm3 DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.21
-<!-- | regiao_origem | desvio_padrao_volume_cm3 | cv_volume_percentual |
+| regiao_origem | desvio_padrao_volume_cm3 | cv_volume_percentual |
 |---------------|--------------------------|----------------------|
 | Sul           | 25043.597                | 155.1188             |
 | Sudeste       | 23311.9                  | 153.4661             |
 | Nordeste      | 16776.779                | 169.3245             |
 | Norte         | 14962.306                | 167.6593             |
 | Centro-Oeste  | 14028.527                | 142.2471             |
- -->
+ 
 
 </details>
 
@@ -1424,7 +1421,7 @@ ORDER BY peso_total_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.22
-<!-- | categoria_produto                              | peso_total_kg |
+| categoria_produto                              | peso_total_kg |
 |------------------------------------------------|---------------|
 | Cama Mesa Banho                                | 21936.73      |
 | Utilidades Domesticas                          | 20103.71      |
@@ -1500,7 +1497,7 @@ ORDER BY peso_total_kg DESC;
 | Cds Dvds Musicais                              | 6.59          |
 | Fashion Roupa Infanto Juvenil                  | 2.12          |
 | Seguros e Servicos                             | 1.62          |
- -->
+
 
 
 ##### 💻 4.23 Métricas Estatísticas Descritivas do Peso - Top 5 Categorias Líderes
@@ -1535,14 +1532,14 @@ ORDER BY total_despachos DESC;
 > ⚙️ **Nota de Engenharia (Uso do QUALIFY e Window Functions):** Para extrair os estimadores descritivos completos focando exclusivamente nos fluxos de maior volume, utilizou-se a cláusula `QUALIFY ROW_NUMBER() OVER (ORDER BY total_pedidos_categoria DESC) <= 5`. Essa abordagem otimiza o processamento no BigQuery, permitindo filtrar o resultado de uma função de janela (`COUNT(*) OVER`) na mesma etapa de execução, eliminando a necessidade de aninhar múltiplas subqueries lentas. A função `ANY_VALUE(mediana_janela)` foi empregada para consolidar o cálculo do percentil de forma compatível com o agrupamento do bloco.
 
 ##### 📋 Tabela Resultado 4.23
-<!-- | categoria_produto      | total_despachos | peso_min_kg | peso_max_kg | amplitude_kg | peso_medio_kg | peso_mediano_kg | desvio_padrao_kg |
+| categoria_produto      | total_despachos | peso_min_kg | peso_max_kg | amplitude_kg | peso_medio_kg | peso_mediano_kg | desvio_padrao_kg |
 |------------------------|-----------------|-------------|-------------|--------------|---------------|-----------------|------------------|
 | Cama Mesa Banho        | 10160           | 0.025       | 40.424      | 40.399       | 2.159         | 1.3             | 3.022            |
 | Beleza Saude           | 9022            | 0.05        | 30.0        | 29.949       | 1.069         | 0.424           | 2.92             |
 | Esporte Lazer          | 7858            | 0.05        | 30.0        | 29.949       | 1.781         | 0.699           | 3.389            |
 | Informatica Acessorios | 6887            | 0.05        | 24.05       | 24.0         | 0.911         | 0.299           | 1.797            |
 | Moveis Decoracao       | 6781            | 0.002       | 30.0        | 29.998       | 2.773         | 1.35            | 3.975            |
- -->
+
 
 </details>
 
@@ -1583,7 +1580,7 @@ ORDER BY valor_absoluto_pedidos DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.24
-<!-- | status_pedido | valor_absoluto_pedidos |
+| status_pedido | valor_absoluto_pedidos |
 |---------------|------------------------|
 | Delivered     | 100196                 |
 | Shipped       | 1127                   |
@@ -1592,7 +1589,7 @@ ORDER BY valor_absoluto_pedidos DESC;
 | Processing    | 306                    |
 | Unavailable   | 7                      |
 | Approved      | 2                      |
- -->
+ 
 
 
 ##### 💻 4.25 Matriz cruzada de status de pedido por região (Valores Absolutos e Relativos)
@@ -1646,14 +1643,14 @@ ORDER BY entregues_porcentagem DESC;
 
 
 ##### 📋 Tabela Resultado 4.25
-<!-- | regiao_origem | volume_total | entregues_absoluto | entregues_porcentagem | em_transito_absoluto | em_transito_porcentagem | cancelados_absoluto | cancelados_porcentagem |
+| regiao_origem | volume_total | entregues_absoluto | entregues_porcentagem | em_transito_absoluto | em_transito_porcentagem | cancelados_absoluto | cancelados_porcentagem |
 |---------------|--------------|--------------------|-----------------------|----------------------|-------------------------|---------------------|------------------------|
 | Sul           | 13640        | 13385              | 98.13                 | 114                  | 0.83                    | 49                  | 0.35                   |
 | Centro-Oeste  | 1498         | 1469               | 98.06                 | 15                   | 1.0                     | 6                   | 0.4                    |
 | Nordeste      | 1580         | 1549               | 98.03                 | 15                   | 0.94                    | 3                   | 0.18                   |
 | Sudeste       | 85681        | 83768              | 97.76                 | 983                  | 1.14                    | 407                 | 0.47                   |
 | Norte         | 26           | 25                 | 96.15                 | 0                    | 0.0                     | 0                   | 0.0                    |
- -->
+
 
 </details>
 
@@ -1708,14 +1705,14 @@ ORDER BY valor_relativo_porcentagem DESC;
 > ⚙️ **Nota de Engenharia (Otimização de Métricas Globais):** Para calcular o percentual relativo de cada região sem a necessidade de subqueries repetitivas, utilizou-se a função de janela analítica `SUM(COUNT(*)) OVER()`. Essa abordagem instrui o BigQuery a computar primeiro o agrupamento geográfico por destino e, em seguida, somar os resultados de todas as linhas em um único passo de processamento (*Scan*), fornecendo o denominador global de forma limpa e performática.
 
 ##### 📋 Tabela Resultado 4.26
-<!-- | regiao_destino | valor_absoluto_recebimentos | valor_relativo_porcentagem |
+| regiao_destino | valor_absoluto_recebimentos | valor_relativo_porcentagem |
 |----------------|-----------------------------|----------------------------|
 | Sudeste        | 70381                       | 68.71                      |
 | Sul            | 14531                       | 14.18                      |
 | Nordeste       | 9625                        | 9.39                       |
 | Centro-Oeste   | 5986                        | 5.84                       |
 | Norte          | 1902                        | 1.85                       |
- -->
+
 
 </details>
 
@@ -1775,14 +1772,14 @@ ORDER BY peso_medio_recebimento_kg DESC;
 > ⚙️ **Nota de Engenharia (Janelas de Percentil com Agrupamento):** Para calcular a mediana de peso por destino de forma performática sobre o volume de registros, utilizou-se a função de janela analítica `PERCENTILE_CONT(peso_em_kg, 0.5) OVER(PARTITION BY ...)` dentro de uma CTE inicial. No bloco principal, a função de agregação `ANY_VALUE(mediana_janela)` foi empregada para capturar o valor calculado da mediana de forma compatível com a cláusula `GROUP BY`, eliminando o custo computacional de processar subqueries aninhadas redundantes no BigQuery.
 
 ##### 📋 Tabela Resultado 4.27
-<!-- | regiao_destino | total_pedidos_recebidos | peso_medio_recebimento_kg | peso_mediano_recebimento_kg |
+| regiao_destino | total_pedidos_recebidos | peso_medio_recebimento_kg | peso_mediano_recebimento_kg |
 |----------------|-------------------------|---------------------------|-----------------------------|
 | Norte          | 1902                    | 2.238                     | 0.607                       |
 | Sudeste        | 70381                   | 2.102                     | 0.699                       |
 | Sul            | 14531                   | 2.08                      | 0.709                       |
 | Nordeste       | 9625                    | 2.06                      | 0.612                       |
 | Centro-Oeste   | 5986                    | 1.99                      | 0.599                       |
- -->
+
 
 </details>
 
@@ -1814,8 +1811,6 @@ No intuito de investigar potenciais inconsistências estruturais ou indícios de
 | **Centro-Oeste** | 1,220 kg | 0,500 kg | 1,990 kg | 0,599 kg |
 
 </details>
-
----
 
 ---
 
@@ -1902,14 +1897,14 @@ ORDER BY iqr_peso_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.28
-<!-- | regiao_destino | q1_peso_kg | q3_peso_kg | iqr_peso_kg |
+| regiao_destino | q1_peso_kg | q3_peso_kg | iqr_peso_kg |
 |----------------|------------|------------|-------------|
 | Norte          | 0.28       | 1.85       | 1.57        |
 | Sul            | 0.299      | 1.85       | 1.55        |
 | Nordeste       | 0.299      | 1.8        | 1.5         |
 | Sudeste        | 0.299      | 1.8        | 1.5         |
 | Centro-Oeste   | 0.299      | 1.699      | 1.399       |
- -->
+
 
 </details>
 
@@ -1998,14 +1993,14 @@ ORDER BY amplitude_peso_destino_kg DESC;
 ```
 
 ##### 📋 Tabela Resultado 4.29
-<!-- | regiao_destino | min_peso_destino_kg | max_peso_destino_kg | amplitude_peso_destino_kg |
+| regiao_destino | min_peso_destino_kg | max_peso_destino_kg | amplitude_peso_destino_kg |
 |----------------|---------------------|---------------------|---------------------------|
 | Sudeste        | 0.002               | 40.424              | 40.422                    |
 | Sul            | 0.002               | 40.424              | 40.422                    |
 | Centro-Oeste   | 0.05                | 30.0                | 29.949                    |
 | Nordeste       | 0.05                | 30.0                | 29.949                    |
 | Norte          | 0.05                | 30.0                | 29.949                    |
- -->
+
 
 </details>
 
@@ -2077,14 +2072,14 @@ ORDER BY coeficiente_variacao_pct DESC;
 > ⚙️ **Nota de Engenharia (Cálculo Otimizado de Dispersão Relativa):** Para calcular o indicador de volatilidade relativa sem infligir custos computacionais excessivos ao BigQuery, a query foi estruturada utilizando funções de janela analíticas (`STDDEV_SAMP(...) OVER` e `AVG(...) OVER`) em uma CTE inicial (`metricas_variabilidade`). No bloco principal, a cláusula `SELECT DISTINCT` consolida os desvios e médias calculados diretamente para o nível geográfico desejado, mitigando o processamento de subqueries aninhadas repetitivas sobre o volume de registros.
 
 ##### 📋 Tabela Resultado 4.30
-<!-- | regiao_destino | desvio_padrao_peso_kg | coeficiente_variacao_pct |
+| regiao_destino | desvio_padrao_peso_kg | coeficiente_variacao_pct |
 |----------------|-----------------------|--------------------------|
 | Norte          | 4.226                 | 188.85                   |
 | Centro-Oeste   | 3.689                 | 185.32                   |
 | Nordeste       | 3.721                 | 180.61                   |
 | Sudeste        | 3.771                 | 179.38                   |
 | Sul            | 3.625                 | 174.28                   |
- -->
+ 
 
 </details>
 
