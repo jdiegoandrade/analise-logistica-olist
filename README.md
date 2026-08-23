@@ -2090,26 +2090,20 @@ ORDER BY coeficiente_variacao_pct DESC;
 ---
 
 <details>
-<summary><h3>📁 ETAPA 5: 🏁 Conclusão Estatística Geral da Fase Descritiva</h3></summary>
-
+<summary><h3>🏁 ETAPA 5: Conclusão Estatística Geral da Fase Descritiva</h3></summary>
 
 
 Com a conclusão das consultas analíticas e a homologação do Relatório de Auditoria, encerra-se oficialmente a fase exploratória e descritiva dos dados físicos da malha logística. O cruzamento rigoroso de dados gerou três pilares de sustentação metodológica para o ecossistema:
 
-* 📊 **1. Diagnóstico Definitivo da Assimetria:** Ficou empiricamente provado que a malha do e-commerce brasileiro opera sob forte comportamento heterocedástico e assimetria positiva severa em todas as regiões. O "coração" da operação é composto por uma massa central volumosa de microvolumes ultra-leves (medianas abaixo de 1 kg), mas os indicadores lineares de média aritmética são constantemente inflados por *outliers* pesados esporádicos de até 40,42 kg.
+* 📊 **1. Diagnóstico Definitivo da Assimetria:** Ficou empiricamente provado que a malha do e-commerce brasileiro opera sob forte comportamento heterocedástico e assimetria positiva severa em todas as regiões. O "coração" da operação é composto por uma massa central volumosa de microvolumes subquilo ultra-leves (medianas abaixo de 1 kg), mas os indicadores lineares de média aritmética são constantemente inflados por *outliers* pesados esporádicos de até 40,42 kg.
 * 🚚 **2. Direcionamento Estratégico de Capacidade:** A dispersão robusta ($IQR$) consolidou que mais de 75% de todo o fluxo físico de recebimento nacional fixa-se abaixo da marca de 2,5 kg. Estatisticamente, isso justifica a recomendação técnica de padronizar embalagens e concentrar o dimensionamento das frotas de distribuição urbana (*Last Mile*) em veículos comerciais leves e modais ágeis de alta capacidade cúbica, mitigando a ociosidade espacial de trações pesadas rígidas.
-* 🛡️ **3. Homologação de Governança para Próximas Fases:** A independência decimal encontrada no cruzamento sinóptico eliminou qualquer viés de duplicação ou espelhamento artificial no banco de dados. Com a integridade da base chancelada e o nível de serviço ($SLA$) estabilizado acima de 97,5%, a engenharia de dados entrega uma estrutura 100% confiável, limpa e auditada para a próxima grande fase do portfólio.
+* 🛡️ **3. Homologação de Governança para Próximas Fases:** A independência decimal encontrada no cruzamento sinóptico eliminou qualquer viés de duplicação ou espelhamento artificial no banco de dados. Com a integridade da base chancelada em nível nacional e o nível de serviço ($SLA$) estabilizado acima de 97,5%, a engenharia de dados entrega uma estrutura 100% confiável, limpa e auditada para a próxima grande fase do portfólio.
 
 </details>
 
 
-</details>
-
-
-</details>
 
 ---
-
 
 
 
