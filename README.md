@@ -2088,7 +2088,8 @@ ORDER BY coeficiente_variacao_pct DESC;
 ---
 
 <details>
-<summary><h3>🏁 ETAPA 5: Conclusão Estatística Geral da Fase Descritiva</h3></summary>
+<summary><h3>📁 ETAPA 5: Conclusão Estatística Geral da Fase Descritiva</h3></summary>
+
 
 
 Com a conclusão das consultas analíticas e a homologação do Relatório de Auditoria, encerra-se oficialmente a fase exploratória e descritiva dos dados físicos da malha logística. O cruzamento rigoroso de dados gerou três pilares de sustentação metodológica para o ecossistema:
