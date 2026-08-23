@@ -2083,7 +2083,7 @@ ORDER BY coeficiente_variacao_pct DESC;
 
 </details>
 
-
+</details>
 
 ---
 
@@ -2100,7 +2100,7 @@ Com a conclusão das consultas analíticas e a homologação do Relatório de Au
 
 </details>
 
-</details>
+
 
 ---
 
