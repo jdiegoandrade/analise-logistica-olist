@@ -603,7 +603,7 @@ ORDER BY percentual_total DESC;
 
 ##### 💻 4.8 Calculando a média de peso por Região
 
-> 📊 Os resultados se inverteram por conta do volume de operações realizadas em cada região, destacando a Região Norte com a maior média de peso por despacho, seguida por Sul e Sudeste. Esse comportamento comprova que a média é altamente impactada por outliers, gerando distorções (assimetrias) e demonstrando que ela não é uma métrica robusta para avaliar o peso típico das cargas neste cenário. A próxima etapa consistirá no cálculo e análise das medianas para avaliar o grau de assimetria da distribuição.
+> * Os resultados se inverteram por conta do volume de operações realizadas em cada região, destacando a Região Norte com a maior média de peso por despacho, seguida por Sul e Sudeste. Esse comportamento comprova que a média é altamente impactada por outliers, gerando distorções (assimetrias) e demonstrando que ela não é uma métrica robusta para avaliar o peso típico das cargas neste cenário. A próxima etapa consistirá no cálculo e análise das medianas para avaliar o grau de assimetria da distribuição.
 
 ```sql
 SELECT
@@ -985,7 +985,7 @@ ORDER BY amplitude_peso_kg DESC;
 >
 > **Premissas de Modelagem vs. Realidade Estatística da Malha:**
 > 
-> Na fase de design e modelagem, adotou-se uma diretriz tradicional de transporte rodoviário de cargas, projetando as estruturas e cálculos de cubagem na escala de TONELADAS e METROS CÚBICOS ($m^3$). O objetivo era analisar grandes massas de peso e volume regionais e comparar os fatores de cubagem para traçar estratégias de negócios. Entretanto, a fase de Análise Exploratória e Estatística Descritiva provou que a operação física real é predominantemente composta por microvolumes de e-commerce (varejo/B2C). Assim, as colunas estruturadas em $m^3$ e toneladas no banco de dados foram mantidas, mas as análises deste projeto em relação à cubagem focarão exclusivamente em **centímetros cúbicos**, em vez de metros cúbicos. Essa medida se faz necessária, pois a conversão em metros cúbicos exibe números decimais estremamente pequenos (como 0,000045 m³), o que compromete a legibilidade das informações e a comparação entre as medidas. Já no formato de centímentros cúbicos, temos números decimais com a parte inteira visível, facilitando a compreensão sobre a cubagem. 
+> Na fase de design e modelagem, adotou-se uma diretriz tradicional de transporte rodoviário de cargas, projetando as estruturas e cálculos de cubagem na escala de TONELADAS e METROS CÚBICOS ($m^3$). O objetivo era analisar grandes massas de peso e volume regionais e comparar os fatores de cubagem para traçar estratégias de negócios. Entretanto, a fase de Análise Exploratória e Estatística Descritiva provou que a operação física real é predominantemente composta por microvolumes de e-commerce (varejo/B2C). Assim, as colunas estruturadas em $m^3$ e toneladas no banco de dados foram mantidas, mas as análises deste projeto em relação à cubagem focarão exclusivamente em **centímetros cúbicos**, em vez de metros cúbicos. Essa medida se faz necessária, pois a conversão em metros cúbicos exibe números decimais estremamente pequenos (como 0,000045 m³), o que compromete a legibilidade das informações e a comparação entre as medidas. Já no formato de centímentros cúbicos, temos números decimais com a parte inteira visível, facilitando a compreensão sobre a cubagem. A análise com o **fator de cubagem** também foi excluída do escopo deste projeto, por apresentar valores irrisórios para o tipo de operação. 
 
 
 ---
@@ -1319,7 +1319,7 @@ ORDER BY amplitude_volume_cm3 DESC;
 #### 📐 Volatilidade e Instabilidade Espacial: Desvio Padrão e Coeficiente de Variação (CV) do Volume
 
 
-* A análise de volatilidade revelou que o espaço cúbico demandado diariamente na malha nacional é altamente imprevisível. O Coeficiente de Variação (CV) superou a marca crítica de 140% em todas as cinco regiões do país, com o Nordeste (~169,32%) e o Norte (~167,65%) liderando a instabilidade relativa. Em termos absolutos, as regiões Sul e Sudeste registram os maiores desvios padrões (oscilando mais de 23.000 $cm^3$ ao redor da média), evidenciando a natureza tridimensional complexa da malha de expedição: uma imensa cauda de microvolumes (envelopes) misturada a pacotes de grande envergadura dimensional, o que gera uma constante instabilidade de cubagem turno a turno.
+* 💡 A análise de volatilidade revelou que o espaço cúbico demandado diariamente na malha nacional é altamente imprevisível. O Coeficiente de Variação (CV) superou a marca crítica de 140% em todas as cinco regiões do país, com o Nordeste (~169,32%) e o Norte (~167,65%) liderando a instabilidade relativa. Em termos absolutos, as regiões Sul e Sudeste registram os maiores desvios padrões (oscilando mais de 23.000 $cm^3$ ao redor da média), evidenciando a natureza tridimensional complexa da malha de expedição: uma imensa cauda de microvolumes (envelopes) misturada a pacotes de grande envergadura dimensional, o que gera uma constante instabilidade de cubagem turno a turno.
 
 <details>
 <summary><b>🛠️ Ver Query SQL (4.21), Justificativas Estatísticas e Resultados</b></summary>
