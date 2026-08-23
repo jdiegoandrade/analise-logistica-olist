@@ -328,9 +328,13 @@ Nesta etapa do projeto, o foco está na preparação do ecossistema de dados par
 
 O processo foi dividido em duas frentes iniciais: o mapeamento estrutural dos dados disponíveis e a aplicação de transformações matemáticas para padronização de medidas, permitindo uma segmentação precisa do perfil das cargas movimentadas.
 
+
+
 ---
 
-### ETAPA 0: Inventário, Classificação e Engenharia de Variáveis
+<details>
+<summary><h3>📁 ETAPA 0: Inventário, Classificação e Engenharia de Variáveis</h3></summary>
+
 
 Antes de iniciar o tratamento estatístico e a aplicação de modelos, realizou-se um inventário detalhado das variáveis disponíveis e sua respectiva categorização. Essa etapa preparatória é fundamental para ambientar o leitor e demonstrar como a análise está estruturada. 
 
@@ -342,6 +346,7 @@ Ao mapear a natureza de cada dado (seja ele categórico ou numérico), estabelec
 | **Qualitativas (Categóricas)** | `categoria_produto`, `status_pedido`, `estado_origem`, `estado_destino`, `cidade_destino` |
 | **Quantitativas (Numéricas)** | `peso_em_kg`, `peso_em_ton`, `volume_em_m3`, `fator_de_cubagem` |
 
+</details>
 ---
 
 ### ETAPA 1: Transformação de Dados e Padronização Logística
