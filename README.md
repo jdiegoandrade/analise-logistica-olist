@@ -2085,8 +2085,6 @@ ORDER BY coeficiente_variacao_pct DESC;
 
 
 
-
-
 ---
 
 <details>
