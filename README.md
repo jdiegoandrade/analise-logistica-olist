@@ -399,7 +399,7 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.base_analitica`;
 ---
 
 <details>
-<summary><h3>📁 ETAPA 2: Matriz de Cruzamento e Escopo Analítico (Estrutura de Análise)</h3></summary>
+<summary><h3>📁 ETAPA 2: Matriz de Cruzamento e Escopo Analítico</h3></summary>
 
 
 Para otimizar o processamento e a governança dos dados, removeu-se atributos de baixa variância ou irrelevantes para o escopo estatístico (como chaves primárias/IDs e coordenadas geográficas brutas). 
