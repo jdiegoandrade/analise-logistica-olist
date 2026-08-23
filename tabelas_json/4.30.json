@@ -1,0 +1,21 @@
+[{
+  "regiao_destino": "Norte",
+  "desvio_padrao_peso_kg": "4.226",
+  "coeficiente_variacao_pct": "188.85"
+}, {
+  "regiao_destino": "Centro-Oeste",
+  "desvio_padrao_peso_kg": "3.689",
+  "coeficiente_variacao_pct": "185.32"
+}, {
+  "regiao_destino": "Nordeste",
+  "desvio_padrao_peso_kg": "3.721",
+  "coeficiente_variacao_pct": "180.61"
+}, {
+  "regiao_destino": "Sudeste",
+  "desvio_padrao_peso_kg": "3.771",
+  "coeficiente_variacao_pct": "179.38"
+}, {
+  "regiao_destino": "Sul",
+  "desvio_padrao_peso_kg": "3.625",
+  "coeficiente_variacao_pct": "174.28"
+}]

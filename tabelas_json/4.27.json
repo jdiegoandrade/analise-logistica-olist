@@ -1,0 +1,26 @@
+[{
+  "regiao_destino": "Norte",
+  "total_pedidos_recebidos": "1902",
+  "peso_medio_recebimento_kg": "2.238",
+  "peso_mediano_recebimento_kg": "0.607"
+}, {
+  "regiao_destino": "Sudeste",
+  "total_pedidos_recebidos": "70381",
+  "peso_medio_recebimento_kg": "2.102",
+  "peso_mediano_recebimento_kg": "0.699"
+}, {
+  "regiao_destino": "Sul",
+  "total_pedidos_recebidos": "14531",
+  "peso_medio_recebimento_kg": "2.08",
+  "peso_mediano_recebimento_kg": "0.709"
+}, {
+  "regiao_destino": "Nordeste",
+  "total_pedidos_recebidos": "9625",
+  "peso_medio_recebimento_kg": "2.06",
+  "peso_mediano_recebimento_kg": "0.612"
+}, {
+  "regiao_destino": "Centro-Oeste",
+  "total_pedidos_recebidos": "5986",
+  "peso_medio_recebimento_kg": "1.99",
+  "peso_mediano_recebimento_kg": "0.599"
+}]

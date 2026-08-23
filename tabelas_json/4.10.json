@@ -1,0 +1,16 @@
+[{
+  "regiao_origem": "Norte",
+  "mediana_peso": "0.975"
+}, {
+  "regiao_origem": "Sul",
+  "mediana_peso": "0.75"
+}, {
+  "regiao_origem": "Sudeste",
+  "mediana_peso": "0.675"
+}, {
+  "regiao_origem": "Nordeste",
+  "mediana_peso": "0.533"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "mediana_peso": "0.5"
+}]

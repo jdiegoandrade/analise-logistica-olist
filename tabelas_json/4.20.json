@@ -1,0 +1,26 @@
+[{
+  "regiao_origem": "Sul",
+  "min_volume_cm3": "288.0",
+  "max_volume_cm3": "296208.0",
+  "amplitude_volume_cm3": "295920.0"
+}, {
+  "regiao_origem": "Sudeste",
+  "min_volume_cm3": "168.0",
+  "max_volume_cm3": "294000.0",
+  "amplitude_volume_cm3": "293832.0"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "min_volume_cm3": "352.0",
+  "max_volume_cm3": "174930.0",
+  "amplitude_volume_cm3": "174578.0"
+}, {
+  "regiao_origem": "Nordeste",
+  "min_volume_cm3": "352.0",
+  "max_volume_cm3": "135800.0",
+  "amplitude_volume_cm3": "135448.0"
+}, {
+  "regiao_origem": "Norte",
+  "min_volume_cm3": "1122.0",
+  "max_volume_cm3": "64979.999",
+  "amplitude_volume_cm3": "63858.0"
+}]

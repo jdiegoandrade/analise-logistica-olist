@@ -1,0 +1,26 @@
+[{
+  "regiao_destino": "Norte",
+  "q1_peso_kg": "0.28",
+  "q3_peso_kg": "1.85",
+  "iqr_peso_kg": "1.57"
+}, {
+  "regiao_destino": "Sul",
+  "q1_peso_kg": "0.299",
+  "q3_peso_kg": "1.85",
+  "iqr_peso_kg": "1.55"
+}, {
+  "regiao_destino": "Nordeste",
+  "q1_peso_kg": "0.299",
+  "q3_peso_kg": "1.8",
+  "iqr_peso_kg": "1.5"
+}, {
+  "regiao_destino": "Sudeste",
+  "q1_peso_kg": "0.299",
+  "q3_peso_kg": "1.8",
+  "iqr_peso_kg": "1.5"
+}, {
+  "regiao_destino": "Centro-Oeste",
+  "q1_peso_kg": "0.299",
+  "q3_peso_kg": "1.699",
+  "iqr_peso_kg": "1.399"
+}]

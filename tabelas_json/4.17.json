@@ -1,0 +1,139 @@
+[{
+  "estado_origem": "CE",
+  "total_despachos": "91",
+  "media_peso_kg": "5.572",
+  "desvio_padrao_peso": "6.904",
+  "coeficiente_variacao_percentual": "123.9004"
+}, {
+  "estado_origem": "SC",
+  "total_despachos": "3744",
+  "media_peso_kg": "2.659",
+  "desvio_padrao_peso": "4.361",
+  "coeficiente_variacao_percentual": "163.9963"
+}, {
+  "estado_origem": "ES",
+  "total_despachos": "323",
+  "media_peso_kg": "6.519",
+  "desvio_padrao_peso": "4.32",
+  "coeficiente_variacao_percentual": "66.2696"
+}, {
+  "estado_origem": "MG",
+  "total_despachos": "8128",
+  "media_peso_kg": "2.76",
+  "desvio_padrao_peso": "4.213",
+  "coeficiente_variacao_percentual": "152.6613"
+}, {
+  "estado_origem": "RO",
+  "total_despachos": "14",
+  "media_peso_kg": "3.249",
+  "desvio_padrao_peso": "4.177",
+  "coeficiente_variacao_percentual": "128.5758"
+}, {
+  "estado_origem": "PR",
+  "total_despachos": "7877",
+  "media_peso_kg": "2.054",
+  "desvio_padrao_peso": "3.767",
+  "coeficiente_variacao_percentual": "183.3511"
+}, {
+  "estado_origem": "SP",
+  "total_despachos": "72818",
+  "media_peso_kg": "2.045",
+  "desvio_padrao_peso": "3.727",
+  "coeficiente_variacao_percentual": "182.223"
+}, {
+  "estado_origem": "PA",
+  "total_despachos": "8",
+  "media_peso_kg": "1.896",
+  "desvio_padrao_peso": "3.621",
+  "coeficiente_variacao_percentual": "190.9257"
+}, {
+  "estado_origem": "BA",
+  "total_despachos": "571",
+  "media_peso_kg": "2.006",
+  "desvio_padrao_peso": "3.292",
+  "coeficiente_variacao_percentual": "164.0674"
+}, {
+  "estado_origem": "RS",
+  "total_despachos": "2019",
+  "media_peso_kg": "1.954",
+  "desvio_padrao_peso": "3.2",
+  "coeficiente_variacao_percentual": "163.731"
+}, {
+  "estado_origem": "RJ",
+  "total_despachos": "4412",
+  "media_peso_kg": "1.45",
+  "desvio_padrao_peso": "2.986",
+  "coeficiente_variacao_percentual": "205.955"
+}, {
+  "estado_origem": "PB",
+  "total_despachos": "37",
+  "media_peso_kg": "1.543",
+  "desvio_padrao_peso": "2.773",
+  "coeficiente_variacao_percentual": "179.7142"
+}, {
+  "estado_origem": "DF",
+  "total_despachos": "828",
+  "media_peso_kg": "1.154",
+  "desvio_padrao_peso": "2.472",
+  "coeficiente_variacao_percentual": "214.1034"
+}, {
+  "estado_origem": "MT",
+  "total_despachos": "140",
+  "media_peso_kg": "1.688",
+  "desvio_padrao_peso": "2.122",
+  "coeficiente_variacao_percentual": "125.7144"
+}, {
+  "estado_origem": "GO",
+  "total_despachos": "481",
+  "media_peso_kg": "1.083",
+  "desvio_padrao_peso": "1.511",
+  "coeficiente_variacao_percentual": "139.5929"
+}, {
+  "estado_origem": "SE",
+  "total_despachos": "9",
+  "media_peso_kg": "1.604",
+  "desvio_padrao_peso": "1.452",
+  "coeficiente_variacao_percentual": "90.5023"
+}, {
+  "estado_origem": "RN",
+  "total_despachos": "54",
+  "media_peso_kg": "1.037",
+  "desvio_padrao_peso": "1.316",
+  "coeficiente_variacao_percentual": "126.8237"
+}, {
+  "estado_origem": "PE",
+  "total_despachos": "409",
+  "media_peso_kg": "0.796",
+  "desvio_padrao_peso": "1.239",
+  "coeficiente_variacao_percentual": "155.7117"
+}, {
+  "estado_origem": "PI",
+  "total_despachos": "12",
+  "media_peso_kg": "1.972",
+  "desvio_padrao_peso": "1.071",
+  "coeficiente_variacao_percentual": "54.3267"
+}, {
+  "estado_origem": "MS",
+  "total_despachos": "49",
+  "media_peso_kg": "2.439",
+  "desvio_padrao_peso": "0.995",
+  "coeficiente_variacao_percentual": "40.83"
+}, {
+  "estado_origem": "MA",
+  "total_despachos": "397",
+  "media_peso_kg": "0.517",
+  "desvio_padrao_peso": "0.193",
+  "coeficiente_variacao_percentual": "37.4199"
+}, {
+  "estado_origem": "AM",
+  "total_despachos": "3",
+  "media_peso_kg": "0.351",
+  "desvio_padrao_peso": "0.018",
+  "coeficiente_variacao_percentual": "5.2764"
+}, {
+  "estado_origem": "AC",
+  "total_despachos": "1",
+  "media_peso_kg": "1.899",
+  "desvio_padrao_peso": null,
+  "coeficiente_variacao_percentual": null
+}]

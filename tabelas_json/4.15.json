@@ -1,0 +1,116 @@
+[{
+  "estado_origem": "SP",
+  "total_despachos": "72818",
+  "qte_outliers_moderados": "10016",
+  "percentual_outliers": "13.75"
+}, {
+  "estado_origem": "PR",
+  "total_despachos": "7877",
+  "qte_outliers_moderados": "939",
+  "percentual_outliers": "11.92"
+}, {
+  "estado_origem": "MG",
+  "total_despachos": "8128",
+  "qte_outliers_moderados": "754",
+  "percentual_outliers": "9.27"
+}, {
+  "estado_origem": "SC",
+  "total_despachos": "3744",
+  "qte_outliers_moderados": "634",
+  "percentual_outliers": "16.93"
+}, {
+  "estado_origem": "RJ",
+  "total_despachos": "4412",
+  "qte_outliers_moderados": "448",
+  "percentual_outliers": "10.15"
+}, {
+  "estado_origem": "RS",
+  "total_despachos": "2019",
+  "qte_outliers_moderados": "268",
+  "percentual_outliers": "13.27"
+}, {
+  "estado_origem": "PE",
+  "total_despachos": "409",
+  "qte_outliers_moderados": "100",
+  "percentual_outliers": "24.44"
+}, {
+  "estado_origem": "GO",
+  "total_despachos": "481",
+  "qte_outliers_moderados": "73",
+  "percentual_outliers": "15.17"
+}, {
+  "estado_origem": "DF",
+  "total_despachos": "828",
+  "qte_outliers_moderados": "58",
+  "percentual_outliers": "7.0"
+}, {
+  "estado_origem": "BA",
+  "total_despachos": "571",
+  "qte_outliers_moderados": "49",
+  "percentual_outliers": "8.58"
+}, {
+  "estado_origem": "MT",
+  "total_despachos": "140",
+  "qte_outliers_moderados": "19",
+  "percentual_outliers": "13.57"
+}, {
+  "estado_origem": "CE",
+  "total_despachos": "91",
+  "qte_outliers_moderados": "18",
+  "percentual_outliers": "19.78"
+}, {
+  "estado_origem": "PB",
+  "total_despachos": "37",
+  "qte_outliers_moderados": "4",
+  "percentual_outliers": "10.81"
+}, {
+  "estado_origem": "ES",
+  "total_despachos": "323",
+  "qte_outliers_moderados": "3",
+  "percentual_outliers": "0.92"
+}, {
+  "estado_origem": "SE",
+  "total_despachos": "9",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "11.11"
+}, {
+  "estado_origem": "RN",
+  "total_despachos": "54",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "1.85"
+}, {
+  "estado_origem": "PA",
+  "total_despachos": "8",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "12.5"
+}, {
+  "estado_origem": "MA",
+  "total_despachos": "397",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "0.25"
+}, {
+  "estado_origem": "PI",
+  "total_despachos": "12",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "8.33"
+}, {
+  "estado_origem": "RO",
+  "total_despachos": "14",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "7.14"
+}, {
+  "estado_origem": "MS",
+  "total_despachos": "49",
+  "qte_outliers_moderados": "1",
+  "percentual_outliers": "2.04"
+}, {
+  "estado_origem": "AM",
+  "total_despachos": "3",
+  "qte_outliers_moderados": "0",
+  "percentual_outliers": "0.0"
+}, {
+  "estado_origem": "AC",
+  "total_despachos": "1",
+  "qte_outliers_moderados": "0",
+  "percentual_outliers": "0.0"
+}]

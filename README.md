@@ -456,7 +456,7 @@ Com a base analítica materializada e otimizada, inicia-se a fase de tratamento 
 
 | Pipeline de Estatística Descritiva (Tabela) | Link para o Script SQL |
 | :--- | :--- |
-| **Análise de Estimadores Logísticos** | [Visualizar SQL](./consultas/Estatistica_Descritiva_Estimadores.sql) |
+| **Análise de Estimadores Logísticos** | [Visualizar SQL](./consultas/Consulta%20de%20Análise%20Estatística.sql) |
 
 
 #### 🗺️ Macroestrutura de Densidade Geográfica: Análise de Origem (Estados e Regiões)

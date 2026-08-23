@@ -1,0 +1,26 @@
+[{
+  "regiao_origem": "Norte",
+  "q1_peso": "0.642",
+  "q3_peso": "2.7",
+  "iqr_peso": "2.057"
+}, {
+  "regiao_origem": "Sul",
+  "q1_peso": "0.299",
+  "q3_peso": "2.1",
+  "iqr_peso": "1.8"
+}, {
+  "regiao_origem": "Sudeste",
+  "q1_peso": "0.299",
+  "q3_peso": "1.8",
+  "iqr_peso": "1.5"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "q1_peso": "0.224",
+  "q3_peso": "1.276",
+  "iqr_peso": "1.052"
+}, {
+  "regiao_origem": "Nordeste",
+  "q1_peso": "0.45",
+  "q3_peso": "0.762",
+  "iqr_peso": "0.312"
+}]

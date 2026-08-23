@@ -1,0 +1,16 @@
+[{
+  "regiao_origem": "Sudeste",
+  "valor_absoluto_despachos": "85681"
+}, {
+  "regiao_origem": "Sul",
+  "valor_absoluto_despachos": "13640"
+}, {
+  "regiao_origem": "Nordeste",
+  "valor_absoluto_despachos": "1580"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "valor_absoluto_despachos": "1498"
+}, {
+  "regiao_origem": "Norte",
+  "valor_absoluto_despachos": "26"
+}]

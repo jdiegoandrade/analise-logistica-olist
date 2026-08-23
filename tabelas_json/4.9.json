@@ -1,0 +1,70 @@
+[{
+  "estado_origem": "ES",
+  "mediana_peso": "8.875"
+}, {
+  "estado_origem": "CE",
+  "mediana_peso": "3.35"
+}, {
+  "estado_origem": "RO",
+  "mediana_peso": "2.575"
+}, {
+  "estado_origem": "PI",
+  "mediana_peso": "2.238"
+}, {
+  "estado_origem": "MS",
+  "mediana_peso": "2.208"
+}, {
+  "estado_origem": "AC",
+  "mediana_peso": "1.9"
+}, {
+  "estado_origem": "SE",
+  "mediana_peso": "1.4"
+}, {
+  "estado_origem": "MT",
+  "mediana_peso": "1.25"
+}, {
+  "estado_origem": "MG",
+  "mediana_peso": "0.9"
+}, {
+  "estado_origem": "PA",
+  "mediana_peso": "0.8"
+}, {
+  "estado_origem": "SC",
+  "mediana_peso": "0.8"
+}, {
+  "estado_origem": "PR",
+  "mediana_peso": "0.75"
+}, {
+  "estado_origem": "BA",
+  "mediana_peso": "0.7"
+}, {
+  "estado_origem": "PB",
+  "mediana_peso": "0.7"
+}, {
+  "estado_origem": "RS",
+  "mediana_peso": "0.7"
+}, {
+  "estado_origem": "SP",
+  "mediana_peso": "0.65"
+}, {
+  "estado_origem": "RN",
+  "mediana_peso": "0.5685"
+}, {
+  "estado_origem": "RJ",
+  "mediana_peso": "0.55"
+}, {
+  "estado_origem": "PE",
+  "mediana_peso": "0.533"
+}, {
+  "estado_origem": "GO",
+  "mediana_peso": "0.5"
+}, {
+  "estado_origem": "MA",
+  "mediana_peso": "0.4"
+}, {
+  "estado_origem": "DF",
+  "mediana_peso": "0.39"
+}, {
+  "estado_origem": "AM",
+  "mediana_peso": "0.35"
+}]

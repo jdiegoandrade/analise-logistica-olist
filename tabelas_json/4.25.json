@@ -1,0 +1,46 @@
+[{
+  "regiao_origem": "Sul",
+  "volume_total": "13640",
+  "entregues_absoluto": "13385",
+  "entregues_porcentagem": "98.13",
+  "em_transito_absoluto": "114",
+  "em_transito_porcentagem": "0.83",
+  "cancelados_absoluto": "49",
+  "cancelados_porcentagem": "0.35"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "volume_total": "1498",
+  "entregues_absoluto": "1469",
+  "entregues_porcentagem": "98.06",
+  "em_transito_absoluto": "15",
+  "em_transito_porcentagem": "1.0",
+  "cancelados_absoluto": "6",
+  "cancelados_porcentagem": "0.4"
+}, {
+  "regiao_origem": "Nordeste",
+  "volume_total": "1580",
+  "entregues_absoluto": "1549",
+  "entregues_porcentagem": "98.03",
+  "em_transito_absoluto": "15",
+  "em_transito_porcentagem": "0.94",
+  "cancelados_absoluto": "3",
+  "cancelados_porcentagem": "0.18"
+}, {
+  "regiao_origem": "Sudeste",
+  "volume_total": "85681",
+  "entregues_absoluto": "83768",
+  "entregues_porcentagem": "97.76",
+  "em_transito_absoluto": "983",
+  "em_transito_porcentagem": "1.14",
+  "cancelados_absoluto": "407",
+  "cancelados_porcentagem": "0.47"
+}, {
+  "regiao_origem": "Norte",
+  "volume_total": "26",
+  "entregues_absoluto": "25",
+  "entregues_porcentagem": "96.15",
+  "em_transito_absoluto": "0",
+  "em_transito_porcentagem": "0.0",
+  "cancelados_absoluto": "0",
+  "cancelados_porcentagem": "0.0"
+}]

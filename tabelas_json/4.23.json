@@ -1,0 +1,46 @@
+[{
+  "categoria_produto": "Cama Mesa Banho",
+  "total_despachos": "10160",
+  "peso_min_kg": "0.025",
+  "peso_max_kg": "40.424",
+  "amplitude_kg": "40.399",
+  "peso_medio_kg": "2.159",
+  "peso_mediano_kg": "1.3",
+  "desvio_padrao_kg": "3.022"
+}, {
+  "categoria_produto": "Beleza Saude",
+  "total_despachos": "9022",
+  "peso_min_kg": "0.05",
+  "peso_max_kg": "30.0",
+  "amplitude_kg": "29.949",
+  "peso_medio_kg": "1.069",
+  "peso_mediano_kg": "0.424",
+  "desvio_padrao_kg": "2.92"
+}, {
+  "categoria_produto": "Esporte Lazer",
+  "total_despachos": "7858",
+  "peso_min_kg": "0.05",
+  "peso_max_kg": "30.0",
+  "amplitude_kg": "29.949",
+  "peso_medio_kg": "1.781",
+  "peso_mediano_kg": "0.699",
+  "desvio_padrao_kg": "3.389"
+}, {
+  "categoria_produto": "Informatica Acessorios",
+  "total_despachos": "6887",
+  "peso_min_kg": "0.05",
+  "peso_max_kg": "24.05",
+  "amplitude_kg": "24.0",
+  "peso_medio_kg": "0.911",
+  "peso_mediano_kg": "0.299",
+  "desvio_padrao_kg": "1.797"
+}, {
+  "categoria_produto": "Moveis Decoracao",
+  "total_despachos": "6781",
+  "peso_min_kg": "0.002",
+  "peso_max_kg": "30.0",
+  "amplitude_kg": "29.998",
+  "peso_medio_kg": "2.773",
+  "peso_mediano_kg": "1.35",
+  "desvio_padrao_kg": "3.975"
+}]

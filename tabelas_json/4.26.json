@@ -1,0 +1,21 @@
+[{
+  "regiao_destino": "Sudeste",
+  "valor_absoluto_recebimentos": "70381",
+  "valor_relativo_porcentagem": "68.71"
+}, {
+  "regiao_destino": "Sul",
+  "valor_absoluto_recebimentos": "14531",
+  "valor_relativo_porcentagem": "14.18"
+}, {
+  "regiao_destino": "Nordeste",
+  "valor_absoluto_recebimentos": "9625",
+  "valor_relativo_porcentagem": "9.39"
+}, {
+  "regiao_destino": "Centro-Oeste",
+  "valor_absoluto_recebimentos": "5986",
+  "valor_relativo_porcentagem": "5.84"
+}, {
+  "regiao_destino": "Norte",
+  "valor_absoluto_recebimentos": "1902",
+  "valor_relativo_porcentagem": "1.85"
+}]

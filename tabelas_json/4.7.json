@@ -1,0 +1,21 @@
+[{
+  "regiao_origem": "Sudeste",
+  "total_despachos": "85681",
+  "percentual_total": "83.6524"
+}, {
+  "regiao_origem": "Sul",
+  "total_despachos": "13640",
+  "percentual_total": "13.3171"
+}, {
+  "regiao_origem": "Nordeste",
+  "total_despachos": "1580",
+  "percentual_total": "1.5426"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "total_despachos": "1498",
+  "percentual_total": "1.4625"
+}, {
+  "regiao_origem": "Norte",
+  "total_despachos": "26",
+  "percentual_total": "0.0254"
+}]

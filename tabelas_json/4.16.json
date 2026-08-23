@@ -1,0 +1,139 @@
+[{
+  "estado_origem": "SP",
+  "total_despachos": "72818",
+  "peso_minimo_kg": "0.002",
+  "peso_maximo_kg": "40.425",
+  "amplitude_peso_kg": "40.422"
+}, {
+  "estado_origem": "PR",
+  "total_despachos": "7877",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "30.0",
+  "amplitude_peso_kg": "29.949"
+}, {
+  "estado_origem": "RJ",
+  "total_despachos": "4412",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "30.0",
+  "amplitude_peso_kg": "29.949"
+}, {
+  "estado_origem": "MG",
+  "total_despachos": "8128",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "30.0",
+  "amplitude_peso_kg": "29.949"
+}, {
+  "estado_origem": "SC",
+  "total_despachos": "3744",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "30.0",
+  "amplitude_peso_kg": "29.949"
+}, {
+  "estado_origem": "ES",
+  "total_despachos": "323",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "29.6",
+  "amplitude_peso_kg": "29.55"
+}, {
+  "estado_origem": "DF",
+  "total_despachos": "828",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "27.25",
+  "amplitude_peso_kg": "27.199"
+}, {
+  "estado_origem": "RS",
+  "total_despachos": "2019",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "22.525",
+  "amplitude_peso_kg": "22.474"
+}, {
+  "estado_origem": "CE",
+  "total_despachos": "91",
+  "peso_minimo_kg": "0.15",
+  "peso_maximo_kg": "19.15",
+  "amplitude_peso_kg": "19.0"
+}, {
+  "estado_origem": "RO",
+  "total_despachos": "14",
+  "peso_minimo_kg": "0.64",
+  "peso_maximo_kg": "17.3",
+  "amplitude_peso_kg": "16.66"
+}, {
+  "estado_origem": "PE",
+  "total_despachos": "409",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "15.5",
+  "amplitude_peso_kg": "15.449"
+}, {
+  "estado_origem": "GO",
+  "total_despachos": "481",
+  "peso_minimo_kg": "0.083",
+  "peso_maximo_kg": "14.9",
+  "amplitude_peso_kg": "14.817"
+}, {
+  "estado_origem": "PB",
+  "total_despachos": "37",
+  "peso_minimo_kg": "0.28",
+  "peso_maximo_kg": "14.25",
+  "amplitude_peso_kg": "13.97"
+}, {
+  "estado_origem": "BA",
+  "total_despachos": "571",
+  "peso_minimo_kg": "0.05",
+  "peso_maximo_kg": "13.7",
+  "amplitude_peso_kg": "13.649"
+}, {
+  "estado_origem": "PA",
+  "total_despachos": "8",
+  "peso_minimo_kg": "0.25",
+  "peso_maximo_kg": "10.825",
+  "amplitude_peso_kg": "10.574"
+}, {
+  "estado_origem": "MT",
+  "total_despachos": "140",
+  "peso_minimo_kg": "0.15",
+  "peso_maximo_kg": "10.4",
+  "amplitude_peso_kg": "10.25"
+}, {
+  "estado_origem": "RN",
+  "total_despachos": "54",
+  "peso_minimo_kg": "0.115",
+  "peso_maximo_kg": "8.5",
+  "amplitude_peso_kg": "8.384"
+}, {
+  "estado_origem": "MS",
+  "total_despachos": "49",
+  "peso_minimo_kg": "1.0",
+  "peso_maximo_kg": "7.15",
+  "amplitude_peso_kg": "6.15"
+}, {
+  "estado_origem": "SE",
+  "total_despachos": "9",
+  "peso_minimo_kg": "0.1",
+  "peso_maximo_kg": "4.917",
+  "amplitude_peso_kg": "4.817"
+}, {
+  "estado_origem": "PI",
+  "total_despachos": "12",
+  "peso_minimo_kg": "0.6",
+  "peso_maximo_kg": "4.6",
+  "amplitude_peso_kg": "3.999"
+}, {
+  "estado_origem": "MA",
+  "total_despachos": "397",
+  "peso_minimo_kg": "0.3",
+  "peso_maximo_kg": "1.4",
+  "amplitude_peso_kg": "1.099"
+}, {
+  "estado_origem": "AM",
+  "total_despachos": "3",
+  "peso_minimo_kg": "0.333",
+  "peso_maximo_kg": "0.37",
+  "amplitude_peso_kg": "0.036"
+}, {
+  "estado_origem": "AC",
+  "total_despachos": "1",
+  "peso_minimo_kg": "1.9",
+  "peso_maximo_kg": "1.9",
+  "amplitude_peso_kg": "0.0"
+}]

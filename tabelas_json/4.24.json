@@ -1,0 +1,22 @@
+[{
+  "status_pedido": "Delivered",
+  "valor_absoluto_pedidos": "100196"
+}, {
+  "status_pedido": "Shipped",
+  "valor_absoluto_pedidos": "1127"
+}, {
+  "status_pedido": "Canceled",
+  "valor_absoluto_pedidos": "465"
+}, {
+  "status_pedido": "Invoiced",
+  "valor_absoluto_pedidos": "322"
+}, {
+  "status_pedido": "Processing",
+  "valor_absoluto_pedidos": "306"
+}, {
+  "status_pedido": "Unavailable",
+  "valor_absoluto_pedidos": "7"
+}, {
+  "status_pedido": "Approved",
+  "valor_absoluto_pedidos": "2"
+}]

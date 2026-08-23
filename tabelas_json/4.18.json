@@ -1,0 +1,21 @@
+[{
+  "regiao_origem": "Sul",
+  "media_volume_cm3": "16144.775",
+  "mediana_volume_cm3": "7168.0"
+}, {
+  "regiao_origem": "Sudeste",
+  "media_volume_cm3": "15190.26",
+  "mediana_volume_cm3": "6400.0"
+}, {
+  "regiao_origem": "Nordeste",
+  "media_volume_cm3": "9908.062",
+  "mediana_volume_cm3": "4840.0"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "media_volume_cm3": "9862.076",
+  "mediana_volume_cm3": "4845.0"
+}, {
+  "regiao_origem": "Norte",
+  "media_volume_cm3": "8924.23",
+  "mediana_volume_cm3": "4210.0"
+}]
