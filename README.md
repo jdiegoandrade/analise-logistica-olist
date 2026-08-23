@@ -347,6 +347,7 @@ Ao mapear a natureza de cada dado (seja ele categórico ou numérico), estabelec
 | **Quantitativas (Numéricas)** | `peso_em_kg`, `peso_em_ton`, `volume_em_m3`, `fator_de_cubagem` |
 
 </details>
+
 ---
 
 <details>
