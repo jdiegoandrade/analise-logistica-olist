@@ -349,7 +349,9 @@ Ao mapear a natureza de cada dado (seja ele categórico ou numérico), estabelec
 </details>
 ---
 
-### ETAPA 1: Transformação de Dados e Padronização Logística
+<details>
+<summary><h3>📁 ETAPA 1: Transformação de Dados e Padronização Logística</h3></summary>
+
 
 Esta etapa engloba a normalização de unidades de medida e a modelagem de métricas críticas para a operação logística.
 
@@ -391,8 +393,13 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.base_analitica`;
 
 </details>
 
+</details>
 
-### ETAPA 2: Matriz de Cruzamento e Escopo Analítico (Estrutura de Análise)
+---
+
+<details>
+<summary><h3>📁 ETAPA 2: Matriz de Cruzamento e Escopo Analítico (Estrutura de Análise)</h3></summary>
+
 
 Para otimizar o processamento e a governança dos dados, removeu-se atributos de baixa variância ou irrelevantes para o escopo estatístico (como chaves primárias/IDs e coordenadas geográficas brutas). 
 
@@ -402,9 +409,13 @@ O dataset otimizado fundamenta-se em **três Macroestruturas Analíticas Descrit
 * 📦 **2. Capacidade Operacional por Categoria de Produto:** Análise detalhada dos estimadores descritivos de tendência central, dispersão e assimetria do peso focado no núcleo pesado das categorias líderes de mercado.
 * ⏱️ **3. Nível de Serviço (SLA) e Status do Pedido:** Proporção percentual e volumétrica de pedidos conforme o status de atendimento (atendidos, em trânsito e cancelados) cruzados geograficamente.
 
+</details>
 
+---
 
-### ETAPA 3: Materialização da Tabela de Suporte Estatístico
+<details>
+<summary><h3>📁 ETAPA 3: Materialização da Tabela de Suporte Estatístico</h3></summary>
+
 
 Criação da camada física otimizada contendo exclusivamente os atributos selecionados para modelagem analítica e consumo em ferramentas de BI.
 
@@ -432,8 +443,13 @@ FROM `skilled-sunrise-486800-j9.analise_logistica.base_analitica`;
 
 </details>
 
+</details>
 
-### ETAPA 4: Estatística Descritiva e Cálculo de Estimadores
+---
+
+<details>
+<summary><h3>📁 ETAPA 4: Estatística Descritiva e Cálculo de Estimadores</h3></summary>
+
 
 Com a base analítica materializada e otimizada, inicia-se a fase de tratamento estatístico descritivo. Esta etapa visa extrair os principais estimadores de tendência central e de dispersão das variáveis numéricas, permitindo compreender o comportamento, a variabilidade e a distribuição dos dados logísticos.
 
@@ -1717,7 +1733,7 @@ ORDER BY coeficiente_variacao_pct DESC;
 
 </details>
 
-
+</details>
 
 </details>
 
