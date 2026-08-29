@@ -1788,7 +1788,7 @@ ORDER BY peso_medio_recebimento_kg DESC;
 
 #### 🛡️ Relatório de Auditoria: Validação Cruzada de Consistência Sinóptica (Origem vs. Destino)
 
-No intuito de investigar potenciais inconsistências estruturais ou indícios de espelhamento redundante de dados nas tabelas de expedição e recebimento de cargas, foi feita uma auritoria comparando as métricas nas duas tabelas.
+No intuito de investigar potenciais inconsistências estruturais ou indícios de espelhamento redundante de dados nas tabelas de expedição e recebimento de cargas, foi feita uma auditoria comparando as métricas nas duas tabelas.
 
 * 💡 **Homologação e Integridade da Base (100% Confiável):** A auditoria estatística descartou em definitivo qualquer hipótese de erro de gravação ou duplicação sistêmica de registros no ecossistema da Olist. As variações decimais sutis e realistas encontradas entre as duas visões (ex: Mediana do Sudeste a 0,675 kg na Origem vs. 0,699 kg no Destino) comprovam a total independência das tabelas e atestam que o banco de dados reflete o deslocamento físico real das mercadorias. A assimetria positiva severa (Média cravando o triplo da Mediana) é um fato concreto do mercado brasileiro, e não um erro de infraestrutura de dados.
 * 💡 **Comprovação dos Fluxos de Importação e Exportação:** O cruzamento sinóptico confrontou com precisão os dados. O Nordeste e o Centro-Oeste registram médias de expedição significativamente menores (1,480 kg e 1,220 kg) do que suas respectivas médias de consumo/recebimento (2,060 kg e 1,990 kg). Essas diferenças entre os dados comparados justificam perfeitamente a flutuação estatística, garantindo segurança metodológica para avançar para as próximas etapas.
