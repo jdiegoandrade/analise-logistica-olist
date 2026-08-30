@@ -2134,7 +2134,7 @@ Com a conclusão das consultas analíticas e a homologação do Relatório de Au
 Diferente de uma abordagem puramente estatística, as análises a seguir foram estruturadas com foco total na **operação de negócios**. O objetivo principal é responder a perguntas estratégicas para direcionar a tomada de decisão e gerar valor para a empresa.
 
 
-### Pergunta de negócio: Qual a região brasileira com maior volume de envio de mercadorias?
+### 1. Pergunta de negócio: Qual a região brasileira com maior volume de envio de mercadorias?
 
 **Objetivo:** Identificar e mapear as regiões mais relevantes no fluxo de envios.
 
@@ -2150,7 +2150,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 
 
-### Pergunta de negócio: Qual a região que possui maior volume de peso despachado (em kg)?
+### 2. Pergunta de negócio: Qual a região que possui maior volume de peso despachado (em kg)?
 
 **Objetivo:** Identificar qual região é mais densamente relevante no envio de mercadorias.
 
@@ -2165,7 +2165,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 
 
-### Pergunta de negócio: Qual é o comportamento típico dos pesos nas operações de envio?
+### 3. Pergunta de negócio: Qual é o comportamento típico dos pesos nas operações de envio?
 
 **Objetivo:** Identificar qual é o comportamento padrão dos pesos em cada região de envio.
 
@@ -2179,7 +2179,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 
 
-### Pergunta de negócio: Qual é a região brasileira que despacha os maiores volumes de mercadoria (medidos em cm³)?
+### 4. Pergunta de negócio: Qual é a região brasileira que despacha os maiores volumes de mercadoria (medidos em cm³)?
 
 **Objetivo:** Identificar qual as regiões que trabalham com as maiores e menores cubagens.
 
@@ -2193,7 +2193,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 * **Ação Recomendada:** Como as duas regiões (Sul e Sudeste) são campeãs no envio de mercadorias leves e volumosas, os veículos utilizados na frota para fazer entregas locais deve ser focada em vans e veículos de carga leve com capacidade para 3 ou 4 toneladas, mas que comportem volumes maiores em seu interior. Já nas demais regiões, pode-se utilizar desde motos até veículos como os VUCs (veículos urbanos de carga). Se as entregas forem interestaduais, o ideal é usar veículos do tipo truck ou carreta equipados com baú. O baú permite uma maior otimização dos volumes (maior cubagem), mesmo que o limite de peso não seja atingido. Usar carretas e trucks baú para transportar cargas leves e volumosas promove economia de combustível. A escolha apropriada irá depender exclusivamente do tipo de operação: se last mile ou se interestadual. Maximizar a capacidade de espaço cúbico por viagem ajuda a diluir o custo do frete.
 
 
-### Pergunta de negócio: Qual é a região brasileira que recebe a maior quantidade de mercadorias?
+### 5. Pergunta de negócio: Qual é a região brasileira que recebe a maior quantidade de mercadorias?
 
 **Objetivo:** Identificar qual a região de destino mais se sobressai no recebimento de cargas.
 
@@ -2208,7 +2208,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 
 
-### Pergunta de negócio: Qual a concentração de peso mais comum nas cargas que chegam aos centros de destino?
+### 6. Pergunta de negócio: Qual a concentração de peso mais comum nas cargas que chegam aos centros de destino?
 
 **Objetivo:** Identificar o perfil das cargas de acordo com o peso mais recorrente na operação.
 
@@ -2223,7 +2223,7 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 
 
-### Pergunta de negócio: Quão variáveis e heterogêneos são os pesos das cargas de destino?
+### 7. Pergunta de negócio: Quão variáveis e heterogêneos são os pesos das cargas de destino?
 
 **Objetivo:** Identificar o grau de variabilidade do peso a fim de medir se a operação é padronizada em um tipo específico de carga, ou se o peso varia drasticamente exigindo outros perfis de carga e de frota.
 
