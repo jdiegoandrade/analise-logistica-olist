@@ -540,7 +540,7 @@ ORDER BY cv_peso_percentual DESC;
 
 
 
--- 4.18 Calculando medida de tendência central (média e mediana) do volume (em cm³) por região:
+-- 4.18 Calculando medida de tendência central (média e mediana) do volume (em cm³) por região de origem:
 
 -- OBJETIVO: Conversão de m³ para cm³ mantendo o tipo FLOAT64 contínuo via função TRUNC para resguardar a precisão fina dos dados decimais.
 
@@ -587,7 +587,7 @@ ORDER BY media_volume_cm3 DESC;
 
 
 
--- 4.19 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do volume por região:
+-- 4.19 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do volume por região de origem:
 
 
 
@@ -659,7 +659,7 @@ ORDER BY iqr_volume_cm3 DESC;
 
 
 
--- 4.20 Calculando Mínimo, Máximo e Amplitude Total do Volume por Região:
+-- 4.20 Calculando mínimo, máximo e amplitude total do volume por região de origem:
 
 
 SELECT DISTINCT
@@ -729,7 +729,7 @@ ORDER BY amplitude_volume_cm3 DESC;
 
 
 
--- 4.21 Calculando o desvio padrão e o coeficiente de variação do volume por região:
+-- 4.21 Calculando o desvio padrão e o coeficiente de variação do volume por região de origem:
 
 
 SELECT DISTINCT
@@ -931,7 +931,7 @@ ORDER BY valor_relativo_porcentagem DESC;
 
 
 
--- 4.27 Média e mediana do peso por Região de Recebimento (Destino):
+-- 4.27 Média e mediana do peso por região de destino:
 
 WITH base_mediana_destino AS (
     SELECT 
@@ -972,7 +972,7 @@ ORDER BY peso_medio_recebimento_kg DESC;
 
 
 
--- 4.28 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do Peso por Destino:
+-- 4.28 Calculando os quartis (Q1/Q3) e intervalo interquartílico (IQR) do peso por destino:
 
 
 
@@ -1045,7 +1045,7 @@ ORDER BY iqr_peso_kg DESC;
 
 
 
--- 4.29 Calculando Mínimo, Máximo e Amplitude Total do Peso por Região de Destino:
+-- 4.29 Calculando mínimo, máximo e amplitude total do peso por região de destino:
 
 
 
@@ -1116,7 +1116,7 @@ ORDER BY amplitude_peso_destino_kg DESC;
 
 
 
--- 4.30 Desvio Padrão e Coeficiente de Variação do Peso por Região de Destino:
+-- 4.30 Desvio padrão e coeficiente de variação do peso por região de destino:
 
 
 
