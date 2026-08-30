@@ -1,6 +1,8 @@
 
 # 🚚 Análise Logística do E-Commerce 
 
+💼 **Perfil Executivo:** [Baixe aqui a versão deste relatório em PDF para leitura offline](documentos/Relatorio_Executivo_Logistica.pdf).
+
 
 ## 📝 Visão Geral 
 
@@ -2136,22 +2138,163 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 
 **Objetivo:** Identificar e mapear as regiões mais relevantes no fluxo de envios.
 
-<p align="center"><img src="graficos/4.2.png" alt="Peso por Região" width="48%" /><img src="graficos/4.7.png" alt="Percentual de Envios por Região" width="48%" /></p>
-
+<p align="center"><img src="graficos/4.6.png" alt="Peso por Região" width="48%" /><img src="graficos/4.7.png" alt="Percentual de Envios por Região" width="48%" /></p>
 
 
 
 **💡 Insights Estratégicos de Negócio:**
-* **Dominância Absoluta do Sudeste:** A região Sudeste é responsável por mais de **80% do peso total movimentado** na operação logistíca.
+* **Conclusão:** A região Sudeste é responsável por mais de **80% dos envios movimentados** na operação logística.
 * **Impacto Operacional:** Isso indica que os principais sellers (vendedores) ou centros de distribuição parceiros estão concentrados em estados como SP/RJ/MG. 
 * **Risco de Gargalo:** Qualquer problema de infraestrutura, greve ou aumento de tarifas de frete no Sudeste paralisa quase a totalidade das operações de envio brasileiras. 
 * **Ação Recomendada:** Manter filiais e hubs logísticos na região costuma ser uma ótima abordagem, visto que a maioria das operações logísticas se encontram lá, principalmente no estado de São Paulo. 
 
 
 
+### Pergunta de negócio: Qual a região que possui maior volume de peso despachado (em kg)?
+
+**Objetivo:** Identificar qual região é mais densamente relevante no envio de mercadorias.
+
+<img src="graficos/4.2.png" alt="Densidade de Carga por Região" width="600">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** A região Sudeste se destaca como a região que possui maior volume de peso bruto em seus despachos, com destaque para o estado de São Paulo.
+* **Impacto Operacional:** Os dados indicam que a região sozinha movimenta certa de 180 toneladas de carga no período analisado, caracterizando um volume alto, visto que entregas de e-commerce lidam com pacotes extremamente leves em sua operação cotidiana.
+* **Ação Recomendada:** O indicador reforça a necessidade de manter filiais e hubs logísticos em São Paulo.
+
+
+
+### Pergunta de negócio: Qual é o comportamento típico dos pesos nas operações de envio?
+
+**Objetivo:** Identificar qual é o comportamento padrão dos pesos em cada região de envio.
+
+<p align="center"><img src="graficos/4.10.png" alt="Comportamento Típico dos Pesos" width="48%" /><img src="graficos/4.12.png" alt="Comportamento de 50% das Cargas mais Frequentes" width="48%" /></p>
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** A análise demonstrou que, em todas as regiões brasileiras, o peso que mais predomina é de volumes pequenos e com menos de 1 kg. Outra análise (feita com base nos 50% dos pesos mais frequentes da operação) mostrou que ele varia muito pouco. A faixa de peso mais relevante em cada região fica em torno de ~1 a ~2,7 quilos para a Região Norte; de ~1 a ~2,10 kg para o Sul e de ~1 a ~1,80 kg para o Sudeste.
+* **Impacto Operacional:** Os dados mostram que as operações são típicas de empresas de e-commerce. Essa tendência revela uma grande vantagem competitiva para investir neste nicho, visto que o setor é muito promissor e também enfrenta muitos desafios logísticos.
+* **Ação Recomendada:** Investir em centros de triagem de pequenos volumes. Como a operação é de grande vulto e ao mesmo tempo fragmentada em pacotes de 1 a 3 kg, faz-se necessário criar estruturas de recebimento, triagem e expedição adaptadas para volumes pequenos.
+
+
+
+### Pergunta de negócio: Qual é a região brasileira que despacha os maiores volumes de mercadoria (medidos em cm³)?
+
+**Objetivo:** Identificar qual as regiões que trabalham com as maiores e menores cubagens.
+
+<img src="graficos/4.18.png" alt="Volume Cubado por Região" width="600">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** Os resultados demonstram que a Região Sul possui desafios maiores em relação a cubagem das cargas, seguida de perto pela Região Sudeste. Essas duas regiões operam com pacotes ligeiramente maiores, cuja operação total consolidade fica em 7.100 cm³ e 6.400 cm³. 
+* **Impacto Operacional:** A frota destinada a atender essas duas regiões deve ter um perfil diferente da frota que atende regiões como Centro-Oeste, Nordeste e Norte. 
+* **Ação Recomendada:** Como as duas regiões (Sul e Sudeste) são campeãs no envio de mercadorias leves e volumosas, os veículos utilizados na frota para fazer entregas locais deve ser focada em vans e veículos de carga leve com capacidade para 3 ou 4 toneladas, mas que comportem volumes maiores em seu interior. Já nas demais regiões, pode-se utilizar desde motos até veículos como os VUCs (veículos urbanos de carga). Se as entregas forem interestaduais, o ideal é usar veículos do tipo truck ou carreta equipados com baú. O baú permite uma maior otimização dos volumes (maior cubagem), mesmo que o limite de peso não seja atingido. Usar carretas e trucks baú para transportar cargas leves e volumosas promove economia de combustível. A escolha apropriada irá depender exclusivamente do tipo de operação: se last mile ou se interestadual. Maximizar a capacidade de espaço cúbico por viagem ajuda a diluir o custo do frete.
+
+
+### Pergunta de negócio: Qual é a região brasileira que recebe a maior quantidade de mercadorias?
+
+**Objetivo:** Identificar qual a região de destino mais se sobressai no recebimento de cargas.
+
+<img src="graficos/4.26.png" alt="Total de Recebimentos por Região de Destino" width="600">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** Os dados mostram que, na outra ponta da operação, a Região Sudeste também é a região que também recebe as maiores quantidades de carga. Foram exatas 70.381 cargas enviadas de outros polos estaduais diretamente para o Sudeste. Em segundo lugar está o Sul, com o recebimento de 14.531 cargas.
+* **Impacto Operacional:** Há uma evidente concentração de envio e recebimento de cargas na Região Sudeste, tornando essa região específica como o grande hub brasileiro e a região ideal para implantar operações logísticas, principalmente na cidade de São Paulo.
+* **Ação Recomendada:** A eventual construção de um CD ou centro de triagem só se justifica em áreas estratégicas da Região Sudeste, em especial do estado de SP, pois é lá que estão as maiores operações logísticas do país. As demais regiões brasileiras não alcançaram resultados satisfatórios em volumes de operação para justificar a construção de um hub logístico.
+
+
+
+### Pergunta de negócio: Qual a concentração de peso mais comum nas cargas que chegam aos centros de destino?
+
+**Objetivo:** Identificar o perfil das cargas de acordo com o peso mais recorrente na operação.
+
+<img src="graficos/4.27.png" alt="Perfil do Peso das Cargas por Região de Destino" width="600">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** Assim como demonstrado com as cargas de origem, as cargas de destino também seguem o mesmo perfil de peso, consolidando cargas com menos de 1 kg em suas operações típicas. Diferentemente do outro gráfico (que destacava o Norte como a região que despachava os maiores pesos), essa análise indica que a Região Sul (seguida de perto pelo Sudeste) são os maiores recebedores de carga com os pesos na faixa de 0,709 Kg e 0,699 kg, respectivamente. 
+* **Impacto Operacional:** Isso reforça que os centros de triagem devem investir em ferramentas e tecnologias eficientes para triar pequenos pacotes.
+* **Ação Recomendada:** Concentrar a operação em São Paulo e investir em mão de obra qualificada para lidar com cargas altamente fracionadas. Fazer controle de estoque de volumes pequenos, armazená-los e despachá-los ao cliente final é uma tarefa bastante complexa e exige bastante expertise, devido à  heterogeneidade dos produtos, que variam desde sapatos, livros, roupas até objetos mais frágeis como TVs, eletrodomésticos e artigos de vidro. Lidar com tantas categorias de produtos demanda investimento em estruturas de estoque específicas e condizentes com o tipo de produto. 
+
+
+
+### Pergunta de negócio: Quão variáveis e heterogêneos são os pesos das cargas de destino?
+
+**Objetivo:** Identificar o grau de variabilidade do peso a fim de medir se a operação é padronizada em um tipo específico de carga, ou se o peso varia drasticamente exigindo outros perfis de carga e de frota.
+
+<img src="graficos/4.30.png" alt="Grau de Homogeneidade das Cargas por Região de Destino" width="600">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Conclusão:** A análise mostrou que há pouca dispersão no perfil de peso das cargas. Isso significa que, no geral, o peso dos pacotes varia muito pouco de uma carga para outra. O destaque fica com a Região Norte, que exibiu o maior grau de variabilidade no peso, indicando que as cargas lá são mais heterogêneas que no restante do País. O Sudeste aparece em segundo lugar. 
+* **Impacto Operacional:** O fato de haver pouca variabilidade no peso das cargas é excelente para executar um planejamento logístico eficiente. Como já se sabe que as cargas são predominantemente homogêneas, fica mais fácil fazer o planejamento de rotas e o dimensionamento de frotas, pois há uma alta padronização no perfil das cargas.
+* **Ação Recomendada:** Focar na aquisição de veículos urbanos de carga (VUCs), caso a operação seja focada em distribuição last mile ou na aquisição de trucks e carretas caso a operação seja focada em deslocamento interestadual.
+
+
+## 🗺️ Análise Comparativa Regional: Origem vs. Destino
+
+Para consolidar o entendimento da malha logística, esta etapa realiza um cruzamento direto entre as **regiões de origem** (onde os produtos são postados pelos vendedores) e as **regiões de destino** (onde os clientes finais recebem as mercadorias). 
+
+A análise isolada dos dados anteriores nos mostrou *onde* o volume está concentrado. Agora, através dos três gráficos comparativos a seguir, o objetivo é avaliar a **eficiência e o equilíbrio do fluxo logístico inter-regional**, respondendo a perguntas críticas como:
+* Existe simetria entre o que uma região produz e o que ela consome?
+* Quais rotas geram o maior desafio operacional em termos de distância e custo?
+* Onde estão os maiores gargalos de movimentação de carga no cenário nacional?
+
+Abaixo, os indicadores comparativos revelam o comportamento dessa dinâmica e direcionam a estratégia para a eficiência da operação de ponta a ponta.
+
+
+<img src="graficos/comparativo_desvio.png." alt="Comparativo do Grau de Homogeneidade das Cargas" width="600">
+
+* **Parecer Técnico:** A análise gráfica permite concluir que, no contexto macro da operação, manter o desvio padrão de quase todas as regiões concentrado em uma faixa estreita (entre 2 e 4 kg) indica que a operação nacional é muito mais estável e homogênea do que caótica. O grande destaque vai para o Sudeste, que possui um alto grau de padronização tanto nas cargas de origem como de destino, sugerindo bastante previsibilidade e diminuindo drasticamente o grau de incerteza. O tipo de carga pesada ou leve que os caminhões coletam e no Sudeste é exatamente o mesmo tipo de carga que eles entregam na volta. Não há surpresas na cubagem, permitindo o aproveitamento máximo da frota contratada e eliminando custos com viagens ociosas.
+
+
+<img src="graficos/comparativo_iqr.png." alt="Comparativo do 50% dos Pedidos mais Comuns" width="600">
+
+* **Parecer Técnico:** Observa-se um equilíbrio operacional perfeito na Região Sudeste. Essa métrica do IQR foca nos 50% das cargas mais frequentes da operação, ou seja, ele mede a metade central (miolo) dos dados. No Sudeste, o "miolo" dos pedidos que saem é exatamente igual ao "miolo" dos pedidos que chegam. Não há flutuação alguma na variabilidade da carga mais comum. O processo logístico é altamente repetitivo, o que é o cenário ideal para automação de galpões e esteiras de triagem rápida.
+
+
+## 🏁 Parecer Final: Conclusões e Recomendações Estratégicas
+
+Após a análise aprofundada da malha logística e do perfil de movimentação de cargas, consolidamos os seguintes direcionamentos estratégicos para a tomada de decisão da diretoria:
+
+### 1. Dominância Absoluta e Eficiência do Sudeste
+O Sudeste se consolidou como o pilar central da operação, respondendo por mais de 80% do peso total e do volume de envios. A simetria milimétrica encontrada entre a origem e o destino (tanto em dispersão quanto no padrão de carga central) prova que a operação nesta região é altamente previsível. 
+* **Ação:** Recomenda-se focar os investimentos em automação de galpões e esteiras de triagem rápida prioritariamente nos centros de distribuição de São Paulo e arredores, otimizando o escoamento de pequenas cargas fracionadas.
+
+### 2. O Perfil Leve e Fracionado do E-commerce
+Isolando os ruídos e valores extremos (*outliers*) através da análise robusta das métricas, ficou evidente que o pedido típico da plataforma é altamente unificado e pesa predominantemente **menos de 1 kg**. 
+* **Ação:** O time de suprimentos e logística possui dados estatísticos sólidos para negociar tabelas de frete fixas ou unificadas com transportadoras privadas parceiras para essa faixa específica de peso e cubagem, aumentando as margens de lucro por envio.
+
+### 3. Mitigação de Riscos de Malha
+A dependência geográfica concentrada no Sudeste representa um risco operacional em cenários de greves ou gargalos de infraestrutura local. 
+* **Ação:** Sem a necessidade de subsídios estatais, o time comercial pode atuar de forma ativa na prospecção e atração de grandes *Sellers* de outras regiões estratégicas (como Sul e Nordeste), diversificando e descentralizando gradativamente os pontos de postagem da malha nacional.
+
+### 4. Recomendação de Expansão: Implantação de Centro de Distribuição em São Paulo (SP)
+Os dados comprovam que o Sudeste concentra a dominância absoluta de origem e destino da malha logística. Para maximizar a eficiência, deve-se focar na abertura de um novo **Centro de Distribuição (CD) estrategicamente localizado no estado de São Paulo**.
+
+* **Eficiência na Entrada (Inbound):** Centraliza e consolida rapidamente a imensa quantidade de pacotes leves (abaixo de 1 kg) vindos dos fornecedores da região, otimizando o processo de triagem inicial.
+* **Velocidade na Saída (Outbound):** Reduz drasticamente o tempo de entrega urbana para a maior massa de consumidores e aproveita a infraestrutura rodoviária paulista para despachar mercadorias para outras regiões com menor custo de frete.
+
+
+---
+
+### 🛠️ Tecnologias Utilizadas
+
+* **SQL (Google BigQuery):** Extração, tratamento de dados em nuvem, limpeza de *outliers* e modelagem de métricas robustas.
+* **Power BI:** Desenvolvimento das visualizações gráficas de alta densidade e dashboards analíticos.
+* **Markdown / HTML:** Estruturação do relatório executivo focado em negócios diretamente no GitHub.
+
+
 
 </details>
 
+---
 
    © 2026 José Diego Andrade Santos. Alguns direitos reservados.
    Este projeto está livremente disponível para fins de estudo, consulta e aprendizado.
