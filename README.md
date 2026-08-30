@@ -2249,12 +2249,12 @@ A análise isolada dos dados anteriores nos mostrou *onde* o volume está concen
 Abaixo, os indicadores comparativos revelam o comportamento dessa dinâmica e direcionam a estratégia para a eficiência da operação de ponta a ponta.
 
 
-<img src="graficos/comparativo_desvio.png." alt="Comparativo do Grau de Homogeneidade das Cargas" width="600">
+<img src="graficos/comparativo_desvio.png" alt="Comparativo do Grau de Homogeneidade das Cargas" width="600">
 
 * **Parecer Técnico:** A análise gráfica permite concluir que, no contexto macro da operação, manter o desvio padrão de quase todas as regiões concentrado em uma faixa estreita (entre 2 e 4 kg) indica que a operação nacional é muito mais estável e homogênea do que caótica. O grande destaque vai para o Sudeste, que possui um alto grau de padronização tanto nas cargas de origem como de destino, sugerindo bastante previsibilidade e diminuindo drasticamente o grau de incerteza. O tipo de carga pesada ou leve que os caminhões coletam e no Sudeste é exatamente o mesmo tipo de carga que eles entregam na volta. Não há surpresas na cubagem, permitindo o aproveitamento máximo da frota contratada e eliminando custos com viagens ociosas.
 
 
-<img src="graficos/comparativo_iqr.png." alt="Comparativo do 50% dos Pedidos mais Comuns" width="600">
+<img src="graficos/comparativo_iqr.png" alt="Comparativo do 50% dos Pedidos mais Comuns" width="600">
 
 * **Parecer Técnico:** Observa-se um equilíbrio operacional perfeito na Região Sudeste. Essa métrica do IQR foca nos 50% das cargas mais frequentes da operação, ou seja, ele mede a metade central (miolo) dos dados. No Sudeste, o "miolo" dos pedidos que saem é exatamente igual ao "miolo" dos pedidos que chegam. Não há flutuação alguma na variabilidade da carga mais comum. O processo logístico é altamente repetitivo, o que é o cenário ideal para automação de galpões e esteiras de triagem rápida.
 
