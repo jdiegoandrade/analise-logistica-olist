@@ -998,50 +998,68 @@ ORDER BY amplitude_peso_kg DESC;
 <details>
 <summary><b>🛠️ Ver Query SQL (4.17), Justificativas Estatísticas e Resultados</b></summary>
 
-##### 💻 4.17 Calculando o Desvio Padrão Amostral e o Coeficiente de Variação (CV)
+##### 💻 4.17.1 Calculando o Desvio Padrão Amostral e o Coeficiente de Variação (CV)
 
-> * O desvio padrão amostral e o CV isolaram o comportamento da dispersão em relação à média de cada estado. A coluna `desvio_padrao_peso` retornou como `NULL` para o Acre pelo fato de o estado registrar apenas 1 despacho na base de dados. Por definição matemática da estatística amostral — que utiliza a divisão por $N-1$ no cálculo da variância —, torna-se impossível mensurar dispersão ou desvio sobre uma única observação isolada, pois isso culmina em divisões matemáticas por zero. 
+> * > * O desvio padrão amostral e o CV isolaram o comportamento da dispersão em relação à média do peso das cargas agrupadas por regiões. Os resultados revelam uma altíssima volatilidade na operação logística em território nacional, com o CV superando a marca de 100% em todas as regiões — variando de 151,51% no Norte até impressionantes 199,77% no Nordeste. Estatisticamente, isso demonstra que o desvio padrão é muito superior à própria média dos pesos, indicando um mix de produtos extremamente heterogêneo (com convivência de pacotes muito leves e cargas muito pesadas na mesma região) ou uma forte presença de *outliers* na base de dados.
+ 
 
 ```sql
-SELECT 
-    estado_origem,
-    COUNT(*) AS total_despachos,
-    TRUNC(AVG(peso_em_kg), 3) AS media_peso_kg,
-    -- Calcula o Desvio Padrão Amostral travado em 3 casas decimais:
-    TRUNC(STDDEV_SAMP(peso_em_kg), 3) AS desvio_padrao_peso,
-    -- Calcula o Coeficiente de Variação com 4 casas:
-    TRUNC((STDDEV_SAMP(peso_em_kg) / AVG(peso_em_kg)) * 100, 4) AS coeficiente_variacao_percentual
+SELECT DISTINCT
+    CASE 
+        WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+        WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+        WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+        WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+        WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+        ELSE 'Não Identificado'
+    END AS regiao_origem,
+    
+    TRUNC(STDDEV_SAMP(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    ), 3) AS desvio_padrao_peso_kg,
+
+    TRUNC((STDDEV_SAMP(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    ) / AVG(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    )) * 100, 2) AS cv_peso_percentual
+
 FROM `skilled-sunrise-486800-j9.analise_logistica.metricas_estatisticas`
-GROUP BY estado_origem
-ORDER BY desvio_padrao_peso DESC;
+ORDER BY cv_peso_percentual DESC;
 ```
 
-##### 📋 Tabela Resultado 4.17
-| estado_origem | total_despachos | media_peso_kg | desvio_padrao_peso | coeficiente_variacao_percentual |
-|---------------|-----------------|---------------|--------------------|---------------------------------|
-| CE            | 91              | 5.572         | 6.904              | 123.9004                        |
-| SC            | 3744            | 2.659         | 4.361              | 163.9963                        |
-| ES            | 323             | 6.519         | 4.32               | 66.2696                         |
-| MG            | 8128            | 2.76          | 4.213              | 152.6613                        |
-| RO            | 14              | 3.249         | 4.177              | 128.5758                        |
-| PR            | 7877            | 2.054         | 3.767              | 183.3511                        |
-| SP            | 72818           | 2.045         | 3.727              | 182.223                         |
-| PA            | 8               | 1.896         | 3.621              | 190.9257                        |
-| BA            | 571             | 2.006         | 3.292              | 164.0674                        |
-| RS            | 2019            | 1.954         | 3.2                | 163.731                         |
-| RJ            | 4412            | 1.45          | 2.986              | 205.955                         |
-| PB            | 37              | 1.543         | 2.773              | 179.7142                        |
-| DF            | 828             | 1.154         | 2.472              | 214.1034                        |
-| MT            | 140             | 1.688         | 2.122              | 125.7144                        |
-| GO            | 481             | 1.083         | 1.511              | 139.5929                        |
-| SE            | 9               | 1.604         | 1.452              | 90.5023                         |
-| RN            | 54              | 1.037         | 1.316              | 126.8237                        |
-| PE            | 409             | 0.796         | 1.239              | 155.7117                        |
-| PI            | 12              | 1.972         | 1.071              | 54.3267                         |
-| MS            | 49              | 2.439         | 0.995              | 40.83                           |
-| MA            | 397             | 0.517         | 0.193              | 37.4199                         |
-| AM            | 3               | 0.351         | 0.018              | 5.2764                          |
-| AC            | 1               | 1.899         | null               | null                            |
+##### 📋 Tabela Resultado 4.17.1
+| regiao_origem | desvio_padrao_peso_kg | cv_peso_percentual |
+|---------------|-----------------------|--------------------|
+| Nordeste      | 2.952                 | 199.77          |
+| Sudeste       | 3.762                 | 179.23           |
+| Centro-Oeste  | 2.153                 | 175.99          |
+| Sul           | 3.874                 | 175.63           |
+| Norte         | 3.707                 | 151.51          |
 
 
 </details>

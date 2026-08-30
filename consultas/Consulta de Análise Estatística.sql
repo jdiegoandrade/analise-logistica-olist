@@ -485,6 +485,56 @@ GROUP BY estado_origem
 ORDER BY desvio_padrao_peso DESC;
 
 
+-- 4.17.1 Cálculo do desvio padrão e coeficiente de variação por região de origem:
+
+
+SELECT DISTINCT
+    CASE 
+        WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+        WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+        WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+        WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+        WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+        ELSE 'Não Identificado'
+    END AS regiao_origem,
+    
+    TRUNC(STDDEV_SAMP(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    ), 3) AS desvio_padrao_peso_kg,
+
+    TRUNC((STDDEV_SAMP(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    ) / AVG(peso_em_kg) OVER(
+        PARTITION BY 
+            CASE 
+                WHEN estado_origem IN ('SP', 'RJ', 'MG', 'ES') THEN 'Sudeste'
+                WHEN estado_origem IN ('PR', 'SC', 'RS') THEN 'Sul'
+                WHEN estado_origem IN ('BA', 'PE', 'CE', 'MA', 'PB', 'RN', 'AL', 'SE', 'PI') THEN 'Nordeste'
+                WHEN estado_origem IN ('MT', 'MS', 'GO', 'DF') THEN 'Centro-Oeste'
+                WHEN estado_origem IN ('AM', 'PA', 'RO', 'TO', 'AC', 'AP', 'RR') THEN 'Norte'
+                ELSE 'Não Identificado'
+            END
+    )) * 100, 4) AS cv_peso_percentual
+
+FROM `skilled-sunrise-486800-j9.analise_logistica.metricas_estatisticas`
+ORDER BY cv_peso_percentual DESC;
+
 
 -- OBS.: A partir de agora, a fim de consolidar melhor os dados e facilitar a visualização nos gráticos, vou focar na análise macro das regiões brasileiras em detrimento aos estados. Uma análise por estado polui os gráfico, enquanto, por região, a visualização se torna mais limpa.
 

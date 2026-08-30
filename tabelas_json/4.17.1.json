@@ -1,0 +1,21 @@
+[{
+  "regiao_origem": "Nordeste",
+  "desvio_padrao_peso_kg": "2.952",
+  "cv_peso_percentual": "199.7744"
+}, {
+  "regiao_origem": "Sudeste",
+  "desvio_padrao_peso_kg": "3.762",
+  "cv_peso_percentual": "179.2334"
+}, {
+  "regiao_origem": "Centro-Oeste",
+  "desvio_padrao_peso_kg": "2.153",
+  "cv_peso_percentual": "175.9936"
+}, {
+  "regiao_origem": "Sul",
+  "desvio_padrao_peso_kg": "3.874",
+  "cv_peso_percentual": "175.6367"
+}, {
+  "regiao_origem": "Norte",
+  "desvio_padrao_peso_kg": "3.707",
+  "cv_peso_percentual": "151.5184"
+}]
