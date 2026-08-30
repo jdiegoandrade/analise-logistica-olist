@@ -2127,8 +2127,27 @@ Com a conclusão das consultas analíticas e a homologação do Relatório de Au
 <p>
 
 
+## 📈 Análise de Dados Voltada para Negócios
 
-*(Esta seção será preenchida após a conclusão das análises)*
+Diferente de uma abordagem puramente estatística, as análises a seguir foram estruturadas com foco total na **operação de negócios**. O objetivo principal é responder a perguntas estratégicas para direcionar a tomada de decisão e gerar valor para a empresa.
+
+
+### Pergunta de negócio: Qual a região brasileira com maior volume de envio de mercadorias?
+
+**Objetivo:** Identificar e mapear as regiões mais relevantes no fluxo de envios.
+
+<img src="graficos/4.2.png" alt="Peso por Região de Origem" width="500">
+
+
+
+**💡 Insights Estratégicos de Negócio:**
+* **Dominância Absoluta do Sudeste:** A região Sudeste é responsável por mais de **80% do peso total movimentado** na operação logistíca.
+* **Impacto Operacional:** Isso indica que os principais sellers (vendedores) ou centros de distribuição parceiros estão concentrados em estados como SP/RJ/MG. 
+* **Risco de Gargalo:** Qualquer problema de infraestrutura, greve ou aumento de tarifas de frete no Sudeste paralisa quase a totalidade das operações de envio brasileiras. 
+* **Ação Recomendada:** Manter filiais e hubs logísticos na região costuma ser uma ótima abordagem, visto que a maioria das operações logísticas se encontram lá, principalmente no estado de São Paulo. 
+
+
+
 
 </details>
 
