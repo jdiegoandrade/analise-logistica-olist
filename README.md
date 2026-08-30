@@ -2137,8 +2137,8 @@ Diferente de uma abordagem puramente estatística, as análises a seguir foram e
 **Objetivo:** Identificar e mapear as regiões mais relevantes no fluxo de envios.
 
 <p id="graficos-regiao">
-  <img src="imagens/4.2.png" alt="Peso por Região" width="450" />
-  <img src="imagens/4.7.png" alt="Percentual de Envios por Região" width="450" />
+  <img src="graficos/4.2.png" alt="Peso por Região" width="450" />
+  <img src="graficos/4.7.png" alt="Percentual de Envios por Região" width="450" />
 </p>
 
 
