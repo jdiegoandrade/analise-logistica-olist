@@ -43,13 +43,12 @@ Este projeto consiste no desenvolvimento de uma Infraestrutura de Dados para ana
 │   ├── 01-preparacao-e-homologacao.sql       <- Validação de integridade, governança e viabilidade dos dados.
 │   ├── 02-pipeline-engenharia-limpeza.sql    <- Processamento das CTEs e consolidação das 102.425 linhas.
 │   └── 03-analise-estatistica-descritiva.sql <- Queries analíticas de cubagem, peso e volumetria de rotas.
-├── relatórios/                               <- Entregáveis de visualização e tomada de decisão.
-│   ├── dashboard-malha-logistica.pbix        <- Painel dinâmico e interativo desenvolvido no Power BI.
-│   └── relatorio-insights-executivos.pdf     <- Relatório executivo formal com conclusões e planos de ação.
+├── relatórios/                               <- Entregáveis de tomada de decisão.
+│   └──   relatorio-insights-executivos.pdf   <- Relatório executivo formal com conclusões e planos de ação.    
+│── gráficos/                                 <- Entregáveis de visualização.
+|                                             
 └── fonte/dados brutos                        <- Fontes originais do projeto. Arquivos (.csv), Olist.
-    
 ```
-
 
 
 ## 🎯 Objetivo Geral
