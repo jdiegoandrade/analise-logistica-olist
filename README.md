@@ -2282,7 +2282,6 @@ A dependência geográfica concentrada no Sudeste representa um risco operaciona
 Os dados comprovam que o Sudeste concentra a dominância absoluta de origem e destino da malha logística. Para maximizar a eficiência, deve-se focar na abertura de um novo **Centro de Distribuição (CD) estrategicamente localizado no estado de São Paulo**.
 
 
-
 ---
 
 ### 🛠️ Tecnologias Utilizadas
